@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trinity Netball Club Results & Fixtures</title>
+<link rel="icon" href="https://trinitynetball.com.au/wp-content/uploads/2022/11/cropped-cropped-cropped-trinity-1-1-270x270.png">
+<style>
+/* ── Trinity Netball Club — brand palette from trinitynetball.com.au ───
+   Primary:   #c7aadf  (purple / lilac)
+   Secondary: #9B6BC8  (mid lilac)
+   Accent:    #C8A8E8  (light lilac)
+   Dark:      #2D1A4A  (deep purple)
+   White:     #FFFFFF
+   Page bg:   #F8F5FC
+   Text:      #2D2D2D
+   Muted:     #6B6B6B
+   Font:      same stack as site (system sans)
+──────────────────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pu:    #c7aadf;
+  --pu2:   #9B6BC8;
+  --pu3:   #EDE5F8;
+  --pu4:   #F5F0FC;
+  --dark:  #000;
+  --white: #FFF;
+  --pb:    #F8F5FC;
+  --tx:    #2D2D2D;
+  --tm:    #555;
+  --tf:    #757575;
+  --bd:    #E2D9F3;
+  --cb:    #FFF;
+  --wbg:#E8F5EE;--wtx:#1B6B35;
+  --lbg:#FDECEA;--ltx:#B71C1C;
+  --dbg:#FFF8E1;--dtx:#7B5800;
+  --ubg:#EDE5F8;--utx:#6B3FA0;
+  --livebg:#FFF5F5;--livebrd:#F8E6FC;
+  --r:10px;
+  --shadow: 0 1px 4px rgba(107,63,160,.10);
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  background:var(--pb);
+  color:var(--tx);
+  min-height:100vh;
+  font-size:15px;
+}
+
+/* ── SITE HEADER (matches Trinity website nav style) ── */
+.site-header{
+  background:var(--dark);
+  padding:.65rem 1.25rem;
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+}
+.site-header img{height:36px;width:auto}
+.site-header-title{
+  color: #FFF;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.02em;
+}
+.site-header a{
+  color:#fff;
+  text-decoration:none;
+  font-size:12px;
+  margin-left:auto;
+}
+.site-header a:hover{color:#fff}
+
+
+/* ── PAGE HEADER ── */
+.page-header{
+  background:var(--pu);
+  padding:1.5rem 1.25rem 0;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.page-header::after{
+  content:'';position:absolute;
+  bottom:-1px;left:0;right:0;
+  height:20px;background:var(--pb);
+  clip-path:ellipse(55% 100% at 50% 100%);
+}
+.page-header h1{
+  font-size:clamp(1.4rem,4vw,2rem);
+  font-weight:700;
+  color:var(--white);
+  letter-spacing:-.01em;
+  position:relative;z-index:1;
+}
+.page-header p{
+  color:rgba(255,255,255,.7);
+  font-size:.85rem;
+  margin-top:.25rem;
+  position:relative;z-index:1;
+}
+
+/* ── STATS ROW ── */
+.stats {display: none !important;}
+.stats{
+  display:flex;justify-content:center;gap:.6rem;
+  margin-top:1rem;padding-bottom:1.4rem;
+  position:relative;z-index:1;flex-wrap:wrap;
+}
+.sc{
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:8px;padding:.35rem .8rem;
+  text-align:center;color:#fff;min-width:56px;
+}
+.sc .n{font-size:1.15rem;font-weight:700;display:block;line-height:1}
+.sc .l{font-size:9px;text-transform:uppercase;letter-spacing:.08em;opacity:.7;margin-top:1px;display:block}
+
+/* ── TABS ── */
+.tabs-bar{
+  display:flex;
+  background:var(--dark);
+  position:relative;z-index:1;
+  margin-top: 2rem;
+}
+.tab{
+  flex:1;padding:.65rem .5rem;
+  font-size:13px;font-weight:600;
+  color:rgba(255,255,255,.45);
+  background:transparent;border:none;cursor:pointer;
+  border-bottom:3px solid transparent;
+  transition:all .18s;letter-spacing:.01em;
+}
+.tab.active{color:#fff;border-bottom-color:var(--pu2)}
+.tab:hover:not(.active){color:rgba(255,255,255,.75)}
+
+/* ── PANELS ── */
+.panel{display:none}.panel.active{display:block}
+
+/* ── FORM BADGE (last 3, shown on Match Day + next round only) ── */
+.form-badge{display:flex;align-items:center;gap:3px;margin-top:3px}
+.fm-dot{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:16px;height:16px;border-radius:4px;
+  font-size:9px;font-weight:700;line-height:1;
+}
+.fm-dot.fm-w{background:var(--wbg);color:var(--wtx)}
+.fm-dot.fm-l{background:var(--lbg);color:var(--ltx)}
+.fm-dot.fm-d{background:var(--dbg);color:var(--dtx)}
+.fm-dot.fm-b{background:var(--pu4);color:var(--tf)}
+.form-label{font-size:10px;font-weight:600;color:var(--tf);white-space:nowrap}
+.form-sep{font-size:10px;font-weight:600;color:var(--tf)}
+
+/* ── STATUS BAR ── */
+.status-bar{
+  background:var(--pu4);
+  border-bottom:1px solid var(--bd);
+  padding:.4rem 1.25rem;
+  font-size:11px;color:var(--tf);
+  display:flex;justify-content:space-between;align-items:center;gap:.5rem;
+  flex-wrap:wrap;
+}
+.status-bar span{display:flex;align-items:center;gap:.4rem}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--tf);display:inline-block}
+.status-dot.live{background:#22c55e;animation:sdPulse 1.5s infinite}
+@keyframes sdPulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.inv-btn{
+  background:transparent;
+  color:var(--utx);
+  border:1px solid var(--bd);
+  padding:2px 10px;border-radius:20px;
+  font-size:11px;font-weight:600;cursor:pointer;
+  transition:all .15s;white-space:nowrap;
+}
+.inv-btn:hover{background:var(--pu);color:#fff;border-color:var(--pu)}
+.refresh-btn{
+  padding:6px 18px;
+  font-size:13px;
+  font-weight:700;
+  border-width:1.5px;
+}
+.last-updated{color:var(--tf);font-size:11px}
+
+/* ── TODAY INTRO ── */
+.today-intro{
+  background:var(--white);
+  border-bottom:1px solid var(--bd);
+  padding:.65rem 1.25rem;
+}
+.today-meta{
+  max-width:860px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:.5rem;
+}
+.today-left .date{font-size:13px;font-weight:700;color:var(--pu)}
+.today-chips{display:flex;gap:.35rem;flex-wrap:wrap}
+.chip{font-size:11px;padding:2px 9px;border-radius:20px;font-weight:600;white-space:nowrap}
+.chip-live{background:#DC2626;color:#fff;animation:pulse 1.5s infinite}
+.chip-win{background:var(--wbg);color:var(--wtx)}
+.chip-loss{background:var(--lbg);color:var(--ltx)}
+.chip-rem{background:var(--ubg);color:var(--utx)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.65}}
+
+/* ── WEATHER WIDGET ── */
+.count-row{display:flex;justify-content:flex-start;align-items:center;margin-bottom:.55rem;gap:.5rem;flex-wrap:wrap}
+.count-row .rcnt{margin-bottom:0;margin-left:auto}
+.weather-chip{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-size:11px;color:var(--tf);white-space:nowrap;
+}
+.weather-chip .w-label{font-weight:600;color:var(--tm)}
+.weather-chip .w-icon{font-size:13px;line-height:1}
+.weather-chip .w-temp{font-weight:700;color:var(--tx)}
+.weather-chip .w-desc{color:var(--tf)}
+.weather-chip .w-rain{color:var(--pu2);font-weight:600}
+.weather-chip.hidden{display:none}
+
+/* ── FILTERS ── */
+.filters-wrap{
+  background:var(--white);
+  border-bottom:1px solid var(--bd);
+  padding:.55rem 1rem;
+  position:sticky;top:0;z-index:10;
+}
+.frow{
+  display:flex;gap:.3rem;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;padding-bottom:1px;
+  max-width:860px;margin:0 auto;
+  cursor:grab;
+}
+.frow.dragging{cursor:grabbing;user-select:none}
+.frow::-webkit-scrollbar{display:none}
+.frow+.frow{margin-top:.3rem}
+.fbtn{
+  flex-shrink:0;
+  border:1px solid var(--bd);background:var(--pb);
+  color:var(--tm);padding:4px 12px;
+  border-radius:20px;font-size:12px;font-weight:500;
+  cursor:pointer;transition:all .15s;white-space:nowrap;
+}
+.fbtn:hover{border-color:var(--pu2);color:var(--pu)}
+.fbtn.active{background:var(--pu);border-color:var(--pu);color:#fff;font-weight:600}
+.tbtn{
+  flex-shrink:0;
+  border:1px solid var(--bd);background:var(--pb);
+  color:var(--black);padding:3px 10px;
+  border-radius:20px;font-size:12px;font-weight:500;
+  cursor:pointer;transition:all .15s;white-space:nowrap;
+}
+.tbtn:hover{border-color:var(--pu2);color:var(--pu)}
+.tbtn.active{background:var(--pu3);border-color:var(--pu2);color:var(--black);font-weight:600}
+
+/* ── MAIN ── */
+main{max-width:860px;margin:0 auto;padding:.9rem 1rem 3rem}
+.rcnt{font-size:11px;color:var(--tf);text-align:right;margin-bottom:.55rem}
+
+.dsec{margin-bottom:1.4rem}
+.dhead{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:.45rem;
+  padding-bottom:.4rem;
+  border-bottom:2px solid var(--pu3);
+}
+.dlbl{
+  font-size:11px;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;
+  color:var(--pu2);
+}
+.dcnt{font-size:11px;color:var(--tf)}
+
+/* ── AGE GROUP SECTIONS ── */
+.agegrp{margin-bottom:.3rem}
+.agegrp.hidden{display:none}
+.agehead.hidden{display:none}
+.agehead{
+  display:flex;justify-content:space-between;align-items:center;
+  margin:.7rem 0 .4rem;
+  padding:.3rem .65rem;
+  background:var(--dark);
+  border-left:3px solid var(--pu2);
+  border-radius:6px;
+}
+.agehead .albl{
+  font-size:11px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;
+  color:var(--white);
+}
+.agehead .acnt{font-size:10px;color:var(--white);font-weight:600}
+
+/* ── CARD ── */
+.card{
+  background:var(--cb);
+  border:1px solid var(--bd);
+  border-radius:var(--r);
+  padding:.75rem .95rem;
+  margin-bottom:.45rem;
+  box-shadow:var(--shadow);
+  transition:border-color .15s,box-shadow .15s;
+}
+.card:hover{border-color:var(--pu2);box-shadow:0 3px 12px rgba(107,63,160,.14)}
+.card.hidden{display:none}
+.card-live{
+  border-color:var(--livebrd)!important;
+  background:var(--livebg)!important;
+  box-shadow:0 0 0 2px rgba(220,38,38,.08)!important;
+}
+.card[data-result="WIN"]{border-width:1px;border-color:var(--wtx);}
+.card[data-result="LOSS"]{border-width:1px;border-color:var(--ltx);}
+.card[data-result="DRAW"]{border-width:1px;border-color:var(--dtx);}
+
+.card-top{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:.55rem;
+}
+.cleft{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;min-width:0}
+.dtag{
+  font-size:10px;font-weight:700;
+  background:var(--pu3);color:var(--dark);
+  padding:2px 7px;border-radius:4px;
+  white-space:nowrap;max-width:200px;
+  overflow:hidden;text-overflow:ellipsis;
+  letter-spacing:.02em;text-transform:uppercase;
+}
+.rlbl{font-size:11px;color:var(--tf);font-weight:500}
+
+.badge{
+  font-size:10px;font-weight:700;
+  padding:2px 9px;border-radius:20px;
+  white-space:nowrap;flex-shrink:0;
+  letter-spacing:.03em;text-transform:uppercase;
+}
+.b-live{background:#DC2626;color:#fff;animation:pulse 1.5s infinite}
+.b-win{background:var(--wbg);color:var(--wtx)}
+.b-loss{background:var(--lbg);color:var(--ltx)}
+.b-draw{background:var(--dbg);color:var(--dtx)}
+.b-up{background:var(--ubg);color:var(--utx)}
+
+/* ── MATCHUP — 3-column ── */
+.matchup{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;gap:.45rem;
+}
+.team-block{display:flex;flex-direction:column;gap:3px}
+.team-block-right{align-items:flex-end;text-align:right}
+.team{font-size:1.3rem;font-weight:600;color:var(--tf);line-height:1.25;overflow-wrap:break-word}
+.tt{color:var(--pu2);font-weight:700}
+
+/* ── RANK BADGE (under team name) ── */
+.rank-badge{
+  display:inline-block;font-size:10px;font-weight:700;
+  padding:1px 6px;border-radius:8px;
+  letter-spacing:.02em;white-space:nowrap;
+}
+.rk-1{background:#FFF;color:#888;border:1px solid #DDD}
+.rk-2{background:#FFF;color:#888;border:1px solid #DDD}
+.rk-3{background:#FFF;color:#888;border:1px solid #DDD}
+.rk-top{background:var(--pu3);color:var(--pu);border:1px solid var(--pu2)}
+.rk-low{background:#FFF;color:#888;border:1px solid #DDD}
+.rank-plain{
+  display:inline-block;font-size:10px;font-weight:700;
+  color:var(--tf);letter-spacing:.02em;white-space:nowrap;
+}
+
+/* ── LADDER TAB (table) ── */
+.ltable-wrap{
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  margin-bottom:.6rem;
+  border:1px solid var(--bd);border-radius:var(--r);
+  background:var(--cb);box-shadow:var(--shadow);
+}
+.ltable{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}
+.ltable thead th{
+  font-size:9px;font-weight:700;color:var(--tf);
+  text-transform:uppercase;letter-spacing:.04em;
+  padding:.55rem .45rem;border-bottom:2px solid var(--pu3);
+  text-align:center;white-space:normal;line-height:1.25;
+}
+.ltable thead th.lth-team{text-align:left;width:120px}
+.ltable thead th.lth-rank{width:56px}
+.ltable thead th:not(.lth-rank):not(.lth-team){width:64px}
+.ltable tbody td{
+  padding:.5rem .45rem;text-align:center;
+  border-bottom:1px solid var(--bd);
+  font-weight:700;color:var(--dark);
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.ltable tbody tr:last-child td{border-bottom:none}
+.ltable tbody td.ltd-team{text-align:left}
+.ltable tbody td.ltd-rank{text-align:left;vertical-align:top}
+.rank-box{
+  display:flex;align-items:center;justify-content:center;
+  min-width:28px;height:24px;padding:0 4px;
+  border-radius:6px;font-size:11px;font-weight:800;
+}
+.lcard-team{font-size:13px;font-weight:700;color:var(--pu2);white-space:nowrap}
+.lcard-section{font-size:11px;font-weight:600;color:var(--tf)!important;letter-spacing:.02em}
+
+/* ── SCORE ── */
+.score-col{
+  display:flex;flex-direction:column;align-items:center;
+  gap:.35rem;
+}
+.score-col .badge{margin-top:2px}
+.score{
+  font-size:1.9rem;font-weight:700;color:var(--dark);
+  text-align:center;white-space:nowrap;
+  display:flex;align-items:center;justify-content:center;gap:2px;
+  font-variant-numeric:tabular-nums;
+}
+.score-live{color:#DC2626}
+.dash{color:var(--tf);font-weight:300;font-size:1.3rem;margin:0 1px}
+.vs{
+  display:flex;align-items:center;justify-content:center;gap:.3rem;
+  min-height:38px;padding:0 10px;
+  background:#FFF;border:1px solid #DDD;border-radius:6px;
+  font-size:11px;font-weight:800;color:#888;
+  letter-spacing:.02em;white-space:nowrap;
+}
+.vs-preview{display:flex;align-items:center;justify-content:center;gap:.35rem}
+.vs-rank{
+  display:flex;align-items:center;justify-content:center;
+  min-width:32px;height:38px;padding:0 8px;
+  background:#FFF;border:1px solid #DDD;border-radius:6px;
+  font-size:11px;font-weight:800;color:#888;
+  letter-spacing:.02em;white-space:nowrap;
+}
+.vs-sep{font-size:11px;font-weight:600;color:var(--tf)}
+
+/* ── CARD FOOTER — court only ── */
+.cfoot{
+  margin-top:.5rem;
+  font-size:11px;color:var(--tf);
+  display:flex;align-items:center;gap:.5rem;
+}
+.court-tag{
+  color:var(--tf);
+  font-size:11px;font-weight:400;letter-spacing:normal;
+}
+.court-tag::before{content:", ";}
+.time-tag{color:var(--tf)}
+.forecast-tag{color:var(--tf);font-weight:400}
+
+/* ── EMPTY ── */
+.empty{
+  text-align:center;padding:2.5rem 1rem;
+  background:var(--cb);border:1px dashed var(--bd);
+  border-radius:var(--r);color:var(--tm);font-size:14px;
+}
+
+div#sched-empty {display: none;}
+
+/* ── SETUP NOTICE ── */
+.setup-notice{
+  background:#FEF9C3;border:1px solid #FDE047;
+  border-radius:var(--r);padding:.9rem 1rem;
+  margin-bottom:.9rem;font-size:12px;line-height:1.6;
+}
+.setup-notice strong{color:#854D0E;display:block;margin-bottom:.3rem;font-size:13px}
+.setup-notice code{background:rgba(0,0,0,.07);padding:1px 5px;border-radius:3px;font-size:11px}
+
+/* ── FOOTER ── */
+.page-footer{
+  background:var(--dark);
+  text-align:center;padding:.9rem;
+  font-size:11px;color:#fff;
+}
+.page-footer a{color:#fff;text-decoration:none;font-weight: 600;}
+.page-footer a:hover{color:#fff}
+div#today-empty {display: none;}
+
+@media(max-width:480px){
+  .team{font-size:1.05rem}
+  .score{font-size:1.6rem}
+  .dtag{max-width:140px}
+  .rank-badge,.rank-plain{font-size:9px}
+  .page-header{padding:1.25rem 1rem 0}
+  .ltable{font-size:10.5px}
+  .ltable thead th.lth-rank{width:38px}
+  .ltable thead th.lth-team{width:88px}
+  .ltable thead th:not(.lth-rank):not(.lth-team){width:44px}
+  .ltable thead th{padding:.45rem .2rem}
+  .ltable tbody td{padding:.45rem .2rem}
+  .rank-box{min-width:24px;height:22px;font-size:10px}
+  .vs{min-height:32px;font-size:10px;padding:0 8px}
+  .vs-rank{min-height:32px;height:32px;font-size:10px;min-width:28px;padding:0 6px}
+  .lcard-team{font-size:11.5px;white-space:normal;line-height:1.15}
+  .lcard-section{font-size:9.5px}
+}
+@media(max-width:360px){
+  .team{font-size:.92rem}
+  .matchup{gap:.3rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Site header matching Trinity website nav -->
+<div class="site-header">
+  <img src="https://trinitynetball.com.au/wp-content/uploads/2022/11/cropped-trinity-1-1.png" alt="Trinity Netball Club">
+  <span class="site-header-title">Trinity Netball Club</span>
+  <a href="https://trinitynetball.com.au" target="_blank">← Back to site</a>
+</div>
+
+<div class="page-header">
+  <h1> Results &amp; Fixtures</h1>
+  <p>2026 Spring Season</p> 
+  <div class="stats">
+    <div class="sc"><span class="n" id="stat-teams">16</span><span class="l">Teams</span></div>
+    <div class="sc"><span class="n" id="stat-live">0</span><span class="l">Live</span></div>
+    <div class="sc"><span class="n" id="stat-played">2</span><span class="l">Played</span></div>
+    <div class="sc"><span class="n" id="stat-upcoming">62</span><span class="l">Upcoming</span></div>
+  </div>
+  <div class="tabs-bar">
+    <button class="tab active" data-tab="today">📅 Match Day</button>
+    <button class="tab" data-tab="schedule">📋 Full Schedule</button>
+    <button class="tab" data-tab="ladder">🏆 Ladder</button>
+  </div>
+</div>
+
+<!-- TODAY PANEL -->
+<div class="panel active" id="panel-today">
+
+  <div class="status-bar">
+    <span style="display:flex;align-items:center;gap:.4rem;flex-wrap:wrap">
+      <span class="status-dot" id="status-dot"></span><span id="status-text">Loading…</span><span id="last-updated" class="last-updated"></span>
+    </span>
+    <span style="display:flex;gap:.4rem">
+<button class="inv-btn refresh-btn" onclick="manualRefresh()">↻ Refresh</button>
+    </span>
+  </div>
+
+  <div class="today-intro">
+    <div class="today-meta">
+      <div class="today-left">
+        <div class="date" id="today-date">Round 1 · Saturday 18 July 2026</div>
+      </div>
+      <div class="today-chips" id="today-chips"></div>
+    </div>
+  </div>
+
+  <div class="filters-wrap">
+    <div class="frow">
+      <button class="fbtn tf-btn active" data-tfilter="all">All</button>
+      <button class="fbtn tf-btn" data-tfilter="LIVE">🔴 Live</button>
+      <button class="fbtn tf-btn" data-tfilter="WIN">Wins</button>
+      <button class="fbtn tf-btn" data-tfilter="LOSS">Losses</button>
+    </div>
+    <div class="frow" id="today-team-btns"></div>
+  </div>
+
+  <main>
+    <div class="count-row">
+      <span class="weather-chip hidden" id="weather-chip"></span>
+      <div class="rcnt" id="today-count"></div>
+    </div>
+    <div id="today-cards"></div>
+    <div class="empty hidden" id="today-empty">No matches found.</div>
+  </main>
+</div>
+
+<!-- SCHEDULE PANEL -->
+<div class="panel" id="panel-schedule">
+  <div class="filters-wrap">
+    <div class="frow">
+      <button class="fbtn sf-btn" data-sfilter="all">All matches</button>
+      <button class="fbtn sf-btn" data-sfilter="LIVE">🔴 Live</button>
+      <button class="fbtn sf-btn active" data-sfilter="UPCOMING">Upcoming</button>
+      <button class="fbtn sf-btn" data-sfilter="WIN">Wins</button>
+      <button class="fbtn sf-btn" data-sfilter="LOSS">Losses</button>
+    </div>
+    <div class="frow" id="sched-round-btns"></div>
+    <div class="frow" id="sched-team-btns"></div>
+  </div>
+  <main>
+    <div class="rcnt" id="sched-count"></div>
+    <div id="sched-list"></div>
+    <div class="empty hidden" id="sched-empty">No matches found.</div>
+  </main>
+</div>
+
+<!-- LADDER PANEL -->
+<div class="panel" id="panel-ladder">
+  <main>
+    <div id="ladder-list"></div>
+  </main>
+</div>
+
+<div class="page-footer">
+  <a href="https://trinitynetball.com.au" target="_blank">trinitynetball.com.au</a>
+  &nbsp;·&nbsp; Data via Netball Connect. Match day data refreshes every 10 minutes. Ladders update after each round.
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+// CONFIG — paste your Cloud Run URL here after deployment
+// ══════════════════════════════════════════════════════════════
+const USE_STATIC_FILES = true;
+const PROXY_URL = null;
+
+let TODAY_DATE = '';
+let NEXT_ROUND_DATE = ''; // chronologically next date_str after TODAY_DATE, for form-badge display
+let formMatchPool = []; // ALL matches (every team, not just Trinity) — populated properly in applyFixtures; seeded from BAKED_MATCHES below until then
+let DATE_ORDER = [];
+
+// NOTE: matches are now filtered purely by isTrinity(team1/team2) — no
+// hardcoded division-ID list — since Squadi periodically reshuffles
+// division IDs (grades change between seasons/rounds), which used to
+// silently drop teams from the app.
+
+// ── Baked-in fallback ─────────────────────────────────────────
+const BAKED_MATCHES = [{"id": 2793721, "round": "Round 1", "round_seq": 0, "division": "11&U Mixed (Femals and Males) - no restrictions B/2", "div_short": "11&U Mixed B/2", "start": "2026-07-17T22:50:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "8:50 AM", "team1": "Trinity 11U White", "team2": "St James U11 White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792366561%2F9b56c6793f75c94969895f5742783c45?generation=1780792367289321&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149995078%2Fba14d168a2f16478d3dbe3f2141c5c37?generation=1779149995454605&alt=media", "team1Score": 15, "team2Score": 9, "matchStatus": "STARTED", "result": "LIVE", "venue": "Maroondah Nets", "court": "Court 2"}, {"id": 2793672, "round": "Round 1", "round_seq": 0, "division": "11&U Mixed (Femals and Males) - no restrictions E/5", "div_short": "11&U Mixed E/5", "start": "2026-07-17T22:00:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "8:00 AM", "team1": "HFNC Jets 11U Purple", "team2": "Trinity 11U Silver", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781428387323%2F9ac2e2fe77ae5c87b46e00d7a8451582?generation=1781428387672703&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792378601%2Fafa9e886baa9c0646c5604dae2c16ff0?generation=1780792378939113&alt=media", "team1Score": 7, "team2Score": 10, "matchStatus": "ENDED", "result": "WIN", "venue": "Maroondah Nets", "court": "Court 5"}, {"id": 2793730, "round": "Round 1", "round_seq": 0, "division": "11&U Mixed (Femals and Males) - no restrictions E/5", "div_short": "11&U Mixed E/5", "start": "2026-07-17T22:00:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "8:00 AM", "team1": "St James 11U Purple", "team2": "Trinity 11U Black", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149580736%2F7c48427b33e19979262db4a1323d847b?generation=1779149581125837&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792373324%2F81d14d2e7c5590e6303e7b4af330b4e0?generation=1780792374111060&alt=media", "team1Score": 16, "team2Score": 3, "matchStatus": "ENDED", "result": "LOSS", "venue": "Maroondah Nets", "court": "Court 7"}, {"id": 2793722, "round": "Round 1", "round_seq": 0, "division": "11&U Mixed (Femals and Males) - no restrictions A/1", "div_short": "11&U Mixed A/1", "start": "2026-07-17T23:40:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "9:40 AM", "team1": "Ringwood North 11U Blue", "team2": "Trinity 11U Lilac", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781145546928%2Fc90b3ddb5967297728bc44831299a5c1?generation=1781145547417984&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792360820%2F8f94f276ed55d2355379f0dbb2ec1a4f?generation=1780792361542397&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 2"}, {"id": 2793712, "round": "Round 1", "round_seq": 0, "division": "13&U Mixed (Females & Males) - no restrictions E/5", "div_short": "13&U Mixed E/5", "start": "2026-07-18T00:30:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "10:30 AM", "team1": "HFNC Jets 13U White", "team2": "Trinity 13U Silver", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781427665172%2Fe7a07dc2462c2c396aaf9035fe6c04a0?generation=1781427665564527&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792402311%2F6611112fa366cdaa452f317fd2445a3a?generation=1780792402784368&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 6"}, {"id": 2793744, "round": "Round 1", "round_seq": 0, "division": "13&U Mixed (Females & Males) - no restrictions D/4", "div_short": "13&U Mixed D/4", "start": "2026-07-18T00:30:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "10:30 AM", "team1": "Ringwood North 13U Orange", "team2": "Trinity 13U Black", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781145904708%2F8c31b2a932009b44d58f89102c72ffa0?generation=1781145905082485&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792407197%2F80d85bb5d070562813b618737d765ac9?generation=1780792407669501&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 3"}, {"id": 2793759, "round": "Round 1", "round_seq": 0, "division": "13&U Mixed (Females & Males) - no restrictions B/2", "div_short": "13&U Mixed B/2", "start": "2026-07-18T01:20:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "11:20 AM", "team1": "Trinity 13U White", "team2": "East Ringwood 13U Blue", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792395205%2F603aa99ee5714bb266a802c5f2b11d51?generation=1780792395577192&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779764747075%2Fa610ecde45bc481d12c6420ace07bee8?generation=1779764747434094&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 4"}, {"id": 2793760, "round": "Round 1", "round_seq": 0, "division": "15&U Female (Males 13/U as at the first day of competition or season may participate) F/6", "div_short": "15&U Female F/6", "start": "2026-07-18T02:10:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "12:10 PM", "team1": "Park Orchards 15U Bolts", "team2": "Trinity 15U Black", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780921875293%2F94104f0fa90a0ffffef9227ccf17e194?generation=1780921875991283&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781047303709%2F10a356f1b392cdef0cf7645142b6ec70?generation=1781047304199939&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 4"}, {"id": 2793703, "round": "Round 1", "round_seq": 0, "division": "15&U Female (Males 13/U as at the first day of competition or season may participate) E/5", "div_short": "15&U Female E/5", "start": "2026-07-18T03:00:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "1:00 PM", "team1": "Heathmont United 15U Green", "team2": "Trinity 15U White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781142883144%2F2ef469556c3412771b41a8ee86cefded?generation=1781142883525095&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792424728%2F60902a3cb0f84111d69f0f88f2ea9fc3?generation=1780792425080906&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 8"}, {"id": 2793691, "round": "Round 1", "round_seq": 0, "division": "15&U Female (Males 13/U as at the first day of competition or season may participate) B/2", "div_short": "15&U Female B/2", "start": "2026-07-18T03:00:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "1:00 PM", "team1": "Our Ladys 15U Gold", "team2": "Trinity 15U Lilac", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779101177629%2Ff85851716963df1d06c055953c761da0?generation=1779101177991654&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792433329%2F8b00be2af535276621455a2c2cb65db0?generation=1780792434144132&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 1"}, {"id": 2793750, "round": "Round 1", "round_seq": 0, "division": "15&U Mixed (Females & Males restrictions apply) A/1", "div_short": "15&U Mixed (Females & Males ) A/1", "start": "2026-07-18T04:40:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "2:40 PM", "team1": "Trinity 15U Mixed", "team2": "Bye", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792495260%2F8107497e8dfdbe1805e097fa465468f6?generation=1780792495619819&alt=media", "team2_logo": null, "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 3"}, {"id": 2793763, "round": "Round 1", "round_seq": 0, "division": "17&U Females A/1", "div_short": "17&U Females A/1", "start": "2026-07-18T04:40:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "2:40 PM", "team1": "St James 17U Blue", "team2": "Trinity 17U Lilac", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779336104347%2F208467df14ce12395b7446489e1c8790?generation=1779336105060534&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792443191%2F2e2654d57e73c879df8d553871dbeb3e?generation=1780792443624390&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 4"}, {"id": 2793706, "round": "Round 1", "round_seq": 0, "division": "17&U Females B/2", "div_short": "17&U Females B/2", "start": "2026-07-18T05:30:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "3:30 PM", "team1": "Trinity 17U White", "team2": "Heathmont United 17U White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792448725%2Ff8157539231ce56d1bfc899e4a8ff2b1?generation=1780792449069812&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781142952323%2F7b638c4f582744c2db31ce60ae4eaaf7?generation=1781142952713667&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 8"}, {"id": 2793740, "round": "Round 1", "round_seq": 0, "division": "17&U Females C/3", "div_short": "17&U Females C/3", "start": "2026-07-18T06:20:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "4:20 PM", "team1": "East Ringwood 17U Blue", "team2": "Trinity 17U Black", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779771771087%2F9c7f536ffd7685eb3023c82d5177f0da?generation=1779771771456382&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792454290%2Fa7a6440e71b127d141452c5a24967a5e?generation=1780792454643906&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 7"}, {"id": 2793754, "round": "Round 1", "round_seq": 0, "division": "OPEN Female D/4", "div_short": "OPEN Female D/4", "start": "2026-07-18T07:10:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "5:10 PM", "team1": "Trinity Open Lilac", "team2": "Heathmont United Open Black", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792460051%2Ffd6c8348c50e8aff2c2d20ed645215b7?generation=1780792460402903&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781142978219%2Fbd7a982b218db5a05d29cabeefb2b220?generation=1781142978577260&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 3"}, {"id": 2793708, "round": "Round 1", "round_seq": 0, "division": "OPEN Female C/3", "div_short": "OPEN Female C/3", "start": "2026-07-18T07:10:00.000Z", "date_str": "Sat 18 Jul 2026", "time_str": "5:10 PM", "team1": "East Ringwood Open White", "team2": "Trinity Open White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779776599725%2F378d34a4fe40a48d7ee9d62a160dbbd4?generation=1779776600072643&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792465399%2F8108ebf13634b272fa7e72701c87946d?generation=1780792465743474&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 1"}, {"id": 2793767, "round": "Round 2", "round_seq": 1, "division": "11&U Mixed (Femals and Males) - no restrictions E/5", "div_short": "11&U Mixed E/5", "start": "2026-07-24T22:00:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "8:00 AM", "team1": "HFNC Jets 11U Pink", "team2": "Trinity 11U Black", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781428372799%2Fdb17ef06c2a3c2dab8fe1dbf0c34c86c?generation=1781428373152515&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792373324%2F81d14d2e7c5590e6303e7b4af330b4e0?generation=1780792374111060&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 7"}, {"id": 2793790, "round": "Round 2", "round_seq": 1, "division": "11&U Mixed (Femals and Males) - no restrictions E/5", "div_short": "11&U Mixed E/5", "start": "2026-07-24T22:00:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "8:00 AM", "team1": "Trinity 11U Silver", "team2": "St James 11U Purple", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792378601%2Fafa9e886baa9c0646c5604dae2c16ff0?generation=1780792378939113&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149580736%2F7c48427b33e19979262db4a1323d847b?generation=1779149581125837&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 6"}, {"id": 2793812, "round": "Round 2", "round_seq": 1, "division": "11&U Mixed (Femals and Males) - no restrictions B/2", "div_short": "11&U Mixed B/2", "start": "2026-07-24T22:50:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "8:50 AM", "team1": "HFNC Jets 11U White", "team2": "Trinity 11U White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781428341141%2F9698d286895a1b6900c898f7ca6fc255?generation=1781428341512989&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792366561%2F9b56c6793f75c94969895f5742783c45?generation=1780792367289321&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 2"}, {"id": 2793829, "round": "Round 2", "round_seq": 1, "division": "11&U Mixed (Femals and Males) - no restrictions A/1", "div_short": "11&U Mixed A/1", "start": "2026-07-24T23:40:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "9:40 AM", "team1": "Trinity 11U Lilac", "team2": "St James 11U Blue", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792360820%2F8f94f276ed55d2355379f0dbb2ec1a4f?generation=1780792361542397&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149846871%2F2fd37e994b535b1b97b4a2307c4ae4cf?generation=1779149847225683&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 1"}, {"id": 2793817, "round": "Round 2", "round_seq": 1, "division": "13&U Mixed (Females & Males) - no restrictions E/5", "div_short": "13&U Mixed E/5", "start": "2026-07-25T00:30:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "10:30 AM", "team1": "St James 13U Red", "team2": "Trinity 13U Silver", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779667363790%2Fee237df380a92275e6787e109ee5f53e?generation=1779667364511403&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792402311%2F6611112fa366cdaa452f317fd2445a3a?generation=1780792402784368&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 5"}, {"id": 2793854, "round": "Round 2", "round_seq": 1, "division": "13&U Mixed (Females & Males) - no restrictions D/4", "div_short": "13&U Mixed D/4", "start": "2026-07-25T00:30:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "10:30 AM", "team1": "Trinity 13U Black", "team2": "Heathmont United 13U Black", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792407197%2F80d85bb5d070562813b618737d765ac9?generation=1780792407669501&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781142769767%2F7dc5720c12eb8027c1c355441aae2bda?generation=1781142770497180&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 3"}, {"id": 2793818, "round": "Round 2", "round_seq": 1, "division": "13&U Mixed (Females & Males) - no restrictions B/2", "div_short": "13&U Mixed B/2", "start": "2026-07-25T01:20:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "11:20 AM", "team1": "East Ringwood 13U White", "team2": "Trinity 13U White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779764770675%2Fac7455861f7a164dc4a9d14f06c1bce3?generation=1779764771375307&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792395205%2F603aa99ee5714bb266a802c5f2b11d51?generation=1780792395577192&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 5"}, {"id": 2793772, "round": "Round 2", "round_seq": 1, "division": "15&U Female (Males 13/U as at the first day of competition or season may participate) E/5", "div_short": "15&U Female E/5", "start": "2026-07-25T02:10:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "12:10 PM", "team1": "Mullum 15U Red", "team2": "Trinity 15U White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780389468931%2Fd27e156774aaa8439a33ff48fed6928f?generation=1780389469293705&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792424728%2F60902a3cb0f84111d69f0f88f2ea9fc3?generation=1780792425080906&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 7"}, {"id": 2793795, "round": "Round 2", "round_seq": 1, "division": "15&U Female (Males 13/U as at the first day of competition or season may participate) F/6", "div_short": "15&U Female F/6", "start": "2026-07-25T02:10:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "12:10 PM", "team1": "Nunawading 15U Garnet", "team2": "Trinity 15U Black", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149576131%2Fcef3358f21ee18ef944471f842e796b1?generation=1779149576532426&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781047303709%2F10a356f1b392cdef0cf7645142b6ec70?generation=1781047304199939&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 6"}, {"id": 2793807, "round": "Round 2", "round_seq": 1, "division": "15&U Female (Males 13/U as at the first day of competition or season may participate) B/2", "div_short": "15&U Female B/2", "start": "2026-07-25T03:50:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "1:50 PM", "team1": "Trinity 15U Lilac", "team2": "East Ringwood 15U Blue", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792433329%2F8b00be2af535276621455a2c2cb65db0?generation=1780792434144132&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779771670705%2F992056f2f583b08cfe5274cf104bae01?generation=1779771671409675&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 2"}, {"id": 2793774, "round": "Round 2", "round_seq": 1, "division": "17&U Females C/3", "div_short": "17&U Females C/3", "start": "2026-07-25T03:50:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "1:50 PM", "team1": "St James 17U White", "team2": "Trinity 17U Black", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779406788305%2Fb73f3a5962269808d2e1f23d5e556574?generation=1779406788791084&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792454290%2Fa7a6440e71b127d141452c5a24967a5e?generation=1780792454643906&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 7"}, {"id": 2793848, "round": "Round 2", "round_seq": 1, "division": "17&U Females A/1", "div_short": "17&U Females A/1", "start": "2026-07-25T03:50:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "1:50 PM", "team1": "Trinity 17U Lilac", "team2": "Park Orchards 17U Lightning", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792443191%2F2e2654d57e73c879df8d553871dbeb3e?generation=1780792443624390&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780922322311%2Facbe6fe8d8cf4e6f0e70e0697c2535e7?generation=1780922322768993&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 6"}, {"id": 2793786, "round": "Round 2", "round_seq": 1, "division": "17&U Females B/2", "div_short": "17&U Females B/2", "start": "2026-07-25T04:40:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "2:40 PM", "team1": "Park Orchards 17U Thunder", "team2": "Trinity 17U White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780922463335%2Fc64e1fc87e3af00387a02baa85b87a16?generation=1780922464101208&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792448725%2Ff8157539231ce56d1bfc899e4a8ff2b1?generation=1780792449069812&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 8"}, {"id": 2793825, "round": "Round 2", "round_seq": 1, "division": "OPEN Female D/4", "div_short": "OPEN Female D/4", "start": "2026-07-25T06:20:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "4:20 PM", "team1": "Holy Spirit Open Blue", "team2": "Trinity Open Lilac", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1782984940880%2F530d615fcc0c1708fd1e6c89a2fcd730?generation=1782984941351709&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792460051%2Ffd6c8348c50e8aff2c2d20ed645215b7?generation=1780792460402903&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 5"}, {"id": 2793788, "round": "Round 2", "round_seq": 1, "division": "OPEN Female C/3", "div_short": "OPEN Female C/3", "start": "2026-07-25T06:20:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "4:20 PM", "team1": "Southwood Open Purple", "team2": "Trinity Open White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780373557580%2F63acaf966b9443f3485e6a0add25a44b?generation=1780373557941384&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792465399%2F8108ebf13634b272fa7e72701c87946d?generation=1780792465743474&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 8"}, {"id": 2793811, "round": "Round 2", "round_seq": 1, "division": "15&U Mixed (Females & Males restrictions apply) A/1", "div_short": "15&U Mixed (Females & Males ) A/1", "start": "2026-07-25T07:10:00.000Z", "date_str": "Sat 25 Jul 2026", "time_str": "5:10 PM", "team1": "Trinity 15U Mixed", "team2": "Holy Spirit 15U Blaze", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792495260%2F8107497e8dfdbe1805e097fa465468f6?generation=1780792495619819&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781139484375%2F91fdb2b605d48f8a38e234031b9f0a72?generation=1781139484738858&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 2"}, {"id": 2793885, "round": "Round 3", "round_seq": 2, "division": "11&U Mixed (Femals and Males) - no restrictions E/5", "div_short": "11&U Mixed E/5", "start": "2026-07-31T22:00:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "8:00 AM", "team1": "Trinity 11U Black", "team2": "Southwood 11U Gold", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792373324%2F81d14d2e7c5590e6303e7b4af330b4e0?generation=1780792374111060&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780373474347%2F700637ed15e5f5bd35e0a9e54e015c93?generation=1780373475039824&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 3"}, {"id": 2793898, "round": "Round 3", "round_seq": 2, "division": "11&U Mixed (Femals and Males) - no restrictions E/5", "div_short": "11&U Mixed E/5", "start": "2026-07-31T22:00:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "8:00 AM", "team1": "HFNC Jets 11U Pink", "team2": "Trinity 11U Silver", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781428372799%2Fdb17ef06c2a3c2dab8fe1dbf0c34c86c?generation=1781428373152515&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792378601%2Fafa9e886baa9c0646c5604dae2c16ff0?generation=1780792378939113&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 4"}, {"id": 2793911, "round": "Round 3", "round_seq": 2, "division": "11&U Mixed (Femals and Males) - no restrictions B/2", "div_short": "11&U Mixed B/2", "start": "2026-07-31T22:50:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "8:50 AM", "team1": "BLNC 11U Black", "team2": "Trinity 11U White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781084918530%2F6f512c8da92af78b9e701e391bb8f8b9?generation=1781084918895600&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792366561%2F9b56c6793f75c94969895f5742783c45?generation=1780792367289321&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 7"}, {"id": 2793935, "round": "Round 3", "round_seq": 2, "division": "11&U Mixed (Femals and Males) - no restrictions A/1", "div_short": "11&U Mixed A/1", "start": "2026-07-31T23:40:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "9:40 AM", "team1": "Trinity 11U Lilac", "team2": "Nunawading 11U Emerald", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792360820%2F8f94f276ed55d2355379f0dbb2ec1a4f?generation=1780792361542397&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149322318%2F53e70b447f1a56af4a23b32979582fa4?generation=1779149322800183&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 8"}, {"id": 2793889, "round": "Round 3", "round_seq": 2, "division": "13&U Mixed (Females & Males) - no restrictions E/5", "div_short": "13&U Mixed E/5", "start": "2026-08-01T00:30:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "10:30 AM", "team1": "Trinity 13U Silver", "team2": "Park Orchards 13U Chargers", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792402311%2F6611112fa366cdaa452f317fd2445a3a?generation=1780792402784368&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781249500108%2Fd07fbd03314ee963eb2a6d13a8d304fd?generation=1781249500603393&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 3"}, {"id": 2793948, "round": "Round 3", "round_seq": 2, "division": "13&U Mixed (Females & Males) - no restrictions D/4", "div_short": "13&U Mixed D/4", "start": "2026-08-01T00:30:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "10:30 AM", "team1": "Trinity 13U Black", "team2": "Our Ladys 13U Gold", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792407197%2F80d85bb5d070562813b618737d765ac9?generation=1780792407669501&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779101113027%2F34d67adce163a39638bcf324607d41fd?generation=1779101113480756&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 5"}, {"id": 2793926, "round": "Round 3", "round_seq": 2, "division": "13&U Mixed (Females & Males) - no restrictions B/2", "div_short": "13&U Mixed B/2", "start": "2026-08-01T01:20:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "11:20 AM", "team1": "St James 13U White", "team2": "Trinity 13U White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149622490%2F0af21e1cf85a33ebefc337a37287d909?generation=1779149623255462&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792395205%2F603aa99ee5714bb266a802c5f2b11d51?generation=1780792395577192&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 6"}, {"id": 2793878, "round": "Round 3", "round_seq": 2, "division": "15&U Female (Males 13/U as at the first day of competition or season may participate) E/5", "div_short": "15&U Female E/5", "start": "2026-08-01T02:10:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "12:10 PM", "team1": "Trinity 15U White", "team2": "BLNC 15U White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792424728%2F60902a3cb0f84111d69f0f88f2ea9fc3?generation=1780792425080906&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781085200631%2F34bfa83c76d2e91335914f12aa1220ef?generation=1781085200994337&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 1"}, {"id": 2793903, "round": "Round 3", "round_seq": 2, "division": "15&U Female (Males 13/U as at the first day of competition or season may participate) F/6", "div_short": "15&U Female F/6", "start": "2026-08-01T02:10:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "12:10 PM", "team1": "Trinity 15U Black", "team2": "Nunawading 15U Quartz", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781047303709%2F10a356f1b392cdef0cf7645142b6ec70?generation=1781047304199939&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149599811%2Fd8bfe341f0281ee8dd50b43318678e28?generation=1779149600165380&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 5"}, {"id": 2793940, "round": "Round 3", "round_seq": 2, "division": "15&U Female (Males 13/U as at the first day of competition or season may participate) B/2", "div_short": "15&U Female B/2", "start": "2026-08-01T03:50:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "1:50 PM", "team1": "Ringwood North 15U Blue", "team2": "Trinity 15U Lilac", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781148850627%2Fa8058bbdb2edca53456bd2f9a0f225cd?generation=1781148851118651&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792433329%2F8b00be2af535276621455a2c2cb65db0?generation=1780792434144132&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 7"}, {"id": 2793880, "round": "Round 3", "round_seq": 2, "division": "17&U Females B/2", "div_short": "17&U Females B/2", "start": "2026-08-01T03:50:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "1:50 PM", "team1": "Nunawading 17U Pearls", "team2": "Trinity 17U White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149647241%2Fa3ea609534a5ada822bc36ec48209110?generation=1779149647601525&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792448725%2Ff8157539231ce56d1bfc899e4a8ff2b1?generation=1780792449069812&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 1"}, {"id": 2793906, "round": "Round 3", "round_seq": 2, "division": "OPEN Female D/4", "div_short": "OPEN Female D/4", "start": "2026-08-01T04:40:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "2:40 PM", "team1": "Trinity Open Lilac", "team2": "BLNC Open Green", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792460051%2Ffd6c8348c50e8aff2c2d20ed645215b7?generation=1780792460402903&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781085327817%2F4d897920cd7f1216fb0d3d055c17b33b?generation=1781085328169754&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 5"}, {"id": 2793918, "round": "Round 3", "round_seq": 2, "division": "15&U Mixed (Females & Males restrictions apply) A/1", "div_short": "15&U Mixed (Females & Males ) A/1", "start": "2026-08-01T04:40:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "2:40 PM", "team1": "BLNC 15U Red", "team2": "Trinity 15U Mixed", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781085245338%2Fcd5f0222745cdc1f5691fb45d2e76b7d?generation=1781085246013141&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792495260%2F8107497e8dfdbe1805e097fa465468f6?generation=1780792495619819&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 7"}, {"id": 2793871, "round": "Round 3", "round_seq": 2, "division": "17&U Females C/3", "div_short": "17&U Females C/3", "start": "2026-08-01T05:30:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "3:30 PM", "team1": "Trinity 17U Black", "team2": "Southwood 17U Purple", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792454290%2Fa7a6440e71b127d141452c5a24967a5e?generation=1780792454643906&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780373542397%2F8d10dd081f2a4071d5f0e9dc5ac0b547?generation=1780373542746241&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 3"}, {"id": 2793955, "round": "Round 3", "round_seq": 2, "division": "17&U Females A/1", "div_short": "17&U Females A/1", "start": "2026-08-01T06:20:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "4:20 PM", "team1": "Ringwood North 17U Blue", "team2": "Trinity 17U Lilac", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781149397743%2Fbf288a7baac6009aee0249eebc9d9cbb?generation=1781149398220996&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792443191%2F2e2654d57e73c879df8d553871dbeb3e?generation=1780792443624390&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 4"}, {"id": 2793956, "round": "Round 3", "round_seq": 2, "division": "OPEN Female C/3", "div_short": "OPEN Female C/3", "start": "2026-08-01T06:20:00.000Z", "date_str": "Sat 1 Aug 2026", "time_str": "4:20 PM", "team1": "Trinity Open White", "team2": "BLNC Open Red", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792465399%2F8108ebf13634b272fa7e72701c87946d?generation=1780792465743474&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781085303261%2Fa4328f14ad9499b1bb6c17626061a917?generation=1781085303632166&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 3"}, {"id": 2793980, "round": "Round 4", "round_seq": 3, "division": "11&U Mixed (Femals and Males) - no restrictions E/5", "div_short": "11&U Mixed E/5", "start": "2026-08-07T22:00:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "8:00 AM", "team1": "Trinity 11U Black", "team2": "HFNC Jets 11U Purple", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792373324%2F81d14d2e7c5590e6303e7b4af330b4e0?generation=1780792374111060&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781428387323%2F9ac2e2fe77ae5c87b46e00d7a8451582?generation=1781428387672703&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 3"}, {"id": 2793957, "round": "Round 4", "round_seq": 3, "division": "11&U Mixed (Femals and Males) - no restrictions E/5", "div_short": "11&U Mixed E/5", "start": "2026-08-07T22:00:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "8:00 AM", "team1": "Southwood 11U Gold", "team2": "Trinity 11U Silver", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780373474347%2F700637ed15e5f5bd35e0a9e54e015c93?generation=1780373475039824&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792378601%2Fafa9e886baa9c0646c5604dae2c16ff0?generation=1780792378939113&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 2"}, {"id": 2794029, "round": "Round 4", "round_seq": 3, "division": "11&U Mixed (Femals and Males) - no restrictions B/2", "div_short": "11&U Mixed B/2", "start": "2026-08-07T22:50:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "8:50 AM", "team1": "Trinity 11U White", "team2": "HFNC Jets 11U Blue", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792366561%2F9b56c6793f75c94969895f5742783c45?generation=1780792367289321&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781428329152%2F32a82ec8b322e8caa8dca6bc53866934?generation=1781428329617899&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 8"}, {"id": 2794006, "round": "Round 4", "round_seq": 3, "division": "11&U Mixed (Femals and Males) - no restrictions A/1", "div_short": "11&U Mixed A/1", "start": "2026-08-07T23:40:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "9:40 AM", "team1": "HFNC Jets 11U Gold", "team2": "Trinity 11U Lilac", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781428316533%2Fd9638150df4981528ea33a71df338044?generation=1781428317026222&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792360820%2F8f94f276ed55d2355379f0dbb2ec1a4f?generation=1780792361542397&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 7"}, {"id": 2793995, "round": "Round 4", "round_seq": 3, "division": "13&U Mixed (Females & Males) - no restrictions E/5", "div_short": "13&U Mixed E/5", "start": "2026-08-08T00:30:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "10:30 AM", "team1": "Trinity 13U Silver", "team2": "Nunawading 13U Ruby", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792402311%2F6611112fa366cdaa452f317fd2445a3a?generation=1780792402784368&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149436111%2Fd61dca0cafae7c0543c5fe99bfb79a42?generation=1779149436474690&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 4"}, {"id": 2794043, "round": "Round 4", "round_seq": 3, "division": "13&U Mixed (Females & Males) - no restrictions D/4", "div_short": "13&U Mixed D/4", "start": "2026-08-08T00:30:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "10:30 AM", "team1": "BLNC 13U Black", "team2": "Trinity 13U Black", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781085115478%2Fdd51356d8af288851b8110fcc9a48bfa?generation=1781085116178727&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792407197%2F80d85bb5d070562813b618737d765ac9?generation=1780792407669501&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 5"}, {"id": 2794044, "round": "Round 4", "round_seq": 3, "division": "13&U Mixed (Females & Males) - no restrictions B/2", "div_short": "13&U Mixed B/2", "start": "2026-08-08T01:20:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "11:20 AM", "team1": "Trinity 13U White", "team2": "Heathmont United 13U White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792395205%2F603aa99ee5714bb266a802c5f2b11d51?generation=1780792395577192&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781142786228%2F1a1a94b3506be93991ee866ab6663da7?generation=1781142786969759&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 4"}, {"id": 2793973, "round": "Round 4", "round_seq": 3, "division": "15&U Female (Males 13/U as at the first day of competition or season may participate) E/5", "div_short": "15&U Female E/5", "start": "2026-08-08T02:10:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "12:10 PM", "team1": "Trinity 15U White", "team2": "Holy Spirit 15U White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792424728%2F60902a3cb0f84111d69f0f88f2ea9fc3?generation=1780792425080906&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781139428980%2Fd05065235badd033eb9d351c704eba12?generation=1781139429338344&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 1"}, {"id": 2793985, "round": "Round 4", "round_seq": 3, "division": "15&U Female (Males 13/U as at the first day of competition or season may participate) F/6", "div_short": "15&U Female F/6", "start": "2026-08-08T02:10:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "12:10 PM", "team1": "Trinity 15U Black", "team2": "Park Orchards 15U Chargers", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781047303709%2F10a356f1b392cdef0cf7645142b6ec70?generation=1781047304199939&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780922002685%2Fa25be0dbd27d0a76f320c061dec42af2?generation=1780922003170390&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 3"}, {"id": 2794034, "round": "Round 4", "round_seq": 3, "division": "15&U Female (Males 13/U as at the first day of competition or season may participate) B/2", "div_short": "15&U Female B/2", "start": "2026-08-08T03:00:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "1:00 PM", "team1": "Heathmont United 15U Black", "team2": "Trinity 15U Lilac", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781142858726%2F69f5bc8245ecfd1bac2f0013dc51661a?generation=1781142859072756&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792433329%2F8b00be2af535276621455a2c2cb65db0?generation=1780792434144132&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 8"}, {"id": 2793967, "round": "Round 4", "round_seq": 3, "division": "17&U Females C/3", "div_short": "17&U Females C/3", "start": "2026-08-08T06:20:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "4:20 PM", "team1": "BLNC 17U Green", "team2": "Trinity 17U Black", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781085286094%2F4d7acc0a301e56b5e16a3ffcff22ed0b?generation=1781085286458087&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792454290%2Fa7a6440e71b127d141452c5a24967a5e?generation=1780792454643906&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 1"}, {"id": 2794014, "round": "Round 4", "round_seq": 3, "division": "15&U Mixed (Females & Males restrictions apply) A/1", "div_short": "15&U Mixed (Females & Males ) A/1", "start": "2026-08-08T06:20:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "4:20 PM", "team1": "Trinity 15U Mixed", "team2": "Mullum 15U Black", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792495260%2F8107497e8dfdbe1805e097fa465468f6?generation=1780792495619819&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780389484292%2Fabf8ed1dc9d95e69b87673b3391f5f41?generation=1780389484633090&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 4"}, {"id": 2794003, "round": "Round 4", "round_seq": 3, "division": "OPEN Female D/4", "div_short": "OPEN Female D/4", "start": "2026-08-08T06:20:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "4:20 PM", "team1": "Trinity Open Lilac", "team2": "Mullum Open White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792460051%2Ffd6c8348c50e8aff2c2d20ed645215b7?generation=1780792460402903&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780389558711%2Feec7b561e602f9b856b234c22e0503d6?generation=1780389559062220&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 5"}, {"id": 2793978, "round": "Round 4", "round_seq": 3, "division": "OPEN Female C/3", "div_short": "OPEN Female C/3", "start": "2026-08-08T06:20:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "4:20 PM", "team1": "Park Orchards Open Thunder", "team2": "Trinity Open White", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780923069838%2F3c1d11d04531c8425400740ae37940d9?generation=1780923070362528&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792465399%2F8108ebf13634b272fa7e72701c87946d?generation=1780792465743474&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 8"}, {"id": 2793977, "round": "Round 4", "round_seq": 3, "division": "17&U Females B/2", "div_short": "17&U Females B/2", "start": "2026-08-08T07:10:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "5:10 PM", "team1": "Trinity 17U White", "team2": "Nunawading 17U Onyx", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792448725%2Ff8157539231ce56d1bfc899e4a8ff2b1?generation=1780792449069812&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149627908%2F49ea43cadab542973d270f02f2e0742d?generation=1779149628259757&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 3"}, {"id": 2794048, "round": "Round 4", "round_seq": 3, "division": "17&U Females A/1", "div_short": "17&U Females A/1", "start": "2026-08-08T07:10:00.000Z", "date_str": "Sat 8 Aug 2026", "time_str": "5:10 PM", "team1": "HFNC Jets 17U Gold", "team2": "Trinity 17U Lilac", "team1_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781426451312%2Fff9b72946a00729cd5e6bcf1e885c6ea?generation=1781426452015573&alt=media", "team2_logo": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792443191%2F2e2654d57e73c879df8d553871dbeb3e?generation=1780792443624390&alt=media", "team1Score": 0, "team2Score": 0, "matchStatus": "", "result": "UPCOMING", "venue": "Maroondah Nets", "court": "Court 2"}];
+const BAKED_TEAMS = ["Trinity 11U Black", "Trinity 11U Lilac", "Trinity 11U Silver", "Trinity 11U White", "Trinity 13U Black", "Trinity 13U Silver", "Trinity 13U White", "Trinity 15U Black", "Trinity 15U Lilac", "Trinity 15U Mixed", "Trinity 15U White", "Trinity 17U Black", "Trinity 17U Lilac", "Trinity 17U White", "Trinity Open Lilac", "Trinity Open White"];
+
+// ── State ─────────────────────────────────────────────────────
+let allMatches        = [];
+let ladderMap         = {};
+let allTeams          = [];
+let todayResultFilter = 'all';
+let todayTeamFilter   = 'all';
+let schedResultFilter = 'UPCOMING';
+let schedTeamFilter   = 'all';
+let autoTimer         = null;
+
+// ── Helpers ───────────────────────────────────────────────────
+function isTrinity(n){ return typeof n==='string' && n.toLowerCase().includes('trinity'); }
+function sectionLabel(divShort){
+  const s = String(divShort||'').trim();
+  // Format like "15&U Female E/5" -> "Section 5"
+  const idx = s.lastIndexOf('/');
+  if (idx !== -1){
+    const num = s.slice(idx+1).trim();
+    if (/^\d+$/.test(num)) return `Section ${num}`;
+  }
+  // Format like "15&U Female Section 5" -> "Section 5" (spelled out, no slash code)
+  const spelled = s.match(/Section\s*(\d+)/i);
+  if (spelled) return `Section ${spelled[1]}`;
+  return s;
+}
+function sectionLabelShort(divShort){
+  const full = sectionLabel(divShort);
+  const m = full.match(/(\d+)/);
+  return m ? m[1] : full;
+}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function ordinal(n){
+  if (!n) return '?';
+  const suffix =
+    [11,12,13].includes(n % 100)
+      ? 'th'
+      : ({1:'st',2:'nd',3:'rd'}[n % 10] || 'th');
+  return `${n}${suffix}`;
+}
+
+function isGameDay(){
+  const aest = new Date(Date.now() + 10*3600_000);
+  return aest.getUTCDay()===6 && aest.getUTCHours()>=8 && aest.getUTCHours()<18;
+}
+
+function autoRefreshInterval(){
+  return isGameDay() ? 2*60_000 : 6*3600_000;
+}
+
+function scheduleAuto(){
+  clearInterval(autoTimer);
+  if (!PROXY_URL) return;
+  autoTimer = setInterval(() => fetchFixtures(), autoRefreshInterval());
+}
+
+// ── Match Day date resolution ────────────────────────────────
+// Matches are played on Saturdays. From Monday onward we switch the
+// Match Day tab over to previewing the *next* round, and keep showing
+// that same round's matches all the way through Saturday. Sunday shows
+// the results that were just played.
+const MELB_TZ = 'Australia/Melbourne';
+
+function melbourneYMD(){
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: MELB_TZ, year:'numeric', month:'2-digit', day:'2-digit'
+  }).formatToParts(new Date());
+  const get = t => +parts.find(p=>p.type===t).value;
+  return { y:get('year'), mo:get('month'), d:get('day') };
+}
+
+function melbourneDayOfWeek(){
+  const wd = new Intl.DateTimeFormat('en-US', { timeZone: MELB_TZ, weekday:'short' }).format(new Date());
+  return { Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6 }[wd];
+}
+
+function addDaysUTC(date, days){
+  const nd = new Date(date.getTime());
+  nd.setUTCDate(nd.getUTCDate() + days);
+  return nd;
+}
+
+function formatMelbDateStr(date){
+  return date.toLocaleDateString('en-AU', {
+    timeZone: MELB_TZ, weekday:'short', day:'numeric', month:'short', year:'numeric'
+  });
+}
+
+// Returns the date_str (matching enrichMatch's format) of the round that
+// should be shown on the Match Day tab right now.
+function computeMatchDayTargetStr(){
+  const { y, mo, d } = melbourneYMD();
+  const anchor = new Date(Date.UTC(y, mo-1, d, 12, 0, 0)); // UTC-noon, safely inside the Melbourne calendar day
+  const dow = melbourneDayOfWeek(); // 0=Sun ... 6=Sat
+  // Mon–Fri look forward to this week's Saturday; Sat stays; Sun looks back to last Saturday.
+  const offsetToSat = { 0:-1, 1:5, 2:4, 3:3, 4:2, 5:1, 6:0 }[dow];
+  return formatMelbDateStr(addDaysUTC(anchor, offsetToSat));
+}
+
+function resolveMatchDayDate(dateOrder, firstStartByDate){
+  if (!dateOrder.length) return '';
+  const target = computeMatchDayTargetStr();
+  if (dateOrder.includes(target)) return target;
+  // No matches on the exact target date (e.g. bye week) — fall back to
+  // whichever available date is chronologically closest to it.
+  const { y, mo, d } = melbourneYMD();
+  const anchor = new Date(Date.UTC(y, mo-1, d, 12, 0, 0));
+  const dow = melbourneDayOfWeek();
+  const offsetToSat = { 0:-1, 1:5, 2:4, 3:3, 4:2, 5:1, 6:0 }[dow];
+  const targetTime = addDaysUTC(anchor, offsetToSat).getTime();
+  let best = dateOrder[0], bestDiff = Infinity;
+  for (const dt of dateOrder){
+    const diff = Math.abs(new Date(firstStartByDate[dt]).getTime() - targetTime);
+    if (diff < bestDiff){ bestDiff = diff; best = dt; }
+  }
+  return best;
+}
+
+// ── Weather (Open-Meteo, no key required) ────────────────────
+// Maroondah Nets, Heathmont VIC — venue for every Trinity fixture.
+const VENUE_LAT = -37.8267, VENUE_LON = 145.2267;
+const WMO = {
+  0:['\u2600\ufe0f','Clear sky'],1:['\ud83c\udf24\ufe0f','Mostly clear'],2:['\u26c5','Partly cloudy'],3:['\u2601\ufe0f','Overcast'],
+  45:['\ud83c\udf2b\ufe0f','Fog'],48:['\ud83c\udf2b\ufe0f','Fog'],
+  51:['\ud83c\udf26\ufe0f','Light drizzle'],53:['\ud83c\udf26\ufe0f','Drizzle'],55:['\ud83c\udf27\ufe0f','Heavy drizzle'],
+  56:['\ud83c\udf27\ufe0f','Freezing drizzle'],57:['\ud83c\udf27\ufe0f','Freezing drizzle'],
+  61:['\ud83c\udf26\ufe0f','Light rain'],63:['\ud83c\udf27\ufe0f','Rain'],65:['\ud83c\udf27\ufe0f','Heavy rain'],
+  66:['\ud83c\udf27\ufe0f','Freezing rain'],67:['\ud83c\udf27\ufe0f','Freezing rain'],
+  71:['\ud83c\udf28\ufe0f','Light snow'],73:['\ud83c\udf28\ufe0f','Snow'],75:['\u2744\ufe0f','Heavy snow'],77:['\ud83c\udf28\ufe0f','Snow grains'],
+  80:['\ud83c\udf26\ufe0f','Light showers'],81:['\ud83c\udf27\ufe0f','Showers'],82:['\u26c8\ufe0f','Violent showers'],
+  85:['\ud83c\udf28\ufe0f','Snow showers'],86:['\u2744\ufe0f','Heavy snow showers'],
+  95:['\u26c8\ufe0f','Thunderstorm'],96:['\u26c8\ufe0f','Storm w/ hail'],99:['\u26c8\ufe0f','Storm w/ hail']
+};
+
+// Short descriptor for per-match forecast tags (e.g. "14° rain").
+const WMO_SHORT = {
+  0:'sunny',1:'sunny',2:'cloudy',3:'cloudy',
+  45:'foggy',48:'foggy',
+  51:'drizzle',53:'drizzle',55:'drizzle',56:'drizzle',57:'drizzle',
+  61:'rain',63:'rain',65:'rain',66:'rain',67:'rain',
+  71:'snow',73:'snow',75:'snow',77:'snow',
+  80:'showers',81:'showers',82:'showers',
+  85:'snow',86:'snow',
+  95:'storms',96:'storms',99:'storms'
+};
+
+// Only courts 5–8 at Maroondah Nets are outdoors; 1–4 are indoors and unaffected by weather.
+const OUTDOOR_COURTS = new Set(['5','6','7','8']);
+function isOutdoorCourt(courtLabel){
+  if (!courtLabel) return false;
+  const num = courtLabel.replace(/Court\s*/i,'').trim();
+  return OUTDOOR_COURTS.has(num);
+}
+
+// Parses "Sat 18 Jul 2026" -> "2026-07-18"
+function dateStrToISO(dateStr){
+  if (!dateStr) return null;
+  const MONTHS = {Jan:'01',Feb:'02',Mar:'03',Apr:'04',May:'05',Jun:'06',Jul:'07',Aug:'08',Sep:'09',Oct:'10',Nov:'11',Dec:'12'};
+  const parts = dateStr.trim().split(/\s+/); // [Sat, 18, Jul, 2026]
+  if (parts.length < 4) return null;
+  const [,day,mon,year] = parts;
+  const mm = MONTHS[mon];
+  if (!mm) return null;
+  return `${year}-${mm}-${day.padStart(2,'0')}`;
+}
+
+let weatherFetchedFor = null;
+
+async function fetchWeatherFrom(url){
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(res.status);
+  return res.json();
+}
+
+async function fetchMatchDayWeather(){
+  const el = document.getElementById('weather-chip');
+  if (!el || !TODAY_DATE || weatherFetchedFor === TODAY_DATE) return;
+  weatherFetchedFor = TODAY_DATE;
+
+  const iso = dateStrToISO(TODAY_DATE);
+  if (!iso) { el.classList.add('hidden'); return; }
+
+  const dailyVars = 'weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max';
+  const base = `https://api.open-meteo.com/v1/forecast?latitude=${VENUE_LAT}&longitude=${VENUE_LON}`
+    + `&daily=${dailyVars}&timezone=Australia%2FMelbourne`;
+
+  let day = null, source = 'BOM';
+  try {
+    // Try BOM's ACCESS-G model first (max 10 forecast days).
+    const bom = await fetchWeatherFrom(`${base}&forecast_days=10&models=bom_access_global`);
+    const idx = (bom.daily?.time || []).indexOf(iso);
+    if (idx !== -1 && bom.daily.temperature_2m_max[idx] != null){
+      day = {
+        code: bom.daily.weathercode[idx],
+        hi: bom.daily.temperature_2m_max[idx],
+        lo: bom.daily.temperature_2m_min[idx],
+        rain: bom.daily.precipitation_probability_max?.[idx]
+      };
+    }
+  } catch(e){ console.warn('BOM model fetch failed, falling back', e); }
+
+  if (!day){
+    // BOM feed currently paused, or match day is beyond BOM's 10-day range —
+    // fall back to Open-Meteo's standard multi-model forecast (up to 16 days).
+    try {
+      const fallback = await fetchWeatherFrom(`${base}&forecast_days=16`);
+      const idx = (fallback.daily?.time || []).indexOf(iso);
+      if (idx !== -1){
+        day = {
+          code: fallback.daily.weathercode[idx],
+          hi: fallback.daily.temperature_2m_max[idx],
+          lo: fallback.daily.temperature_2m_min[idx],
+          rain: fallback.daily.precipitation_probability_max?.[idx]
+        };
+        source = 'Forecast';
+      }
+    } catch(e){ console.warn('Fallback weather fetch failed', e); }
+  }
+
+  if (!day){ el.classList.add('hidden'); return; } // too far out to forecast yet
+
+  const [icon, desc] = WMO[day.code] || ['\ud83c\udf21\ufe0f','\u2013'];
+  const hi = Math.round(day.hi), lo = Math.round(day.lo);
+  el.innerHTML = `<span class="w-label">Forecast:</span>`
+    + `<span class="w-icon">${icon}</span>`
+    + `<span class="w-temp">${hi}\u00b0/${lo}\u00b0</span>`
+    + `<span class="w-desc">${esc(desc)}</span>`
+    + (day.rain!=null && day.rain>=20 ? `<span class="w-rain">\ud83d\udca7${day.rain}%</span>` : '');
+  el.classList.remove('hidden');
+}
+
+// ── Per-match hourly forecast (outdoor courts only) ───────────
+// Uses UTC timestamps throughout so hourly.time lines up directly with m.start.
+let hourlyFetchedFor = null;
+let HOURLY = null; // { time:[], temperature_2m:[], weathercode:[], precipitation_probability:[] }
+
+async function fetchHourlyWeather(){
+  if (!TODAY_DATE || hourlyFetchedFor === TODAY_DATE) return;
+  hourlyFetchedFor = TODAY_DATE;
+
+  const hourlyVars = 'temperature_2m,weathercode,precipitation_probability';
+  const base = `https://api.open-meteo.com/v1/forecast?latitude=${VENUE_LAT}&longitude=${VENUE_LON}`
+    + `&hourly=${hourlyVars}&timezone=UTC`;
+
+  let data = null;
+  try {
+    // BOM ACCESS-G first (max 10 forecast days).
+    const bom = await fetchWeatherFrom(`${base}&forecast_days=10&models=bom_access_global`);
+    if (bom.hourly?.time?.length && bom.hourly.temperature_2m?.some(v=>v!=null)) data = bom.hourly;
+  } catch(e){ console.warn('BOM hourly fetch failed, falling back', e); }
+
+  if (!data){
+    try {
+      const fb = await fetchWeatherFrom(`${base}&forecast_days=16`);
+      if (fb.hourly?.time?.length) data = fb.hourly;
+    } catch(e){ console.warn('Fallback hourly fetch failed', e); }
+  }
+
+  if (data){
+    HOURLY = data;
+    // Re-render so match cards pick up the newly-available per-match forecasts.
+    renderAll(allMatches.length ? allMatches : BAKED_MATCHES, ladderMap);
+  }
+}
+
+// Returns a short forecast string like "14° rain" for a specific match, or
+// null if it shouldn't be shown (indoor court, match is live, or no data yet).
+function matchForecastText(m){
+  if (!m || m.result === 'LIVE') return null;
+  if (!isOutdoorCourt(m.court)) return null;
+  if (!HOURLY || !HOURLY.time?.length || !m.start) return null;
+
+  const target = new Date(m.start).getTime();
+  let bestIdx = -1, bestDiff = Infinity;
+  HOURLY.time.forEach((t, i) => {
+    const diff = Math.abs(new Date(t + 'Z').getTime() - target);
+    if (diff < bestDiff){ bestDiff = diff; bestIdx = i; }
+  });
+  if (bestIdx === -1 || bestDiff > 90*60*1000) return null; // nothing close enough
+
+  const temp = HOURLY.temperature_2m[bestIdx];
+  const code = HOURLY.weathercode[bestIdx];
+  if (temp == null || code == null) return null;
+
+  const desc = WMO_SHORT[code] || 'mixed';
+  return `${Math.round(temp)}\u00b0 ${desc}`;
+}
+
+// ── Drag-to-scroll for pill rows (mouse/trackpad — touch already works) ──
+function enableDragScroll(el){
+  let isDown=false, startX=0, startScroll=0, moved=false;
+  el.addEventListener('mousedown', e=>{
+    isDown=true; moved=false;
+    el.classList.add('dragging');
+    startX = e.pageX;
+    startScroll = el.scrollLeft;
+  });
+  const stop = ()=>{ isDown=false; el.classList.remove('dragging'); };
+  el.addEventListener('mouseleave', stop);
+  window.addEventListener('mouseup', stop);
+  el.addEventListener('mousemove', e=>{
+    if (!isDown) return;
+    e.preventDefault();
+    const walk = e.pageX - startX;
+    if (Math.abs(walk) > 5) moved = true;
+    el.scrollLeft = startScroll - walk;
+  });
+  // Suppress the click that would otherwise fire on a pill after a drag.
+  el.addEventListener('click', e=>{
+    if (moved){ e.preventDefault(); e.stopPropagation(); moved = false; }
+  }, true);
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.querySelectorAll('.frow').forEach(enableDragScroll);
+});
+
+function formatLastUpdated(iso){
+  if (!iso) return '';
+  const dt = new Date(iso);
+  if (isNaN(dt)) return '';
+  const datePart = dt.toLocaleDateString('en-AU', { timeZone: MELB_TZ, day:'numeric', month:'short' });
+  const timePart = dt.toLocaleTimeString('en-AU', { timeZone: MELB_TZ, hour:'numeric', minute:'2-digit', hour12:true });
+  return `Updated ${datePart}, ${timePart}`;
+}
+
+// Sets allMatches / allTeams / DATE_ORDER / TODAY_DATE from a flat matches array.
+function processMatches(matches){
+  allMatches = matches.slice().sort((a,b) => sortKey(a).localeCompare(sortKey(b)));
+
+  allTeams = [
+    ...new Set(matches.map(m => isTrinity(m.team1) ? m.team1 : m.team2))
+  ].sort();
+
+  const firstStartByDate = {};
+  for (const m of matches){
+    if (!(m.date_str in firstStartByDate) || m.start < firstStartByDate[m.date_str]){
+      firstStartByDate[m.date_str] = m.start;
+    }
+  }
+  DATE_ORDER = Object.keys(firstStartByDate)
+    .sort((a,b) => firstStartByDate[a].localeCompare(firstStartByDate[b]));
+
+  TODAY_DATE = resolveMatchDayDate(DATE_ORDER, firstStartByDate);
+
+  const todayIdx = DATE_ORDER.indexOf(TODAY_DATE);
+  NEXT_ROUND_DATE = (todayIdx >= 0 && todayIdx < DATE_ORDER.length - 1)
+    ? DATE_ORDER[todayIdx + 1]
+    : '';
+}
+
+// ── Boot ──────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  formMatchPool = BAKED_MATCHES.slice();
+  processMatches(BAKED_MATCHES);
+  buildTeamFilters(allTeams.length ? allTeams : BAKED_TEAMS);
+  buildRoundFilters(allMatches.length ? allMatches : BAKED_MATCHES);
+  renderAll(allMatches.length ? allMatches : BAKED_MATCHES, {});
+
+ fetchAll();
+ 
+});
+
+// ── Fetch ─────────────────────────────────────────────────────
+async function fetchAll() {
+  const bust = Date.now();
+  const [fixtures, ladder] = await Promise.all([
+    fetch(`./fixtures.json?_=${bust}`, { cache: 'no-store' }).then(r => r.json()),
+    fetch(`./ladder.json?_=${bust}`, { cache: 'no-store' }).then(r => r.json())
+  ]);
+  
+  applyFixtures(fixtures.data);
+  applyLadder(ladder.data);
+
+  const lu = formatLastUpdated(fixtures.fetchedAt);
+  document.getElementById('last-updated').textContent = lu ? `· ${lu}` : '';
+
+  setStatus('Loaded', false, true);
+}
+
+async function fetchFixtures(){
+  if (!PROXY_URL) return;
+  setStatus('Refreshing scores…', true);
+  try {
+    const res = await fetch(`${PROXY_URL}/fixtures`);
+    if (!res.ok) throw new Error(res.status);
+    applyFixtures(await res.json());
+    setStatus(`Scores updated ${new Date().toLocaleTimeString('en-AU')}`, false, true);
+    scheduleAuto(); // reset timer after manual
+  } catch(e){ setStatus(`Scores fetch failed — ${e.message}`, false, false); }
+}
+
+async function fetchLadder(){
+  if (!PROXY_URL) return;
+  setStatus('Refreshing ladder…', true);
+  try {
+    // First invalidate ladder cache on server so it re-fetches from Squadi
+    await fetch(`${PROXY_URL}/admin/invalidate?target=ladder`, {method:'POST'});
+    const res = await fetch(`${PROXY_URL}/ladder`);
+    if (!res.ok) throw new Error(res.status);
+    applyLadder(await res.json());
+    setStatus(`Ladder updated ${new Date().toLocaleTimeString('en-AU')}`, false, true);
+  } catch(e){ setStatus(`Ladder fetch failed — ${e.message}`, false, false); }
+}
+
+// Manual refresh button — also invalidates server cache
+async function manualRefresh() {
+  location.reload();
+}
+
+// ── Apply data ────────────────────────────────────────────────
+function applyFixtures(fixtureData){
+
+  //console.log('FIXTURES DATA', fixtureData);
+
+    const matches = [];
+    const rawMatches = []; // every match in every round, regardless of who's playing —
+                            // needed so both teams' form can be looked up, not just Trinity's
+
+    for (const round of (fixtureData.rounds || [])) {
+
+      for (const m of (round.matches || [])) {
+
+            const team1 =
+              m.team1?.name || '';
+
+            const team2 =
+              m.team2?.name || '';
+
+            const enriched = enrichMatch(m, round);
+            rawMatches.push(enriched);
+
+            if (
+              !isTrinity(team1) &&
+              !isTrinity(team2)
+            ) {
+              continue;
+            }
+
+            matches.push(enriched);
+          }
+    }
+
+    //console.log('Matches loaded:', matches.length);
+
+    formMatchPool = rawMatches;
+    processMatches(matches);
+
+  buildTeamFilters(allTeams);
+  buildRoundFilters(allMatches);
+
+  renderAll(allMatches, ladderMap);
+}
+
+function applyLadder(ladderData){
+  const entries = ladderData.ladders || [];
+
+  const divCounts = {};
+  for (const e of entries){
+    divCounts[e.divisionId] = (divCounts[e.divisionId] || 0) + 1;
+  }
+
+  const lm = {};
+  for (const e of entries){
+    const id = parseInt(e.id);
+    if (!id) continue;
+    const pf = e.F, pa = e.A;
+    const pct = (pf!=null && pa!=null) ? (Number(pa)===0 ? (Number(pf)>0?100:0) : (Number(pf)/Number(pa)*100)) : null;
+    lm[id] = {
+      rank: parseInt(e.rk),
+      totalTeams: divCounts[e.divisionId] || 1,
+      played: e.P,
+      wins: e.W,
+      losses: e.L,
+      draws: e.D,
+      byes: e.B,
+      forr: e.F,
+      against: e.A,
+      points: e.PTS,
+      percentage: pct,
+      // Authoritative section/division label straight from the ladder API —
+      // takes priority over the div_short derived from fixture data, which
+      // can lag behind if a team's section changes mid-season.
+      grade: e.grade || e.divisionName || null
+    };
+  }
+
+  ladderMap = lm;
+  renderAll(allMatches.length ? allMatches : BAKED_MATCHES, ladderMap);
+}
+
+// ── Enrich match ──────────────────────────────────────────────
+function enrichMatch(m, round) {
+
+  const iso = m.start || m.startTime || '';
+
+  const dt = iso ? new Date(iso) : null;
+
+  const dateStr = dt
+    ? dt.toLocaleDateString('en-AU', {
+        timeZone: 'Australia/Melbourne',
+        weekday: 'short',
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      })
+    : '';
+
+  const timeStr = dt
+    ? dt.toLocaleTimeString('en-AU', {
+        timeZone: 'Australia/Melbourne',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      })
+    : '';
+
+  const t1 = m.team1?.name || m.team1 || '';
+  const t2 = m.team2?.name || m.team2 || '';
+
+  const t1Id = m.team1?.id || m.team1Id || null;
+  const t2Id = m.team2?.id || m.team2Id || null;
+
+  const status = m.matchStatus || '';
+
+  const t1s = m.team1Score ?? 0;
+  const t2s = m.team2Score ?? 0;
+
+  const t1t = isTrinity(t1);
+
+  let result;          // Trinity-relative — used by existing badges/chips/filters
+  let team1Result;     // neutral, from team1's own perspective — used for form lookups
+  let team2Result;     // neutral, from team2's own perspective
+
+  if (status === 'STARTED') {
+    result = 'LIVE';
+    team1Result = 'LIVE';
+    team2Result = 'LIVE';
+  } else if (status === 'ENDED') {
+    const ts = t1t ? t1s : t2s;
+    const os = t1t ? t2s : t1s;
+
+    result =
+      ts > os ? 'WIN'
+      : ts < os ? 'LOSS'
+      : 'DRAW';
+
+    if (t1s > t2s) { team1Result = 'WIN';  team2Result = 'LOSS'; }
+    else if (t1s < t2s) { team1Result = 'LOSS'; team2Result = 'WIN'; }
+    else { team1Result = 'DRAW'; team2Result = 'DRAW'; }
+  } else {
+    result = 'UPCOMING';
+    team1Result = 'UPCOMING';
+    team2Result = 'UPCOMING';
+  }
+
+  const divName =
+    m.division ||
+    round?.division?.name ||
+    m.divisionName ||
+    '';
+
+  const divShort = divName
+    .replace(/\(Femals and Males\)|\(Females & Males\)/g, '')
+    .replace(/\(Males 13\/U.*?participate\)/g, '')
+    .replace(/restrictions apply|- no restrictions/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const courtRaw =
+    m.venueCourt?.name ||
+    m.court ||
+    '';
+
+  const courtNum =
+    courtRaw.replace(/Court\s*/i, '');
+
+  const courtLabel =
+    courtNum
+      ? `Court ${courtNum}`
+      : courtRaw;
+
+  return {
+    id: m.id,
+    round: round?.name || m.round || '',
+    div_short: divShort,
+    start: iso,
+    date_str: dateStr,
+    time_str: timeStr,
+    team1: t1,
+    team2: t2,
+    team1Id: t1Id,
+    team2Id: t2Id,
+    team1Score: t1s,
+    team2Score: t2s,
+    matchStatus: status,
+    result,
+    team1Result,
+    team2Result,
+    court: courtLabel
+  };
+}
+
+
+// ── Form guide (last 3, going INTO a match) ──────────────────
+// Works for EITHER team on a card — not just Trinity — by searching the
+// full match pool (formMatchPool), which includes every match in every
+// round Trinity's divisions contain, not just Trinity's own games.
+// Byes/forfeits show as 'B' rather than W/L/D. Only shown on Match Day
+// and the single next upcoming round (see shouldShowForm below).
+
+function isByeMatch(m){
+  return /^bye$/i.test((m.team1||'').trim()) || /^bye$/i.test((m.team2||'').trim());
+}
+
+function resultCodeForSide(m, isTeam1Side){
+  if (isByeMatch(m)) return 'B';
+  const r = isTeam1Side ? m.team1Result : m.team2Result;
+  if (r === 'WIN')  return 'W';
+  if (r === 'LOSS') return 'L';
+  if (r === 'DRAW') return 'D';
+  return null; // LIVE / UPCOMING / unknown — shouldn't reach here, but be safe
+}
+
+// Last N results (oldest → newest) for whichever team occupies `side`
+// ('team1' or 'team2') of match `m`, strictly BEFORE m.start — i.e. form
+// going into that match, not including it.
+function getFormBeforeMatch(m, side, n = 3){
+  const teamId   = side === 'team1' ? m.team1Id : m.team2Id;
+  const teamName = side === 'team1' ? m.team1   : m.team2;
+  if (!teamName) return [];
+
+  const candidates = formMatchPool
+    .map(x => {
+      const isTeam1Side = teamId ? x.team1Id === teamId : x.team1 === teamName;
+      const isTeam2Side = teamId ? x.team2Id === teamId : x.team2 === teamName;
+      return (isTeam1Side || isTeam2Side) ? { x, isTeam1Side } : null;
+    })
+    .filter(Boolean)
+    .filter(({x}) => x.start && m.start && x.start < m.start)
+    .filter(({x}) => x.matchStatus === 'ENDED' || isByeMatch(x));
+
+  candidates.sort((a, b) => (a.x.start||'').localeCompare(b.x.start||''));
+
+  return candidates.slice(-n).map(({x, isTeam1Side}) => resultCodeForSide(x, isTeam1Side)).filter(Boolean);
+}
+
+// Only show the form badge on today's Match Day cards and the single
+// next upcoming round — not on past rounds or the whole season.
+function shouldShowForm(m){
+  return m.date_str === TODAY_DATE || (!!NEXT_ROUND_DATE && m.date_str === NEXT_ROUND_DATE);
+}
+
+// `extraHtml`, when provided (e.g. the rank badge), is appended to the
+// right of the last-3 dots inside the same row — used for LIVE cards
+// where the rank badge sits next to form instead of on its own line,
+// e.g. "Last 3: W W L - #1".
+function formBadgeHtml(m, side, extraHtml = ''){
+  const form = shouldShowForm(m) ? getFormBeforeMatch(m, side, 3) : [];
+  const dot = c => {
+    const cls = c==='W' ? 'fm-w' : c==='L' ? 'fm-l' : c==='D' ? 'fm-d' : 'fm-b';
+    return `<span class="fm-dot ${cls}">${c}</span>`;
+  };
+  const dotsHtml = form.map(dot).join('');
+  if (!dotsHtml && !extraHtml) return '';
+  const titleAttr = form.length ? ` title="Form — last ${form.length} (most recent on the right)"` : '';
+  const labelHtml = dotsHtml ? `<span class="form-label">L3:</span>` : '';
+  const sepHtml = (dotsHtml && extraHtml) ? `<span class="form-sep">-</span>` : '';
+  return `<div class="form-badge"${titleAttr}>${labelHtml}${dotsHtml}${sepHtml}${extraHtml}</div>`;
+}
+
+// Builds the rank-badge / form-badge area under a team name.
+//  - Completed matches (WIN/LOSS/DRAW): show neither (dropped entirely).
+//  - LIVE matches: form dots and rank badge share a single row, dots first.
+//  - Everything else (upcoming, ladder-preview, etc.): unchanged — rank
+//    badge on its own line above the form dots.
+function teamMetaHtml(rank, m, side, done, live, showLadderPreview){
+  if (done) return '';
+  if (live) return formBadgeHtml(m, side, rank || '');
+  return `${(rank && !showLadderPreview)?`<div>${rank}</div>`:''}${formBadgeHtml(m, side)}`;
+}
+
+    function sortKey(m){
+  const o={LIVE:0,WIN:1,LOSS:1,DRAW:1,UPCOMING:2};
+  return `${o[m.result]??2}|${m.start}`;
+}
+
+// ── Render ────────────────────────────────────────────────────
+// Age groups, in display order. Anything unrecognised falls in "Other".
+const AGE_GROUP_ORDER = ['U11','U13','U15','U17','Open','Other'];
+
+function ageGroup(m){
+  const src = m.div_short || '';
+  const num = src.match(/(\d+)\s*&\s*U/i);
+  if (num) return 'U' + num[1];
+  if (/open/i.test(src)) return 'Open';
+  return 'Other';
+}
+
+// Groups a list of matches by age group (in AGE_GROUP_ORDER) and renders
+// each group with its own header, cards sorted LIVE-first then by time.
+function renderCardsByAgeGroup(matches, lmap, isSchedule=false){
+  const groups = {};
+  for (const m of matches){
+    const ag = ageGroup(m);
+    (groups[ag] = groups[ag] || []).push(m);
+  }
+  const order = [
+    ...AGE_GROUP_ORDER.filter(ag => groups[ag]),
+    ...Object.keys(groups).filter(ag => !AGE_GROUP_ORDER.includes(ag))
+  ];
+
+  return order.map(ag => {
+    const list = groups[ag].slice().sort((a,b)=>sortKey(a).localeCompare(sortKey(b)));
+    return `<div class="agegrp" data-age="${esc(ag)}">
+      <div class="agehead">
+        <span class="albl">${esc(ag)}</span>
+        <span class="acnt">${list.length} match${list.length!==1?'es':''}</span>
+      </div>
+      ${list.map(m=>makeCard(m,lmap,isSchedule)).join('')}
+    </div>`;
+  }).join('');
+}
+
+function renderAll(matches, lmap){
+  fetchMatchDayWeather();
+  fetchHourlyWeather();
+  const today     = matches.filter(m=>m.date_str===TODAY_DATE);
+  const todayLive = today.filter(m=>m.result==='LIVE').length;
+  const todayWins = today.filter(m=>m.result==='WIN').length;
+  const todayLoss = today.filter(m=>m.result==='LOSS').length;
+  const todayRem  = today.filter(m=>m.result==='UPCOMING').length;
+
+  document.getElementById('stat-live').textContent     = todayLive;
+  document.getElementById('stat-played').textContent   = todayWins+todayLoss;
+  document.getElementById('stat-upcoming').textContent = todayRem;
+
+  document.getElementById('today-chips').innerHTML = [
+    todayLive ? `<span class="chip chip-live">● ${todayLive} Live</span>` : '',
+    `<span class="chip chip-win">${todayWins} Win${todayWins!==1?'s':''}</span>`,
+    `<span class="chip chip-loss">${todayLoss} Loss${todayLoss!==1?'es':''}</span>`,
+    `<span class="chip chip-rem">${todayRem} Upcoming</span>`,
+  ].join('');
+
+  // Match Day header — round + date being shown
+  const todayDateEl = document.getElementById('today-date');
+  if (todayDateEl){
+    todayDateEl.textContent = today.length
+      ? `${TODAY_DATE}${today[0].round?` - ${today[0].round}`:''}`
+      : (TODAY_DATE || 'No matches scheduled');
+  }
+
+  // Today cards — grouped by age group, LIVE first then by start time within each group
+  document.getElementById('today-cards').innerHTML = renderCardsByAgeGroup(today, lmap);
+
+  // Schedule sections — one per date, each split into age groups
+  let shtml='';
+  for (const date of DATE_ORDER){
+    const day = matches.filter(m=>m.date_str===date);
+    if (!day.length) continue;
+    const isToday = date===TODAY_DATE;
+    shtml+=`<section class="dsec" data-date="${esc(date)}">
+      <div class="dhead">
+        <span class="dlbl">${isToday?'🔴 Match Day — ':''}${esc(date)}${day[0]?.round?` - ${esc(day[0].round)}`:''}</span>
+        <span class="dcnt">${day.length} match${day.length!==1?'es':''}</span>
+      </div>
+      ${renderCardsByAgeGroup(day, lmap, true)}
+    </section>`;
+  }
+  document.getElementById('sched-list').innerHTML = shtml;
+
+  applyTodayFilter();
+  applySchedFilter();
+  renderLadder(matches, lmap);
+}
+
+// ── Ladder ────────────────────────────────────────────────────
+// One row per Trinity team, grouped by age group, showing ladder
+// position, wins, losses and win percentage (goals for / goals against).
+function buildLadderRoster(matches){
+  const roster = {};
+  for (const m of matches){
+    if (m.team1Id && isTrinity(m.team1) && !roster[m.team1Id]){
+      roster[m.team1Id] = { id: m.team1Id, name: m.team1, div_short: m.div_short };
+    }
+    if (m.team2Id && isTrinity(m.team2) && !roster[m.team2Id]){
+      roster[m.team2Id] = { id: m.team2Id, name: m.team2, div_short: m.div_short };
+    }
+  }
+  return Object.values(roster);
+}
+
+function makeLadderRow(t, lmap){
+  const d = lmap[t.id];
+  const rankTxt = d && d.rank ? ordinal(d.rank) : '–';
+  const cls = d && d.rank
+    ? (d.rank===1?'rk-1':d.rank===2?'rk-2':d.rank===3?'rk-3':d.rank<=Math.ceil(d.totalTeams/2)?'rk-top':'rk-low')
+    : 'rk-low';
+
+  const played  = d?.played  ?? '–';
+  const wins    = d?.wins    ?? '–';
+  const losses  = d?.losses  ?? '–';
+  const draws   = d?.draws   ?? '–';
+  const forr    = d?.forr    ?? '–';
+  const against = d?.against ?? '–';
+  const byes    = d?.byes    ?? '–';
+  const ga      = d && d.percentage!=null ? `${d.percentage.toFixed(1)}%` : '–';
+
+  return `<tr>
+    <td class="ltd-rank">
+      <span class="rank-box ${cls}">${esc(rankTxt)}</span>
+    </td>
+    <td class="ltd-team">
+      <div class="lcard-team">${esc(t.name.replace('Trinity ',''))} <span class="lcard-section">(${esc(sectionLabelShort(d?.grade || t.div_short))})</span></div>
+    </td>
+    <td>${esc(played)}</td>
+    <td>${esc(wins)}</td>
+    <td>${esc(losses)}</td>
+    <td>${esc(draws)}</td>
+    <td>${esc(byes)}</td>
+    <td>${esc(forr)}</td>
+    <td>${esc(against)}</td>
+    <td>${esc(ga)}</td>
+  </tr>`;
+}
+
+function renderLadder(matches, lmap){
+  const el = document.getElementById('ladder-list');
+  if (!el) return;
+
+  const roster = buildLadderRoster(matches);
+  if (!roster.length){
+    el.innerHTML = `<div class="empty">Ladder loading…</div>`;
+    return;
+  }
+
+  const groups = {};
+  for (const t of roster){
+    const ag = ageGroup({ div_short: t.div_short });
+    (groups[ag] = groups[ag] || []).push(t);
+  }
+  const order = [
+    ...AGE_GROUP_ORDER.filter(ag => groups[ag]),
+    ...Object.keys(groups).filter(ag => !AGE_GROUP_ORDER.includes(ag))
+  ];
+
+  el.innerHTML = order.map(ag => {
+    const list = groups[ag].slice().sort((a,b)=>a.name.localeCompare(b.name));
+    return `<div class="agegrp" data-age="${esc(ag)}">
+      <div class="agehead">
+        <span class="albl">${esc(ag)}</span>
+        <span class="acnt">${list.length} team${list.length!==1?'s':''}</span>
+      </div>
+      <div class="ltable-wrap">
+        <table class="ltable">
+          <thead>
+            <tr>
+              <th class="lth-rank">#</th>
+              <th class="lth-team">Team (Section)</th>
+              <th>Played</th>
+              <th>Won</th>
+              <th>Lost</th>
+              <th>Drawn</th>
+              <th>Bye</th>
+              <th>Goals For</th>
+              <th>Goals Against</th>
+              <th>Goal Avg</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${list.map(t=>makeLadderRow(t,lmap)).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function makeCard(m, lmap, isSchedule=false){
+  const t1t  = isTrinity(m.team1);
+  const t2t  = isTrinity(m.team2);
+  const live = m.result==='LIVE';
+  const done = ['WIN','LOSS','DRAW'].includes(m.result);
+  const hasScore = (live||done) && (m.team1Score||m.team2Score||done);
+
+const t1RankNum = lmap[m.team1Id]?.rank;
+const t2RankNum = lmap[m.team2Id]?.rank;
+
+const showLadderPreview =
+  !hasScore &&
+  m.date_str === TODAY_DATE;
+
+  const scoreHtml = hasScore
+  ? `<div class="score ${live ? 'score-live' : ''}">
+      <span>${m.team1Score}</span>
+      <span class="dash">–</span>
+      <span>${m.team2Score}</span>
+     </div>`
+  : showLadderPreview
+    ? `<div class="vs-preview">
+         <span class="vs-rank">${ordinal(t1RankNum)}</span>
+         <span class="vs-sep">v</span>
+         <span class="vs-rank">${ordinal(t2RankNum)}</span>
+       </div>`
+    : `<div class="vs">vs</div>`;
+
+
+  const margin = Math.abs((m.team1Score||0) - (m.team2Score||0));
+  const trinityScore = t1t ? m.team1Score : m.team2Score;
+  const oppScore = t1t ? m.team2Score : m.team1Score;
+  const liveLabel = margin===0 ? '● Tied' : `● ${trinityScore>oppScore?'Up':'Down'} by ${margin}`;
+  const bmap={LIVE:`b-live ${liveLabel}`,WIN:`b-win Won by ${margin}`,LOSS:`b-loss Lost by ${margin}`,DRAW:'b-draw Draw',UPCOMING:'b-up Upcoming'};
+  const [bcls,...bw]=(bmap[m.result]||'b-up Upcoming').split(' ');
+  const badgeHtml = (m.result==='UPCOMING')
+    ? ''
+    : `<span class="badge ${bcls}">${bw.join(' ')}</span>`;
+
+  const teamKey = esc(t1t?m.team1:m.team2);
+  const t1Rank  = rankBadge(m.team1Id, lmap);
+  const t2Rank  = rankBadge(m.team2Id, lmap);
+
+  // Footer: time + court, plus a per-match forecast for outdoor courts (5–8) when not live.
+  const forecast = matchForecastText(m);
+  const footHtml = (m.time_str || m.court)
+    ? `<span class="time-tag">${m.time_str?`🕐 ${esc(m.time_str)}`:''}${m.court?`<span class="court-tag">${esc(m.court)}</span>`:''}${forecast?`<span class="forecast-tag">. Forecast: ${esc(forecast)}.</span>`:''}</span>`
+    : '';
+
+  return `<div class="card${live?' card-live':''}" data-team="${teamKey}" data-result="${m.result}" data-round="${esc(m.round)}">
+    <div class="card-top">
+      <div class="cleft"><span class="dtag">${esc(sectionLabel(m.div_short))}</span></div>
+    </div>
+    <div class="matchup">
+      <div class="team-block">
+        <div class="team ${t1t?'tt':''}">${esc(m.team1)}</div>
+        ${teamMetaHtml(t1Rank, m, 'team1', done, live, showLadderPreview)}
+      </div>
+      <div class="score-col">
+        ${scoreHtml}
+        ${badgeHtml}
+      </div>
+      <div class="team-block team-block-right">
+        <div class="team ${t2t?'tt':''}">${esc(m.team2)}</div>        
+        ${teamMetaHtml(t2Rank, m, 'team2', done, live, showLadderPreview)}
+      </div>
+    </div>
+    ${footHtml?`<div class="cfoot">${footHtml}</div>`:''}
+  </div>`;
+}
+
+function rankBadge(teamId, lmap){
+  if (!teamId||!lmap[teamId]) return '';
+  const {rank,wins,losses,points} = lmap[teamId];
+  const n=parseInt(rank);
+  return `<span class="rank-plain" title="${wins}W ${losses}L · ${points}pts">#${n}</span>`;
+}
+
+// ── Filters ───────────────────────────────────────────────────
+function applyTodayFilter(){
+  let v=0;
+  document.querySelectorAll('#today-cards .card').forEach(c=>{
+    const ok=(todayResultFilter==='all'||c.dataset.result===todayResultFilter)
+           &&(todayTeamFilter==='all'||c.dataset.team===todayTeamFilter);
+    c.classList.toggle('hidden',!ok); if(ok)v++;
+  });
+  document.querySelectorAll('#today-cards .agegrp').forEach(g=>{
+    g.classList.toggle('hidden', g.querySelectorAll('.card:not(.hidden)').length===0);
+  });
+  document.getElementById('today-count').textContent=`Showing ${v} match${v!==1?'es':''}`;
+  document.getElementById('today-empty').classList.toggle('hidden',v>0);
+}
+
+function applySchedFilter(){
+  let v=0;
+  document.querySelectorAll('#sched-list .card').forEach(c=>{
+    const ok=(schedResultFilter==='all'||c.dataset.result===schedResultFilter||c.dataset.round===schedResultFilter)
+           &&(schedTeamFilter==='all'||c.dataset.team===schedTeamFilter);
+    c.classList.toggle('hidden',!ok); if(ok)v++;
+  });
+  document.querySelectorAll('#sched-list .agegrp').forEach(g=>{
+    g.classList.toggle('hidden', g.querySelectorAll('.card:not(.hidden)').length===0);
+  });
+  document.querySelectorAll('#sched-list .agehead').forEach(h=>{
+    h.classList.toggle('hidden', schedTeamFilter!=='all');
+  });
+  document.querySelectorAll('#sched-list .dsec').forEach(s=>{
+    s.style.display=s.querySelectorAll('.card:not(.hidden)').length?'':'none';
+  });
+  document.getElementById('sched-count').textContent=`Showing ${v} match${v!==1?'es':''}`;
+  document.getElementById('sched-empty').classList.toggle('hidden',v>0);
+}
+
+function buildRoundFilters(matches){
+  const seen = new Set();
+  const rounds = [];
+  for (const m of matches){
+    if (m.round && !seen.has(m.round)){
+      seen.add(m.round);
+      rounds.push(m.round);
+    }
+  }
+  const mk = r => `<button class="fbtn sf-btn" data-sfilter="${esc(r)}">${esc(r)}</button>`;
+  document.getElementById('sched-round-btns').innerHTML = rounds.map(mk).join('');
+  bindSfBtns();
+}
+
+function buildTeamFilters(teams){
+  const mk=(t,sfx)=>`<button class="tbtn tt-${sfx}${t==='all'?' active':''}" data-team="${esc(t)}">${esc(t==='all'?'All teams':t.replace('Trinity ',''))}</button>`;
+  document.getElementById('today-team-btns').innerHTML=['all',...teams].map(t=>mk(t,'today')).join('');
+  document.getElementById('sched-team-btns').innerHTML=['all',...teams].map(t=>mk(t,'sched')).join('');
+  bindTeamBtns();
+}
+
+function bindTeamBtns(){
+  document.querySelectorAll('.tt-today').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.tt-today').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');todayTeamFilter=b.dataset.team;applyTodayFilter();
+  }));
+  document.querySelectorAll('.tt-sched').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.tt-sched').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');schedTeamFilter=b.dataset.team;applySchedFilter();
+  }));
+}
+
+// ── Tabs ──────────────────────────────────────────────────────
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById('panel-'+t.dataset.tab).classList.add('active');
+}));
+
+document.querySelectorAll('.tf-btn').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tf-btn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');todayResultFilter=b.dataset.tfilter;applyTodayFilter();
+}));
+function bindSfBtns(){
+  // No-op: click handling is delegated once below, so this just exists
+  // as a stable hook point for callers that rebuild the round buttons.
+}
+document.addEventListener('click', (e)=>{
+  const b = e.target.closest('.sf-btn');
+  if (!b) return;
+  document.querySelectorAll('.sf-btn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  schedResultFilter = b.dataset.sfilter;
+  applySchedFilter();
+});
+
+// ── Status ────────────────────────────────────────────────────
+function setStatus(msg, loading, ok){
+  document.getElementById('status-text').textContent = msg;
+  const dot = document.getElementById('status-dot');
+  dot.className = 'status-dot' + (loading ? '' : ok ? ' live' : '');
+}
+
+function showSetupNotice(){
+  if (document.getElementById('setup-notice')) return;
+  const el = document.createElement('div');
+  el.id = 'setup-notice';
+  el.className = 'setup-notice';
+  el.innerHTML = `<strong>⚙️ Live data not configured</strong>
+    Deploy the proxy to Cloud Run, then set <code>const PROXY_URL = 'https://...'</code> at the top of this file.
+    Currently showing cached data from last round.`;
+  document.querySelector('#panel-today main').prepend(el);
+}
+</script>
+</body>
+</html>

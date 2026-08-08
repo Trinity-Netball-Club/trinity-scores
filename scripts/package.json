@@ -1,0 +1,17 @@
+{
+  "name": "trinity-netball-scripts",
+  "version": "1.0.0",
+  "description": "Data fetch scripts for Trinity Netball fixtures and ladder",
+  "scripts": {
+    "fixtures": "node scrape-fixtures.js",
+    "matchday": "node scrape-matchday.js",
+    "ladder": "node scrape-ladder.js",
+    "test": "node test-playwright.js"
+  },
+  "dependencies": {
+    "playwright": "^1.54.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
