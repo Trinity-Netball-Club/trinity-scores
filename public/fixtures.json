@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-08T07:50:45.551Z",
+  "fetchedAt": "2026-08-08T08:10:42.740Z",
   "data": {
     "rounds": [
       {
@@ -35566,8 +35566,8 @@
           },
           {
             "id": 2793977,
-            "team1Score": 26,
-            "team2Score": 18,
+            "team1Score": 28,
+            "team2Score": 19,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -35582,8 +35582,8 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
             "endTime": null,
             "team1ResultId": null,
             "team2ResultId": null,
@@ -37508,8 +37508,8 @@
           },
           {
             "id": 2794038,
-            "team1Score": 32,
-            "team2Score": 19,
+            "team1Score": 37,
+            "team2Score": 20,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -37524,8 +37524,8 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
             "endTime": null,
             "team1ResultId": null,
             "team2ResultId": null,
@@ -37801,8 +37801,8 @@
           },
           {
             "id": 2794048,
-            "team1Score": 15,
-            "team2Score": 38,
+            "team1Score": 17,
+            "team2Score": 44,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -37817,8 +37817,8 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
             "endTime": null,
             "team1ResultId": null,
             "team2ResultId": null,
