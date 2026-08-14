@@ -405,6 +405,7 @@ main{max-width:860px;margin:0 auto;padding:.9rem 1rem 3rem}
 }
 .score-col .badge{margin-top:2px}
 .team-block .badge{margin-top:1px}
+.next-update{font-size:10px;color:var(--tf);margin-top:3px;white-space:nowrap}
 .score{
   font-size:1.9rem;font-weight:700;color:var(--dark);
   text-align:center;white-space:nowrap;
@@ -624,6 +625,8 @@ let todayTeamFilter   = 'all';
 let schedResultFilter = 'UPCOMING';
 let schedTeamFilter   = 'all';
 let autoTimer         = null;
+let LAST_FETCHED_AT_MS = null; // epoch ms of most recent successful fixtures fetch — used to drive the "next update in Xm" countdown on LIVE cards
+const UPDATE_INTERVAL_MS = 10*60_000; // scores refresh every 10 minutes
 
 // ── Helpers ───────────────────────────────────────────────────
 function isTrinity(n){ return typeof n==='string' && n.toLowerCase().includes('trinity'); }
@@ -939,6 +942,23 @@ function formatLastUpdated(iso){
   return `Updated ${datePart}, ${timePart}`;
 }
 
+// Refreshes the "Next update in Xm" text under every LIVE card's badge.
+// Driven off LAST_FETCHED_AT_MS + UPDATE_INTERVAL_MS, ticked on an interval
+// so the countdown stays live without needing a full re-render.
+function updateNextUpdateCountdowns(){
+  const nodes = document.querySelectorAll('.next-update');
+  if (!nodes.length) return;
+  let text = '';
+  if (LAST_FETCHED_AT_MS){
+    const msLeft = (LAST_FETCHED_AT_MS + UPDATE_INTERVAL_MS) - Date.now();
+    const minsLeft = Math.ceil(msLeft / 60_000);
+    text = minsLeft > 0 ? `Next update in ${minsLeft} min${minsLeft===1?'':'s'}` : 'Updating soon…';
+  }
+  nodes.forEach(n => { n.textContent = text; });
+}
+setInterval(updateNextUpdateCountdowns, 15_000);
+
+
 // Sets allMatches / allTeams / DATE_ORDER / TODAY_DATE from a flat matches array.
 function processMatches(matches){
   allMatches = matches.slice().sort((a,b) => sortKey(a).localeCompare(sortKey(b)));
@@ -983,7 +1003,9 @@ async function fetchAll() {
     fetch(`./fixtures.json?_=${bust}`, { cache: 'no-store' }).then(r => r.json()),
     fetch(`./ladder.json?_=${bust}`, { cache: 'no-store' }).then(r => r.json())
   ]);
-  
+
+  LAST_FETCHED_AT_MS = fixtures.fetchedAt ? new Date(fixtures.fetchedAt).getTime() : Date.now();
+
   applyFixtures(fixtures.data);
   applyLadder(ladder.data);
 
@@ -999,6 +1021,7 @@ async function fetchFixtures(){
   try {
     const res = await fetch(`${PROXY_URL}/fixtures`);
     if (!res.ok) throw new Error(res.status);
+    LAST_FETCHED_AT_MS = Date.now();
     applyFixtures(await res.json());
     setStatus(`Scores updated ${new Date().toLocaleTimeString('en-AU')}`, false, true);
     scheduleAuto(); // reset timer after manual
@@ -1387,6 +1410,7 @@ function renderAll(matches, lmap){
   applyTodayFilter();
   applySchedFilter();
   renderLadder(matches, lmap);
+  updateNextUpdateCountdowns();
 }
 
 // ── Ladder ────────────────────────────────────────────────────
@@ -1556,6 +1580,11 @@ const showLadderPreview =
   const t1Rank  = rankBadge(m.team1Id, lmap);
   const t2Rank  = rankBadge(m.team2Id, lmap);
 
+  // Countdown to the next scheduled data refresh, shown only on LIVE cards
+  // (regardless of whether it's a Trinity-vs-Trinity match). Filled in by
+  // updateNextUpdateCountdowns() and re-ticked on an interval.
+  const nextUpdateHtml = live ? `<div class="next-update"></div>` : '';
+
   // Footer: time + court, plus a per-match forecast for outdoor courts (5–8) when not live.
   const forecast = matchForecastText(m);
   const footHtml = (m.time_str || m.court)
@@ -1575,6 +1604,7 @@ const showLadderPreview =
       <div class="score-col">
         ${scoreHtml}
         ${badgeHtml}
+        ${nextUpdateHtml}
       </div>
       <div class="team-block team-block-right">
         <div class="team ${t2t?'tt':''}">${esc(m.team2)}</div>        
