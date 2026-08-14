@@ -406,6 +406,7 @@ main{max-width:860px;margin:0 auto;padding:.9rem 1rem 3rem}
 .score-col .badge{margin-top:2px}
 .team-block .badge{margin-top:1px}
 .next-update{font-size:10px;color:var(--tf);margin-top:3px;white-space:nowrap}
+.quarter-estimate{font-size:10px;color:var(--tf);white-space:nowrap;font-weight:600}
 .score{
   font-size:1.9rem;font-weight:700;color:var(--dark);
   text-align:center;white-space:nowrap;
@@ -933,6 +934,44 @@ document.addEventListener('DOMContentLoaded', ()=>{
   document.querySelectorAll('.frow').forEach(enableDragScroll);
 });
 
+// Estimates which quarter a LIVE match is currently in, purely from
+// elapsed wall-clock time since kickoff (netball has no clock stoppages,
+// so this is reasonably close — but starts can run late and finals can
+// go to extra time, so it's always shown as an approximation, e.g. "Q~3").
+function estimateQuarter(m){
+  if (m.result !== 'LIVE' || !m.start) return '';
+  const total = Number(m.matchDuration);
+  if (!total) return ''; // no duration info yet (e.g. baked data before first live fetch)
+
+  const qLen = total / 4;
+  const brk  = Number(m.breakDuration) || 0;      // between Q1/Q2 and Q3/Q4
+  const half = Number(m.mainBreakDuration) || 0;   // between Q2/Q3 (halftime)
+
+  const startMs = new Date(m.start).getTime();
+  if (isNaN(startMs)) return '';
+  const elapsed = (Date.now() - startMs) / 60_000; // minutes
+  if (elapsed < 0) return '';
+
+  const q1End   = qLen;
+  const brk1End = q1End + brk;
+  const q2End   = brk1End + qLen;
+  const halfEnd = q2End + half;
+  const q3End   = halfEnd + qLen;
+  const brk2End = q3End + brk;
+  const q4End   = brk2End + qLen;
+
+  if (elapsed < q1End)   return 'Q~1';
+  if (elapsed < brk1End) return '~Break';
+  if (elapsed < q2End)   return 'Q~2';
+  if (elapsed < halfEnd) return '~Half Time';
+  if (elapsed < q3End)   return 'Q~3';
+  if (elapsed < brk2End) return '~Break';
+  if (elapsed < q4End)   return 'Q~4';
+
+  // Past scheduled regulation time — finals may go to extra time.
+  return m.isFinals ? '~Extra Time' : 'Q~4';
+}
+
 function formatLastUpdated(iso){
   if (!iso) return '';
   const dt = new Date(iso);
@@ -1235,7 +1274,17 @@ function enrichMatch(m, round) {
     result,
     team1Result,
     team2Result,
-    court: courtLabel
+    court: courtLabel,
+    // Raw quarter/timing fields, kept as-is from the feed — used only to
+    // *estimate* the current quarter on LIVE cards (netball has no clock
+    // stoppages, but finals can carry extra time).
+    matchType: m.type || '',
+    matchDuration: m.matchDuration ?? null,
+    breakDuration: m.breakDuration ?? null,
+    mainBreakDuration: m.mainBreakDuration ?? null,
+    isFinals: !!m.isFinals,
+    extraTimeDuration: m.extraTimeDuration ?? null,
+    extraTimeBreak: m.extraTimeBreak ?? null
   };
 }
 
@@ -1585,6 +1634,10 @@ const showLadderPreview =
   // updateNextUpdateCountdowns() and re-ticked on an interval.
   const nextUpdateHtml = live ? `<div class="next-update"></div>` : '';
 
+  // Approximate current quarter, also LIVE-only.
+  const quarterLabel = live ? estimateQuarter(m) : '';
+  const quarterHtml = quarterLabel ? `<div class="quarter-estimate">${quarterLabel}</div>` : '';
+
   // Footer: time + court, plus a per-match forecast for outdoor courts (5–8) when not live.
   const forecast = matchForecastText(m);
   const footHtml = (m.time_str || m.court)
@@ -1602,6 +1655,7 @@ const showLadderPreview =
         ${teamMetaHtml(t1Rank, m, 'team1', done, live, showLadderPreview)}
       </div>
       <div class="score-col">
+        ${quarterHtml}
         ${scoreHtml}
         ${badgeHtml}
         ${nextUpdateHtml}
