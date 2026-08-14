@@ -404,6 +404,7 @@ main{max-width:860px;margin:0 auto;padding:.9rem 1rem 3rem}
   gap:.35rem;
 }
 .score-col .badge{margin-top:2px}
+.team-block .badge{margin-top:1px}
 .score{
   font-size:1.9rem;font-weight:700;color:var(--dark);
   text-align:center;white-space:nowrap;
@@ -1525,7 +1526,29 @@ const showLadderPreview =
   const liveLabel = margin===0 ? '● Tied' : `● ${trinityScore>oppScore?'Up':'Down'} by ${margin}`;
   const bmap={LIVE:`b-live ${liveLabel}`,WIN:`b-win Won by ${margin}`,LOSS:`b-loss Lost by ${margin}`,DRAW:'b-draw Draw',UPCOMING:'b-up Upcoming'};
   const [bcls,...bw]=(bmap[m.result]||'b-up Upcoming').split(' ');
-  const badgeHtml = (m.result==='UPCOMING')
+
+  // When two Trinity teams play each other, a single "team1-perspective"
+  // badge is ambiguous (whose "Lost by 17" is it?). In that case, swap the
+  // shared center badge for one badge per team, each from that team's own
+  // point of view, shown next to its own name instead.
+  const bothTrinity = t1t && t2t;
+  function ownBadge(myScore, oppScore){
+    const mg = Math.abs((myScore||0) - (oppScore||0));
+    if (m.result==='LIVE'){
+      const lbl = mg===0 ? '● Tied' : `● ${myScore>oppScore?'Up':'Down'} by ${mg}`;
+      return `<span class="badge b-live">${lbl}</span>`;
+    }
+    if (m.result==='WIN' || m.result==='LOSS'){
+      const won = myScore>oppScore;
+      return `<span class="badge ${won?'b-win':'b-loss'}">${won?'Won':'Lost'} by ${mg}</span>`;
+    }
+    if (m.result==='DRAW') return `<span class="badge b-draw">Draw</span>`;
+    return '';
+  }
+  const t1OwnBadge = bothTrinity ? ownBadge(m.team1Score, m.team2Score) : '';
+  const t2OwnBadge = bothTrinity ? ownBadge(m.team2Score, m.team1Score) : '';
+
+  const badgeHtml = (m.result==='UPCOMING' || bothTrinity)
     ? ''
     : `<span class="badge ${bcls}">${bw.join(' ')}</span>`;
 
@@ -1546,6 +1569,7 @@ const showLadderPreview =
     <div class="matchup">
       <div class="team-block">
         <div class="team ${t1t?'tt':''}">${esc(m.team1)}</div>
+        ${t1OwnBadge}
         ${teamMetaHtml(t1Rank, m, 'team1', done, live, showLadderPreview)}
       </div>
       <div class="score-col">
@@ -1554,6 +1578,7 @@ const showLadderPreview =
       </div>
       <div class="team-block team-block-right">
         <div class="team ${t2t?'tt':''}">${esc(m.team2)}</div>        
+        ${t2OwnBadge}
         ${teamMetaHtml(t2Rank, m, 'team2', done, live, showLadderPreview)}
       </div>
     </div>
