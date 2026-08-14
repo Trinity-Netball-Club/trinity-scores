@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-11T08:04:42.391Z",
+  "fetchedAt": "2026-08-14T07:35:37.141Z",
   "data": {
     "rounds": [
       {
@@ -38913,7 +38913,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -39097,7 +39097,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -39299,7 +39299,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -39591,7 +39591,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -39683,7 +39683,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -40454,7 +40454,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -40654,7 +40654,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -40948,7 +40948,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -42119,7 +42119,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -42211,7 +42211,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -42303,8 +42303,8 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -43090,8 +43090,8 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -43182,7 +43182,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -43475,7 +43475,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -43969,7 +43969,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -45912,7 +45912,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -46649,7 +46649,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2110,
+            "venueCourtId": 2106,
             "competitionId": 5224,
             "divisionId": 33352,
             "team1Id": 219135,
@@ -46712,8 +46712,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779776599725%2F378d34a4fe40a48d7ee9d62a160dbbd4?generation=1779776600072643&alt=media"
             },
             "venueCourt": {
-              "name": "Court 5",
-              "courtNumber": 5,
+              "name": "Court 1",
+              "courtNumber": 1,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -46975,7 +46975,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -47327,7 +47327,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2106,
+            "venueCourtId": 2110,
             "competitionId": 5224,
             "divisionId": 33360,
             "team1Id": 219155,
@@ -47338,11 +47338,11 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": null,
-            "matchSubstatusRefId": 1,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 6,
+            "endTime": "2026-08-15T07:05:00.000Z",
+            "team1ResultId": 5,
+            "team2ResultId": 4,
             "roundId": 375419,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -47390,8 +47390,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781139594314%2F1998a5852e10ad455ed745da71b7843e?generation=1781139594700973&alt=media"
             },
             "venueCourt": {
-              "name": "Court 1",
-              "courtNumber": 1,
+              "name": "Court 5",
+              "courtNumber": 5,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
