@@ -1155,6 +1155,8 @@ function applyLadder(ladderData){
       against: e.A,
       points: e.PTS,
       percentage: pct,
+      fw: e.FW,
+      fl: e.FL,
       // Authoritative section/division label straight from the ladder API —
       // takes priority over the div_short derived from fixture data, which
       // can lag behind if a team's section changes mid-season.
@@ -1200,6 +1202,11 @@ function enrichMatch(m, round) {
 
   const status = m.matchStatus || '';
 
+  // netball connect flags forfeits via matchSubstatusRefId===6. Forfeited
+  // matches are almost always recorded as 0-0, which the score-based logic
+  // below would otherwise misclassify as a DRAW.
+  const isForfeit = m.matchSubstatusRefId === 6;
+
   const t1s = m.team1Score ?? 0;
   const t2s = m.team2Score ?? 0;
 
@@ -1225,6 +1232,19 @@ function enrichMatch(m, round) {
     if (t1s > t2s) { team1Result = 'WIN';  team2Result = 'LOSS'; }
     else if (t1s < t2s) { team1Result = 'LOSS'; team2Result = 'WIN'; }
     else { team1Result = 'DRAW'; team2Result = 'DRAW'; }
+
+    // Forfeit override — netball connect encodes the forfeit outcome via
+    // team1ResultId/team2ResultId: 4 = forfeit win, 5 = forfeit loss for
+    // that team. This takes priority over the (usually 0-0) score above.
+    // If neither result ID has been set yet (result not yet locked),
+    // resolveForfeits() will attempt a ladder-based fallback at render time.
+    if (isForfeit) {
+      if (m.team1ResultId === 4)      { team1Result = 'WIN';  team2Result = 'LOSS'; }
+      else if (m.team1ResultId === 5) { team1Result = 'LOSS'; team2Result = 'WIN';  }
+      else if (m.team2ResultId === 4) { team2Result = 'WIN';  team1Result = 'LOSS'; }
+      else if (m.team2ResultId === 5) { team2Result = 'LOSS'; team1Result = 'WIN';  }
+      result = t1t ? team1Result : team2Result;
+    }
   } else {
     result = 'UPCOMING';
     team1Result = 'UPCOMING';
@@ -1274,6 +1294,7 @@ function enrichMatch(m, round) {
     result,
     team1Result,
     team2Result,
+    isForfeit,
     court: courtLabel,
     // Raw quarter/timing fields, kept as-is from the feed — used only to
     // *estimate* the current quarter on LIVE cards (netball has no clock
@@ -1409,7 +1430,32 @@ function renderCardsByAgeGroup(matches, lmap, isSchedule=false){
   }).join('');
 }
 
+// Last-resort forfeit resolution — only kicks in when a forfeited match's
+// result IDs haven't been locked in yet (so enrichMatch() still has it as
+// a score-based DRAW at 0-0). Uses each team's season FW/FL (forfeit win /
+// forfeit loss) counts from the ladder to infer who forfeited. Heuristic,
+// not authoritative — only overrides when exactly one side looks like the
+// winner and the other the loser.
+function resolveForfeits(matches, lmap){
+  for (const m of matches){
+    if (!m.isForfeit || m.result !== 'DRAW') continue;
+    const l1 = lmap[m.team1Id], l2 = lmap[m.team2Id];
+    const fw1 = l1 ? Number(l1.fw)||0 : 0, fl1 = l1 ? Number(l1.fl)||0 : 0;
+    const fw2 = l2 ? Number(l2.fw)||0 : 0, fl2 = l2 ? Number(l2.fl)||0 : 0;
+    const t1t = isTrinity(m.team1);
+    if (fw1>0 && fl2>0){
+      m.team1Result = 'WIN'; m.team2Result = 'LOSS';
+      m.result = t1t ? 'WIN' : 'LOSS';
+    } else if (fw2>0 && fl1>0){
+      m.team1Result = 'LOSS'; m.team2Result = 'WIN';
+      m.result = t1t ? 'LOSS' : 'WIN';
+    }
+    // else: leave as-is — makeCard will show a neutral "Forfeit" badge.
+  }
+}
+
 function renderAll(matches, lmap){
+  resolveForfeits(matches, lmap);
   fetchMatchDayWeather();
   fetchHourlyWeather();
   const today     = matches.filter(m=>m.date_str===TODAY_DATE);
@@ -1597,7 +1643,9 @@ const showLadderPreview =
   const trinityScore = t1t ? m.team1Score : m.team2Score;
   const oppScore = t1t ? m.team2Score : m.team1Score;
   const liveLabel = margin===0 ? '● Tied' : `● ${trinityScore>oppScore?'Up':'Down'} by ${margin}`;
-  const bmap={LIVE:`b-live ${liveLabel}`,WIN:`b-win Won by ${margin}`,LOSS:`b-loss Lost by ${margin}`,DRAW:'b-draw Draw',UPCOMING:'b-up Upcoming'};
+  const bmap = m.isForfeit
+    ? {WIN:'b-win Forfeit Win', LOSS:'b-loss Forfeit Loss', DRAW:'b-draw Forfeit', UPCOMING:'b-up Upcoming'}
+    : {LIVE:`b-live ${liveLabel}`,WIN:`b-win Won by ${margin}`,LOSS:`b-loss Lost by ${margin}`,DRAW:'b-draw Draw',UPCOMING:'b-up Upcoming'};
   const [bcls,...bw]=(bmap[m.result]||'b-up Upcoming').split(' ');
 
   // When two Trinity teams play each other, a single "team1-perspective"
@@ -1605,21 +1653,22 @@ const showLadderPreview =
   // shared center badge for one badge per team, each from that team's own
   // point of view, shown next to its own name instead.
   const bothTrinity = t1t && t2t;
-  function ownBadge(myScore, oppScore){
+  function ownBadge(myScore, oppScore, myResult){
     const mg = Math.abs((myScore||0) - (oppScore||0));
-    if (m.result==='LIVE'){
+    if (myResult==='LIVE'){
       const lbl = mg===0 ? '● Tied' : `● ${myScore>oppScore?'Up':'Down'} by ${mg}`;
       return `<span class="badge b-live">${lbl}</span>`;
     }
-    if (m.result==='WIN' || m.result==='LOSS'){
-      const won = myScore>oppScore;
-      return `<span class="badge ${won?'b-win':'b-loss'}">${won?'Won':'Lost'} by ${mg}</span>`;
+    if (myResult==='WIN' || myResult==='LOSS'){
+      const won = myResult==='WIN';
+      const label = m.isForfeit ? `Forfeit ${won?'Win':'Loss'}` : `${won?'Won':'Lost'} by ${mg}`;
+      return `<span class="badge ${won?'b-win':'b-loss'}">${label}</span>`;
     }
-    if (m.result==='DRAW') return `<span class="badge b-draw">Draw</span>`;
+    if (myResult==='DRAW') return `<span class="badge b-draw">${m.isForfeit?'Forfeit':'Draw'}</span>`;
     return '';
   }
-  const t1OwnBadge = bothTrinity ? ownBadge(m.team1Score, m.team2Score) : '';
-  const t2OwnBadge = bothTrinity ? ownBadge(m.team2Score, m.team1Score) : '';
+  const t1OwnBadge = bothTrinity ? ownBadge(m.team1Score, m.team2Score, m.team1Result) : '';
+  const t2OwnBadge = bothTrinity ? ownBadge(m.team2Score, m.team1Score, m.team2Result) : '';
 
   const badgeHtml = (m.result==='UPCOMING' || bothTrinity)
     ? ''
