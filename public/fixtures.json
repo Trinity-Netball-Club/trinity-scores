@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-15T06:40:43.380Z",
+  "fetchedAt": "2026-08-15T06:50:43.415Z",
   "data": {
     "rounds": [
       {
@@ -45765,8 +45765,8 @@
           },
           {
             "id": 2861272,
-            "team1Score": 8,
-            "team2Score": 11,
+            "team1Score": 10,
+            "team2Score": 14,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -46644,8 +46644,8 @@
           },
           {
             "id": 2861283,
-            "team1Score": 12,
-            "team2Score": 14,
+            "team1Score": 17,
+            "team2Score": 17,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -47029,8 +47029,8 @@
           },
           {
             "id": 2861304,
-            "team1Score": 9,
-            "team2Score": 23,
+            "team1Score": 14,
+            "team2Score": 29,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -47615,8 +47615,8 @@
           },
           {
             "id": 2861327,
-            "team1Score": 20,
-            "team2Score": 13,
+            "team1Score": 29,
+            "team2Score": 19,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -48017,8 +48017,8 @@
           },
           {
             "id": 2861260,
-            "team1Score": 10,
-            "team2Score": 11,
+            "team1Score": 17,
+            "team2Score": 15,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
