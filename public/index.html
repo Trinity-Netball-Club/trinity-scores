@@ -1538,6 +1538,8 @@ function makeLadderRow(t, lmap){
   const forr    = d?.forr    ?? '–';
   const against = d?.against ?? '–';
   const byes    = d?.byes    ?? '–';
+  const fw      = d?.fw      ?? '–';
+  const fl      = d?.fl      ?? '–';
   const ga      = d && d.percentage!=null ? `${d.percentage.toFixed(1)}%` : '–';
 
   return `<tr>
@@ -1551,7 +1553,7 @@ function makeLadderRow(t, lmap){
     <td>${esc(wins)}</td>
     <td>${esc(losses)}</td>
     <td>${esc(draws)}</td>
-    <td>${esc(byes)}</td>
+    <td title="Bye ${esc(byes)} / FW ${esc(fw)} / FL ${esc(fl)}">${esc(byes)}/${esc(fw)}/${esc(fl)}</td>
     <td>${esc(forr)}</td>
     <td>${esc(against)}</td>
     <td>${esc(ga)}</td>
@@ -1595,7 +1597,7 @@ function renderLadder(matches, lmap){
               <th>Won</th>
               <th>Lost</th>
               <th>Drawn</th>
-              <th>Bye</th>
+              <th title="Bye / Forfeit Wins / Forfeit Losses">Bye/FW/FL</th>
               <th>Goals For</th>
               <th>Goals Against</th>
               <th>Goal Avg</th>
