@@ -7,6 +7,7 @@ const FIXTURE_PAGE =
 
 const OUTFILE = path.join(__dirname, '..', 'public', 'fixtures.json');
 const MELB_TZ = 'Australia/Melbourne';
+const RESPONSE_TIMEOUT_MS = 60000;
 
 // Only these fields actually change once a match is on the board.
 // Everything else (teams, venue, court, round, start time) is set by
@@ -45,40 +46,38 @@ function melbDate(iso) {
 
   const existingFile = JSON.parse(fs.readFileSync(OUTFILE, 'utf8'));
 
-  let fixtureData = null;
-
   const browser = await chromium.launch({
     headless: true
   });
 
   const page = await browser.newPage();
 
-  page.on('response', async (response) => {
-    try {
-      const url = response.url();
+  let fixtureData;
 
-      if (
-        url.includes('/livescores/round/matches') &&
-        !fixtureData
-      ) {
-        console.log('Fixtures endpoint found');
-        console.log(url);
+  try {
+    // Start waiting for the matching response BEFORE navigating, and
+    // read its body fully before the browser closes — this is what
+    // scrape-fixtures.js's fix does too, avoiding the response.json()
+    // vs browser.close() race.
+    const responsePromise = page.waitForResponse(
+      (response) => response.url().includes('/livescores/round/matches'),
+      { timeout: RESPONSE_TIMEOUT_MS }
+    );
 
-        fixtureData = await response.json();
-      }
-    } catch (err) {
-      console.log('Response parse error:', err.message);
-    }
-  });
+    await page.goto(FIXTURE_PAGE, {
+      waitUntil: 'networkidle',
+      timeout: 120000
+    });
 
-  await page.goto(FIXTURE_PAGE, {
-    waitUntil: 'networkidle',
-    timeout: 120000
-  });
+    const response = await responsePromise;
 
-  await page.waitForTimeout(5000);
+    console.log('Fixtures endpoint found');
+    console.log(response.url());
 
-  await browser.close();
+    fixtureData = await response.json();
+  } finally {
+    await browser.close();
+  }
 
   if (!fixtureData) {
     throw new Error('No fixture JSON captured');

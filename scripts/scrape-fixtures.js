@@ -12,59 +12,56 @@ const OUTFILE = path.join(
   'fixtures.json'
 );
 
-(async () => {
-  let fixtureData = null;
+const RESPONSE_TIMEOUT_MS = 60000;
 
+(async () => {
   const browser = await chromium.launch({
     headless: true
   });
 
   const page = await browser.newPage();
 
-  page.on('response', async (response) => {
-    try {
-      const url = response.url();
+  try {
+    // Start waiting for the matching response BEFORE navigating, so we
+    // don't miss it and so we hold a promise that only resolves once
+    // the response is fully matched (headers received).
+    const responsePromise = page.waitForResponse(
+      (response) => response.url().includes('/livescores/round/matches'),
+      { timeout: RESPONSE_TIMEOUT_MS }
+    );
 
-      // Capture fixtures endpoint
-      if (
-        url.includes('/livescores/round/matches') &&
-        !fixtureData
-      ) {
-        console.log('Fixtures endpoint found');
-        console.log(url);
+    await page.goto(FIXTURE_PAGE, {
+      waitUntil: 'networkidle',
+      timeout: 120000
+    });
 
-        fixtureData = await response.json();
-      }
-    } catch (err) {
-      console.log('Response parse error:', err.message);
-    }
-  });
+    const response = await responsePromise;
 
-  await page.goto(FIXTURE_PAGE, {
-    waitUntil: 'networkidle',
-    timeout: 120000
-  });
+    console.log('Fixtures endpoint found');
+    console.log(response.url());
 
-  await page.waitForTimeout(5000);
+    // Read the body *before* doing anything else (like closing the browser).
+    // This is the critical fix: response.json() must fully resolve while
+    // the page/context is still alive.
+    const fixtureData = await response.json();
 
-  if (!fixtureData) {
     await browser.close();
-    throw new Error('No fixture JSON captured');
+
+    fs.writeFileSync(
+      OUTFILE,
+      JSON.stringify(
+        {
+          fetchedAt: new Date().toISOString(),
+          data: fixtureData
+        },
+        null,
+        2
+      )
+    );
+
+    console.log(`Saved fixtures to ${OUTFILE}`);
+  } catch (err) {
+    await browser.close();
+    throw err;
   }
-
-  await browser.close();
-
-  fs.writeFileSync(
-    OUTFILE,
-    JSON.stringify(
-      {
-        fetchedAt: new Date().toISOString(),
-        data: fixtureData
-      },
-      null,
-      2
-    )
-  );
-
-  console.log(`Saved fixtures to ${OUTFILE}`);
 })();
