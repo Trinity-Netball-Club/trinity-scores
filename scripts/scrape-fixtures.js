@@ -47,11 +47,12 @@ const OUTFILE = path.join(
 
   await page.waitForTimeout(5000);
 
-  await browser.close();
-
   if (!fixtureData) {
+    await browser.close();
     throw new Error('No fixture JSON captured');
   }
+
+  await browser.close();
 
   fs.writeFileSync(
     OUTFILE,
