@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-22T07:40:46.252Z",
+  "fetchedAt": "2026-08-22T07:50:44.011Z",
   "data": {
     "rounds": [
       {
@@ -53862,8 +53862,8 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
             "endTime": null,
             "team1ResultId": null,
             "team2ResultId": null,
@@ -56173,8 +56173,8 @@
           },
           {
             "id": 2861382,
-            "team1Score": 10,
-            "team2Score": 28,
+            "team1Score": 11,
+            "team2Score": 37,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -56558,8 +56558,8 @@
           },
           {
             "id": 2861371,
-            "team1Score": 30,
-            "team2Score": 5,
+            "team1Score": 38,
+            "team2Score": 7,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -57931,8 +57931,8 @@
           },
           {
             "id": 2861348,
-            "team1Score": 17,
-            "team2Score": 18,
+            "team1Score": 22,
+            "team2Score": 28,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -58023,8 +58023,8 @@
           },
           {
             "id": 2861415,
-            "team1Score": 12,
-            "team2Score": 23,
+            "team1Score": 18,
+            "team2Score": 33,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
