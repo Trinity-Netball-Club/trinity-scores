@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trinity Netball — Court Card Mockup</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pu:#c7aadf; --pu2:#9B6BC8; --pu3:#EDE5F8; --pu4:#F5F0FC;
+  --dark:#000; --white:#FFF; --pb:#F8F5FC; --tx:#2D2D2D; --tm:#555; --tf:#757575;
+  --bd:#E2D9F3; --cb:#FFF;
+  --wbg:#E8F5EE;--wtx:#1B6B35; --lbg:#FDECEA;--ltx:#B71C1C; --dbg:#FFF8E1;--dtx:#7B5800; --ubg:#EDE5F8;--utx:#6B3FA0;
+  --line:#CFCFCF; --r:10px;
+  --shadow:0 1px 4px rgba(107,63,160,.10);
+}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  background:var(--pb); color:var(--tx); font-size:15px; padding-bottom:3rem;
+}
+.mock-header{background:var(--dark);color:#fff;padding:.75rem 1.25rem;font-size:13px;font-weight:600}
+.mock-sub{max-width:640px;margin:1.1rem auto .3rem;padding:0 1rem;font-size:13px;color:var(--tm);line-height:1.5}
+.mock-sub b{color:var(--tx)}
+main{max-width:640px;margin:0 auto;padding:.5rem 1rem 2rem}
+.dlbl{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--pu2);margin:1.4rem 0 .5rem}
+
+/* ── card shell (unchanged from live site) ── */
+.card{
+  background:var(--cb); border:1px solid var(--bd); border-radius:var(--r);
+  padding:.75rem .8rem .65rem; margin-bottom:.85rem; box-shadow:var(--shadow);
+}
+.card-live{border-color:#F8E6FC!important; background:#FFF5F5!important; box-shadow:0 0 0 2px rgba(220,38,38,.08)!important}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.55rem}
+.dtag{font-size:10px;font-weight:700;background:var(--pu3);color:var(--dark);padding:2px 7px;border-radius:4px;letter-spacing:.02em;text-transform:uppercase}
+.rlbl{font-size:11px;color:var(--tf)}
+
+/* ── COURT VISUAL — this replaces the old .matchup ── */
+.court{
+  position:relative;
+  height:118px;
+  border-radius:10px;
+  background:linear-gradient(160deg,var(--pu4) 0%,var(--pu3) 100%);
+  border:1px solid var(--pu3);
+  display:flex;
+  overflow:hidden;
+}
+.court .third{
+  flex:1; position:relative;
+  display:flex; align-items:center;
+}
+.court .third.left{ padding-left:70px; justify-content:flex-start }
+.court .third.right{ padding-right:70px; justify-content:flex-end }
+
+/* faint thirds dividers, like real court lines */
+.court::before,.court::after{
+  content:''; position:absolute; top:0; bottom:0; width:1px;
+  background:rgba(160,150,180,.35); z-index:1;
+}
+.court::before{left:33.333%}
+.court::after{left:66.666%}
+
+/* goal circles — the "D" shapes, spanning the full height of the court */
+.third.left::before, .third.right::before{
+  content:''; position:absolute; top:6px; bottom:6px;
+  width:60px;
+  border:2px solid var(--line);
+}
+.third.left::before{ left:-2px; border-left:none; border-radius:0 999px 999px 0; }
+.third.right::before{ right:-2px; border-right:none; border-radius:999px 0 0 999px; }
+
+/* goal dot at the mouth of each circle, like the real court diagram */
+.third.left .goal-dot, .third.right .goal-dot{
+  position:absolute; top:50%; width:6px; height:6px; border-radius:50%;
+  background:#B08A63; transform:translateY(-50%);
+}
+.third.left .goal-dot{ left:2px }
+.third.right .goal-dot{ right:2px }
+
+.team-info{ position:relative; z-index:2; max-width:100%; }
+.third.right .team-info{ text-align:right }
+
+.team-name{
+  font-size:12.5px; font-weight:700; color:var(--tm);
+  text-align:left; line-height:1.25; max-width:100%;
+}
+.third.right .team-name{ text-align:right }
+.team-name.us{color:var(--pu2)}
+.third-meta{
+  margin-top:3px;
+  display:flex; align-items:center; gap:2px; flex-wrap:wrap; justify-content:flex-start;
+}
+.third.right .third-meta{ justify-content:flex-end }
+.rank-plain{font-size:9.5px;font-weight:700;color:var(--tf)}
+.fm-dot{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:3px;font-size:8px;font-weight:700;line-height:1}
+.fm-dot.fm-w{background:var(--wbg);color:var(--wtx)}
+.fm-dot.fm-l{background:var(--lbg);color:var(--ltx)}
+.fm-dot.fm-d{background:var(--dbg);color:var(--dtx)}
+
+/* centre circle — scoreboard */
+.centre-circle{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:54px; height:54px; border-radius:50%;
+  border:2px solid var(--line); background:#fff;
+  display:flex; align-items:center; justify-content:center;
+  z-index:3; box-shadow:0 2px 6px rgba(0,0,0,.10);
+}
+.cc-score{font-size:1.05rem; font-weight:800; color:var(--dark); display:flex; align-items:center; gap:1px; font-variant-numeric:tabular-nums}
+.cc-score .dash{color:var(--tf);font-weight:300;font-size:.85rem;margin:0 1px}
+.cc-score.live{color:#DC2626}
+.cc-vs{font-size:11px;font-weight:800;color:#999;letter-spacing:.02em}
+
+/* badge row under the court */
+.badge-row{display:flex;justify-content:center;margin-top:.55rem}
+.badge{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;letter-spacing:.03em;text-transform:uppercase}
+.b-live{background:#DC2626;color:#fff}
+.b-win{background:var(--wbg);color:var(--wtx)}
+.b-loss{background:var(--lbg);color:var(--ltx)}
+.b-up{background:var(--ubg);color:var(--utx)}
+
+.cfoot{margin-top:.5rem;font-size:11px;color:var(--tf);display:flex;align-items:center;gap:.5rem;justify-content:center}
+.court-tag::before{content:", "}
+
+@media(max-width:420px){
+  .court{height:104px}
+  .third.left{padding-left:52px}
+  .third.right{padding-right:52px}
+  .third.left::before,.third.right::before{width:44px}
+  .centre-circle{width:46px;height:46px}
+  .cc-score{font-size:.92rem}
+  .team-name{font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<div class="mock-header">🏐 Trinity Netball — Match Day card mockup</div>
+<div class="mock-sub">
+  Concept: the card body becomes a mini netball court (rotated so each team sits at its own goal circle),
+  with <b>light grey</b> court lines and the <b>score inside the centre circle</b>. Below are a few real
+  matches from your data shown in this style — live, win, loss and upcoming.
+</div>
+
+<main>
+
+  <div class="dlbl">🔴 Live</div>
+  <div class="card card-live">
+    <div class="card-top">
+      <span class="dtag">11&U Mixed · Section 2</span>
+      <span class="rlbl">Round 1</span>
+    </div>
+    <div class="court">
+      <div class="third left">
+        <span class="goal-dot"></span>
+        <div class="team-info">
+          <div class="team-name us">Trinity 11U White</div>
+          <div class="third-meta"><span class="fm-dot fm-w">W</span><span class="fm-dot fm-w">W</span><span class="fm-dot fm-l">L</span></div>
+        </div>
+      </div>
+      <div class="centre-circle"><div class="cc-score live">15<span class="dash">–</span>9</div></div>
+      <div class="third right">
+        <span class="goal-dot"></span>
+        <div class="team-info">
+          <div class="team-name">St James U11 White</div>
+          <div class="third-meta"><span class="fm-dot fm-l">L</span><span class="fm-dot fm-w">W</span><span class="fm-dot fm-w">W</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="badge-row"><span class="badge b-live">● Up by 6</span></div>
+    <div class="cfoot"><span>🕐 8:50 AM</span><span class="court-tag">Court 2</span></div>
+  </div>
+
+  <div class="dlbl">✅ Win</div>
+  <div class="card">
+    <div class="card-top">
+      <span class="dtag">11&U Mixed · Section 5</span>
+      <span class="rlbl">Round 1</span>
+    </div>
+    <div class="court">
+      <div class="third left">
+        <span class="goal-dot"></span>
+        <div class="team-info">
+          <div class="team-name">HFNC Jets 11U Purple</div>
+        </div>
+      </div>
+      <div class="centre-circle"><div class="cc-score">7<span class="dash">–</span>10</div></div>
+      <div class="third right">
+        <span class="goal-dot"></span>
+        <div class="team-info">
+          <div class="team-name us">Trinity 11U Silver</div>
+        </div>
+      </div>
+    </div>
+    <div class="badge-row"><span class="badge b-win">Won by 3</span></div>
+    <div class="cfoot"><span>🕐 8:00 AM</span><span class="court-tag">Court 5</span></div>
+  </div>
+
+  <div class="dlbl">❌ Loss</div>
+  <div class="card">
+    <div class="card-top">
+      <span class="dtag">11&U Mixed · Section 5</span>
+      <span class="rlbl">Round 1</span>
+    </div>
+    <div class="court">
+      <div class="third left">
+        <span class="goal-dot"></span>
+        <div class="team-info">
+          <div class="team-name">St James 11U Purple</div>
+        </div>
+      </div>
+      <div class="centre-circle"><div class="cc-score">16<span class="dash">–</span>3</div></div>
+      <div class="third right">
+        <span class="goal-dot"></span>
+        <div class="team-info">
+          <div class="team-name us">Trinity 11U Black</div>
+        </div>
+      </div>
+    </div>
+    <div class="badge-row"><span class="badge b-loss">Lost by 13</span></div>
+    <div class="cfoot"><span>🕐 8:00 AM</span><span class="court-tag">Court 7</span></div>
+  </div>
+
+  <div class="dlbl">📅 Upcoming</div>
+  <div class="card">
+    <div class="card-top">
+      <span class="dtag">11&U Mixed · Section 1</span>
+      <span class="rlbl">Round 1</span>
+    </div>
+    <div class="court">
+      <div class="third left">
+        <span class="goal-dot"></span>
+        <div class="team-info">
+          <div class="team-name">Ringwood North 11U Blue</div>
+          <div class="third-meta"><span class="rank-plain">#3</span></div>
+        </div>
+      </div>
+      <div class="centre-circle"><div class="cc-vs">VS</div></div>
+      <div class="third right">
+        <span class="goal-dot"></span>
+        <div class="team-info">
+          <div class="team-name us">Trinity 11U Lilac</div>
+          <div class="third-meta"><span class="rank-plain">#1</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="badge-row"><span class="badge b-up">Upcoming</span></div>
+    <div class="cfoot"><span>🕐 9:40 AM</span><span class="court-tag">Court 1</span></div>
+  </div>
+
+</main>
+</body>
+</html>
