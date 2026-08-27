@@ -228,8 +228,17 @@ body{
   border-bottom:1px solid var(--bd);
   padding:.55rem 1rem;
   position:sticky;top:0;z-index:10;
+  overflow:hidden;
+  max-height:600px;
+  transition:max-height .35s ease, opacity .3s ease, padding .35s ease, border-color .35s ease;
 }
-.filters-wrap.collapsed{display:none}
+.filters-wrap.collapsed{
+  max-height:0;
+  opacity:0;
+  padding-top:0;
+  padding-bottom:0;
+  border-bottom-color:transparent;
+}
 .frow{
   display:flex;gap:.3rem;
   overflow-x:auto;-webkit-overflow-scrolling:touch;
