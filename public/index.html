@@ -181,6 +181,12 @@ body{
   border-width:1.5px;
 }
 .last-updated{color:var(--tf);font-size:11px}
+.filter-toggle-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:6px 9px;
+}
+.filter-toggle-btn svg{width:14px;height:14px;display:block}
+.filter-toggle-btn.active{background:var(--pu);color:#fff;border-color:var(--pu)}
 
 /* ── TODAY INTRO ── */
 .today-intro{
@@ -223,6 +229,7 @@ body{
   padding:.55rem 1rem;
   position:sticky;top:0;z-index:10;
 }
+.filters-wrap.collapsed{display:none}
 .frow{
   display:flex;gap:.3rem;
   overflow-x:auto;-webkit-overflow-scrolling:touch;
@@ -536,6 +543,9 @@ div#today-empty {display: none;}
     </span>
     <span style="display:flex;gap:.4rem">
 <button class="inv-btn refresh-btn" onclick="manualRefresh()">↻ Refresh</button>
+<button class="inv-btn filter-toggle-btn" id="filter-toggle-btn-today" onclick="toggleFilters('today-filters-wrap','filter-toggle-btn-today')" aria-label="Toggle filters" title="Toggle filters">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="4 4 20 4 14 12.5 14 19 10 21 10 12.5 4 4"></polygon></svg>
+</button>
     </span>
   </div>
 
@@ -548,7 +558,7 @@ div#today-empty {display: none;}
     </div>
   </div>
 
-  <div class="filters-wrap">
+  <div class="filters-wrap collapsed" id="today-filters-wrap">
     <div class="frow">
       <button class="fbtn tf-btn active" data-tfilter="all">All</button>
       <button class="fbtn tf-btn" data-tfilter="LIVE">🔴 Live</button>
@@ -570,7 +580,15 @@ div#today-empty {display: none;}
 
 <!-- SCHEDULE PANEL -->
 <div class="panel" id="panel-schedule">
-  <div class="filters-wrap">
+  <div class="status-bar">
+    <span></span>
+    <span style="display:flex;gap:.4rem">
+<button class="inv-btn filter-toggle-btn" id="filter-toggle-btn-sched" onclick="toggleFilters('sched-filters-wrap','filter-toggle-btn-sched')" aria-label="Toggle filters" title="Toggle filters">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="4 4 20 4 14 12.5 14 19 10 21 10 12.5 4 4"></polygon></svg>
+</button>
+    </span>
+  </div>
+  <div class="filters-wrap collapsed" id="sched-filters-wrap">
     <div class="frow">
       <button class="fbtn sf-btn" data-sfilter="all">All matches</button>
       <button class="fbtn sf-btn" data-sfilter="LIVE">🔴 Live</button>
@@ -634,6 +652,10 @@ let LAST_FETCHED_AT_MS = null; // epoch ms of most recent successful fixtures fe
 const UPDATE_INTERVAL_MS = 10*60_000; // scores refresh every 10 minutes
 
 // ── Helpers ───────────────────────────────────────────────────
+function toggleFilters(wrapId, btnId){
+  document.getElementById(wrapId).classList.toggle('collapsed');
+  document.getElementById(btnId).classList.toggle('active');
+}
 function isTrinity(n){ return typeof n==='string' && n.toLowerCase().includes('trinity'); }
 function sectionLabel(divShort){
   const s = String(divShort||'').trim();
