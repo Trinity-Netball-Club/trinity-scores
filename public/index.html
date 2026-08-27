@@ -48,6 +48,27 @@ body{
   font-size:15px;
 }
 
+body{
+  position:relative;
+}
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgODAwIj4KICA8ZyBmaWxsPSJub25lIiBzdHJva2U9IiM5QjZCQzgiIHN0cm9rZS13aWR0aD0iNiI+CiAgICA8Y2lyY2xlIGN4PSI0MDAiIGN5PSI0MDAiIHI9IjM4MCIvPgogICAgPHBhdGggZD0iTTQwMCAyMCBDIDMwMCAxNTAsIDMwMCAyNTAsIDQwMCA0MDAgQyAzMDAgNTUwLCAzMDAgNjUwLCA0MDAgNzgwIi8+CiAgICA8cGF0aCBkPSJNNDAwIDIwIEMgNTAwIDE1MCwgNTAwIDI1MCwgNDAwIDQwMCBDIDUwMCA1NTAsIDUwMCA2NTAsIDQwMCA3ODAiLz4KICAgIDxwYXRoIGQ9Ik02MCAyNTAgQyAyMDAgMzAwLCAzMDAgMzUwLCA0MDAgNDAwIEMgNTAwIDQ1MCwgNjAwIDUwMCwgNzQwIDU1MCIvPgogICAgPHBhdGggZD0iTTYwIDU1MCBDIDIwMCA1MDAsIDMwMCA0NTAsIDQwMCA0MDAgQyA1MDAgMzUwLCA2MDAgMzAwLCA3NDAgMjUwIi8+CiAgICA8cGF0aCBkPSJNMTIwIDEzMCBDIDI1MCAyNTAsIDMyMCAzMjAsIDQwMCA0MDAgQyA0ODAgNDgwLCA1NTAgNTUwLCA2ODAgNjcwIi8+CiAgICA8cGF0aCBkPSJNNjgwIDEzMCBDIDU1MCAyNTAsIDQ4MCAzMjAsIDQwMCA0MDAgQyAzMjAgNDgwLCAyNTAgNTUwLCAxMjAgNjcwIi8+CiAgPC9nPgo8L3N2Zz4K');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:min(90vw,900px) auto;
+  opacity:0.06;
+  z-index:0;
+  pointer-events:none;
+}
+body > *{
+  position:relative;
+  z-index:1;
+}
+
+
 /* ── SITE HEADER (matches Trinity website nav style) ── */
 .site-header{
   background:var(--dark);
