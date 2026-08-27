@@ -345,8 +345,12 @@ main{max-width:860px;margin:0 auto;padding:.9rem 1rem 3rem}
 }
 .team-block{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
 .team-block-right{align-items:flex-end;text-align:right}
-.team{font-size:1.3rem;font-weight:600;color:var(--tf);line-height:1.25;overflow-wrap:break-word}
+.team-block-right .team{align-items:flex-end}
+.team{font-size:1.3rem;font-weight:600;color:var(--tf);line-height:1.25;overflow-wrap:break-word;display:flex;flex-direction:column}
 .tt{color:var(--pu2);font-weight:700}
+.team-club{display:block;font-size:.68em;font-weight:600;letter-spacing:.01em;color:var(--tf)}
+.team-grade{display:block;font-size:1em;margin-top:1px}
+.tt .team-club{color:var(--pu2);opacity:.72}
 
 /* ── RANK BADGE (under team name) ── */
 .rank-badge{
@@ -650,6 +654,29 @@ function sectionLabelShort(divShort){
   return m ? m[1] : full;
 }
 function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// Splits a team name like "Trinity 11U Silver" or "HFNC Jets 11U Pink" into
+// a club line ("Trinity" / "HFNC Jets") and a team line ("U11 Silver" /
+// "U11 Pink"), converting the "11U" age token to "U11" along the way.
+// Falls back to putting the whole name on the club line if no age/Open
+// token is found (e.g. "Bye").
+function splitTeamName(name){
+  const str = String(name||'').trim();
+  const parts = str.split(/\s+/);
+  const idx = parts.findIndex(p => /^\d+U$/i.test(p) || /^open$/i.test(p));
+  if (idx===-1) return { club: str, team: '' };
+  const club = parts.slice(0, idx).join(' ');
+  const ageMatch = parts[idx].match(/^(\d+)U$/i);
+  const ageTok = ageMatch ? `U${ageMatch[1]}` : parts[idx];
+  const team = [ageTok, ...parts.slice(idx+1)].join(' ');
+  return { club, team };
+}
+function teamNameHtml(name){
+  const { club, team } = splitTeamName(name);
+  return team
+    ? `<span class="team-club">${esc(club)}</span><span class="team-grade">${esc(team)}</span>`
+    : `<span class="team-club">${esc(club)}</span>`;
+}
 function ordinal(n){
   if (!n) return '?';
   const suffix =
@@ -1701,7 +1728,7 @@ const showLadderPreview =
     </div>
     <div class="matchup">
       <div class="team-block">
-        <div class="team ${t1t?'tt':''}">${esc(m.team1)}</div>
+        <div class="team ${t1t?'tt':''}">${teamNameHtml(m.team1)}</div>
         ${t1OwnBadge}
         ${teamMetaHtml(t1Rank, m, 'team1', done, live, showLadderPreview)}
       </div>
@@ -1712,7 +1739,7 @@ const showLadderPreview =
         ${nextUpdateHtml}
       </div>
       <div class="team-block team-block-right">
-        <div class="team ${t2t?'tt':''}">${esc(m.team2)}</div>        
+        <div class="team ${t2t?'tt':''}">${teamNameHtml(m.team2)}</div>        
         ${t2OwnBadge}
         ${teamMetaHtml(t2Rank, m, 'team2', done, live, showLadderPreview)}
       </div>
