@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-29T07:50:41.829Z",
+  "fetchedAt": "2026-08-29T08:01:10.354Z",
   "data": {
     "rounds": [
       {
@@ -65616,7 +65616,7 @@
           {
             "id": 2868443,
             "team1Score": 13,
-            "team2Score": 30,
+            "team2Score": 34,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -65631,8 +65631,8 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
             "endTime": null,
             "team1ResultId": null,
             "team2ResultId": null,
@@ -66001,7 +66001,7 @@
           {
             "id": 2868458,
             "team1Score": 9,
-            "team2Score": 18,
+            "team2Score": 23,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -66016,8 +66016,8 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
             "endTime": null,
             "team1ResultId": null,
             "team2ResultId": null,
@@ -67649,8 +67649,8 @@
           },
           {
             "id": 2868508,
-            "team1Score": 37,
-            "team2Score": 41,
+            "team1Score": 41,
+            "team2Score": 43,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -67665,8 +67665,8 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
             "endTime": null,
             "team1ResultId": null,
             "team2ResultId": null,
