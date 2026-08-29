@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-29T07:10:45.236Z",
+  "fetchedAt": "2026-08-29T07:20:47.515Z",
   "data": {
     "rounds": [
       {
@@ -65138,8 +65138,8 @@
           },
           {
             "id": 2868520,
-            "team1Score": 20,
-            "team2Score": 18,
+            "team1Score": 31,
+            "team2Score": 28,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -65154,8 +65154,8 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
             "endTime": null,
             "team1ResultId": null,
             "team2ResultId": null,
@@ -65615,8 +65615,8 @@
           },
           {
             "id": 2868443,
-            "team1Score": 1,
-            "team2Score": 0,
+            "team1Score": 3,
+            "team2Score": 10,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -66000,8 +66000,8 @@
           },
           {
             "id": 2868458,
-            "team1Score": 1,
-            "team2Score": 0,
+            "team1Score": 4,
+            "team2Score": 6,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -66879,8 +66879,8 @@
           },
           {
             "id": 2868487,
-            "team1Score": 0,
-            "team2Score": 0,
+            "team1Score": 27,
+            "team2Score": 18,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -66895,8 +66895,8 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
             "endTime": null,
             "team1ResultId": null,
             "team2ResultId": null,
@@ -67649,8 +67649,8 @@
           },
           {
             "id": 2868508,
-            "team1Score": 1,
-            "team2Score": 0,
+            "team1Score": 8,
+            "team2Score": 12,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
