@@ -305,6 +305,17 @@ main{max-width:860px;margin:0 auto;padding:.9rem 1rem 3rem}
 }
 .agehead .acnt{font-size:10px;color:var(--white);font-weight:600}
 
+/* Collapsible age groups (Match Day tab only) */
+.agehead.collapsible{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+.agehead.collapsible:hover{background:#1a1a1a}
+.agehead .chev{
+  display:inline-block;margin-left:.5rem;
+  font-size:10px;color:var(--white);
+  transition:transform .2s;
+}
+.agegrp.collapsed .agehead .chev{transform:rotate(-90deg)}
+.agegrp.collapsed .card{display:none}
+
 /* ── CARD ── */
 .card{
   background:var(--cb);
@@ -1465,7 +1476,10 @@ function ageGroup(m){
 
 // Groups a list of matches by age group (in AGE_GROUP_ORDER) and renders
 // each group with its own header, cards sorted LIVE-first then by time.
-function renderCardsByAgeGroup(matches, lmap, isSchedule=false){
+// Collapsed age groups on the Match Day tab (persists across re-renders)
+const collapsedAges = new Set();
+
+function renderCardsByAgeGroup(matches, lmap, isSchedule=false, collapsible=false){
   const groups = {};
   for (const m of matches){
     const ag = ageGroup(m);
@@ -1478,10 +1492,15 @@ function renderCardsByAgeGroup(matches, lmap, isSchedule=false){
 
   return order.map(ag => {
     const list = groups[ag].slice().sort((a,b)=>sortKey(a).localeCompare(sortKey(b)));
-    return `<div class="agegrp" data-age="${esc(ag)}">
-      <div class="agehead">
+    const isCollapsed = collapsible && collapsedAges.has(ag);
+    const headAttrs = collapsible
+      ? ` collapsible" role="button" tabindex="0" aria-expanded="${!isCollapsed}" data-toggle-age="${esc(ag)}`
+      : '';
+    const chev = collapsible ? `<span class="chev">▼</span>` : '';
+    return `<div class="agegrp${isCollapsed?' collapsed':''}" data-age="${esc(ag)}">
+      <div class="agehead${headAttrs}">
         <span class="albl">${esc(ag)}</span>
-        <span class="acnt">${list.length} match${list.length!==1?'es':''}</span>
+        <span class="acnt">${list.length} match${list.length!==1?'es':''}${chev}</span>
       </div>
       ${list.map(m=>makeCard(m,lmap,isSchedule)).join('')}
     </div>`;
@@ -1542,7 +1561,7 @@ function renderAll(matches, lmap){
   }
 
   // Today cards — grouped by age group, LIVE first then by start time within each group
-  document.getElementById('today-cards').innerHTML = renderCardsByAgeGroup(today, lmap);
+  document.getElementById('today-cards').innerHTML = renderCardsByAgeGroup(today, lmap, false, true);
 
   // Schedule sections — one per date, each split into age groups
   let shtml='';
@@ -1876,6 +1895,24 @@ document.addEventListener('click', (e)=>{
   b.classList.add('active');
   schedResultFilter = b.dataset.sfilter;
   applySchedFilter();
+});
+
+// ── Collapsible age groups (Match Day) ────────────────────────
+function toggleAgeGroup(head){
+  const grp = head.closest('.agegrp');
+  const ag = head.dataset.toggleAge;
+  const nowCollapsed = grp.classList.toggle('collapsed');
+  head.setAttribute('aria-expanded', String(!nowCollapsed));
+  if (nowCollapsed) collapsedAges.add(ag); else collapsedAges.delete(ag);
+}
+document.getElementById('today-cards').addEventListener('click', e=>{
+  const head = e.target.closest('.agehead.collapsible');
+  if (head) toggleAgeGroup(head);
+});
+document.getElementById('today-cards').addEventListener('keydown', e=>{
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const head = e.target.closest('.agehead.collapsible');
+  if (head){ e.preventDefault(); toggleAgeGroup(head); }
 });
 
 // ── Status ────────────────────────────────────────────────────
