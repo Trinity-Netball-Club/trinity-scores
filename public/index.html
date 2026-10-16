@@ -635,8 +635,7 @@ div#today-empty {display: none;}
 
 <div class="page-footer">
   <a href="https://trinitynetball.com.au" target="_blank">trinitynetball.com.au</a>
-  &nbsp;·&nbsp; Data via Netball Connect. Match day data refreshes every 10 minutes. Ladders update periodically.<br>
-  Updated 17/10/2026 - Collapsible age groups are only available on the Match Day tab. For full schedule, use the Schedule tab.
+  &nbsp;·&nbsp; Data via Netball Connect. Match day data refreshes every 10 minutes. Ladders update after each round.
 </div>
 
 <script>
@@ -1478,7 +1477,72 @@ function ageGroup(m){
 // Groups a list of matches by age group (in AGE_GROUP_ORDER) and renders
 // each group with its own header, cards sorted LIVE-first then by time.
 // Collapsed age groups on the Match Day tab (persists across re-renders)
-const collapsedAges = new Set();
+const COLLAPSED_KEY = 'trinityNetball.collapsedAgeGroups';
+const NAME_TOKEN = '|TNC_COLLAPSED=';
+
+// Persistence uses several stores in turn, because any single one can be
+// blocked (embedded iframes, privacy modes, third-party storage partitioning):
+//   1. localStorage   2. sessionStorage   3. cookie   4. window.name
+// window.name survives a reload of the same tab even when the others are blocked.
+function readNameStore(){
+  try {
+    const i = window.name.indexOf(NAME_TOKEN);
+    if (i === -1) return null;
+    const rest = window.name.slice(i + NAME_TOKEN.length);
+    const j = rest.indexOf('|');
+    return decodeURIComponent(j === -1 ? rest : rest.slice(0, j));
+  } catch(e){ return null; }
+}
+function writeNameStore(val){
+  try {
+    const i = window.name.indexOf(NAME_TOKEN);
+    let base = window.name;
+    if (i !== -1){
+      const rest = window.name.slice(i + NAME_TOKEN.length);
+      const j = rest.indexOf('|');
+      base = window.name.slice(0, i) + (j === -1 ? '' : rest.slice(j));
+    }
+    window.name = base + NAME_TOKEN + encodeURIComponent(val);
+  } catch(e){}
+}
+function readCookie(){
+  try {
+    const m = document.cookie.match(new RegExp('(?:^|; )' + COLLAPSED_KEY + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : null;
+  } catch(e){ return null; }
+}
+function writeCookie(val){
+  try {
+    document.cookie = COLLAPSED_KEY + '=' + encodeURIComponent(val)
+      + '; max-age=31536000; path=/; SameSite=Lax';
+  } catch(e){}
+}
+function loadCollapsedAges(){
+  const readers = [
+    () => localStorage.getItem(COLLAPSED_KEY),
+    () => sessionStorage.getItem(COLLAPSED_KEY),
+    readCookie,
+    readNameStore
+  ];
+  for (const read of readers){
+    try {
+      const raw = read();
+      if (raw){
+        const arr = JSON.parse(raw);
+        if (Array.isArray(arr)) return new Set(arr);
+      }
+    } catch(e){ /* store unavailable or corrupt — try the next one */ }
+  }
+  return new Set();
+}
+function saveCollapsedAges(){
+  const val = JSON.stringify([...collapsedAges]);
+  try { localStorage.setItem(COLLAPSED_KEY, val); } catch(e){}
+  try { sessionStorage.setItem(COLLAPSED_KEY, val); } catch(e){}
+  writeCookie(val);
+  writeNameStore(val);
+}
+const collapsedAges = loadCollapsedAges();
 
 function renderCardsByAgeGroup(matches, lmap, isSchedule=false, collapsible=false){
   const groups = {};
@@ -1905,6 +1969,7 @@ function toggleAgeGroup(head){
   const nowCollapsed = grp.classList.toggle('collapsed');
   head.setAttribute('aria-expanded', String(!nowCollapsed));
   if (nowCollapsed) collapsedAges.add(ag); else collapsedAges.delete(ag);
+  saveCollapsedAges();
 }
 document.getElementById('today-cards').addEventListener('click', e=>{
   const head = e.target.closest('.agehead.collapsible');
