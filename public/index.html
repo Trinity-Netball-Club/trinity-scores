@@ -436,7 +436,7 @@ main{max-width:860px;margin:0 auto;padding:.9rem 1rem 3rem}
 }
 .score-col .badge{margin-top:2px}
 .team-block .badge{margin-top:1px}
-.next-update{font-size:10px;color:var(--tf);margin-top:3px;white-space:nowrap}
+.next-update{font-size:10px;color:var(--tf);margin-top:3px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .quarter-estimate{font-size:10px;color:var(--tf);white-space:nowrap;font-weight:600}
 .score{
   font-size:1.9rem;font-weight:700;color:var(--dark);
@@ -1053,18 +1053,58 @@ function formatLastUpdated(iso){
 // Refreshes the "Next update in Xm" text under every LIVE card's badge.
 // Driven off LAST_FETCHED_AT_MS + UPDATE_INTERVAL_MS, ticked on an interval
 // so the countdown stays live without needing a full re-render.
+// ── Auto page reload, driven by the same countdown ───────────
+//  - "Next update in N mins"  -> reload when that countdown reaches zero
+//  - "Updating soon…"         -> reload in 30 seconds (and again every 30s
+//                                until fresh data arrives)
+// Only active while a LIVE card (the only place the countdown shows) is
+// on screen. A manual refresh simply reloads the page and resets all this.
+const SOON_RELOAD_MS = 30_000;
+let autoReloadTimer = null;
+let autoReloadMode  = null;   // 'scheduled' | 'soon'
+let autoReloadAt    = 0;      // epoch ms the pending reload will fire
+
+function cancelAutoReload(){
+  clearTimeout(autoReloadTimer);
+  autoReloadTimer = null; autoReloadMode = null; autoReloadAt = 0;
+}
+
+function scheduleAutoReload(msLeft){
+  const soon   = msLeft <= 0;
+  const mode   = soon ? 'soon' : 'scheduled';
+  const target = Date.now() + (soon ? SOON_RELOAD_MS : msLeft);
+
+  // Already pending: don't keep pushing the deadline back on every tick.
+  if (soon && autoReloadMode === 'soon') return;
+  if (!soon && autoReloadMode === 'scheduled' && Math.abs(autoReloadAt - target) < 2000) return;
+
+  clearTimeout(autoReloadTimer);
+  autoReloadMode = mode;
+  autoReloadAt   = target;
+  autoReloadTimer = setTimeout(() => location.reload(), Math.max(target - Date.now(), 0));
+}
+
+// ms -> "m:ss" (rounded up so it never shows 0:00 before the reload fires)
+function formatCountdown(ms){
+  const total = Math.max(Math.ceil(ms / 1000), 0);
+  const m = Math.floor(total / 60), sec = total % 60;
+  return `${m}:${String(sec).padStart(2,'0')}`;
+}
+
 function updateNextUpdateCountdowns(){
   const nodes = document.querySelectorAll('.next-update');
-  if (!nodes.length) return;
+  if (!nodes.length){ cancelAutoReload(); return; }   // no live matches -> no auto reload
   let text = '';
   if (LAST_FETCHED_AT_MS){
     const msLeft = (LAST_FETCHED_AT_MS + UPDATE_INTERVAL_MS) - Date.now();
-    const minsLeft = Math.ceil(msLeft / 60_000);
-    text = minsLeft > 0 ? `Next update in ${minsLeft} min${minsLeft===1?'':'s'}` : 'Updating soon…';
+    scheduleAutoReload(msLeft);   // sets autoReloadAt (also used for the "soon" countdown)
+    text = msLeft > 0
+      ? `Next update in ${formatCountdown(msLeft)}`
+      : `Updating soon… ${formatCountdown(autoReloadAt - Date.now())}`;
   }
   nodes.forEach(n => { n.textContent = text; });
 }
-setInterval(updateNextUpdateCountdowns, 15_000);
+setInterval(updateNextUpdateCountdowns, 1_000);
 
 
 // Sets allMatches / allTeams / DATE_ORDER / TODAY_DATE from a flat matches array.
