@@ -1100,7 +1100,7 @@ function updateNextUpdateCountdowns(){
     scheduleAutoReload(msLeft);   // sets autoReloadAt (also used for the "soon" countdown)
     text = msLeft > 0
       ? `Next update in ${formatCountdown(msLeft)}`
-      : `Updating soon… ${formatCountdown(autoReloadAt - Date.now())}`;
+      : `Retrying update in ${formatCountdown(autoReloadAt - Date.now())}`;
   }
   nodes.forEach(n => { n.textContent = text; });
 }
