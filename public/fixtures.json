@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-17T05:50:46.268Z",
+  "fetchedAt": "2026-10-17T06:01:01.395Z",
   "data": {
     "rounds": [
       {
@@ -104056,8 +104056,8 @@
           },
           {
             "id": 2868846,
-            "team1Score": 28,
-            "team2Score": 12,
+            "team1Score": 37,
+            "team2Score": 14,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -105613,8 +105613,8 @@
           },
           {
             "id": 2868878,
-            "team1Score": 18,
-            "team2Score": 18,
+            "team1Score": 23,
+            "team2Score": 28,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -105906,8 +105906,8 @@
           },
           {
             "id": 2868858,
-            "team1Score": 11,
-            "team2Score": 10,
+            "team1Score": 19,
+            "team2Score": 13,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -106291,8 +106291,8 @@
           },
           {
             "id": 2868896,
-            "team1Score": 20,
-            "team2Score": 28,
+            "team1Score": 30,
+            "team2Score": 35,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -106492,8 +106492,8 @@
           },
           {
             "id": 2868844,
-            "team1Score": 8,
-            "team2Score": 33,
+            "team1Score": 10,
+            "team2Score": 42,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -106785,8 +106785,8 @@
           },
           {
             "id": 2868867,
-            "team1Score": 16,
-            "team2Score": 18,
+            "team1Score": 24,
+            "team2Score": 28,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
