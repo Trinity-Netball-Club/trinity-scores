@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-23T21:01:11.233Z",
+  "fetchedAt": "2026-10-23T21:10:49.068Z",
   "data": {
     "rounds": [
       {
@@ -107754,7 +107754,7 @@
           {
             "id": 2868956,
             "team1Score": 0,
-            "team2Score": 0,
+            "team2Score": 4,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -107845,7 +107845,7 @@
           },
           {
             "id": 2876631,
-            "team1Score": 0,
+            "team1Score": 1,
             "team2Score": 0,
             "hasPenalty": false,
             "team1PenaltyScore": null,
@@ -107954,8 +107954,8 @@
         "matches": [
           {
             "id": 2868934,
-            "team1Score": 0,
-            "team2Score": 0,
+            "team1Score": 2,
+            "team2Score": 5,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -108248,7 +108248,7 @@
           {
             "id": 2868967,
             "team1Score": 0,
-            "team2Score": 0,
+            "team2Score": 1,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -108340,7 +108340,7 @@
           {
             "id": 2868987,
             "team1Score": 0,
-            "team2Score": 1,
+            "team2Score": 7,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -108431,8 +108431,8 @@
           },
           {
             "id": 2868997,
-            "team1Score": 0,
-            "team2Score": 0,
+            "team1Score": 1,
+            "team2Score": 6,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -108523,8 +108523,8 @@
           },
           {
             "id": 2876633,
-            "team1Score": 0,
-            "team2Score": 0,
+            "team1Score": 3,
+            "team2Score": 1,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
