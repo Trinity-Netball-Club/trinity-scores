@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-24T08:30:59.193Z",
+  "fetchedAt": "2026-11-06T06:35:47.493Z",
   "data": {
     "rounds": [
       {
@@ -105573,7 +105573,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -109981,13 +109981,13 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
+            "endTime": "2026-10-25T22:47:57.000Z",
+            "team1ResultId": 2,
+            "team2ResultId": 1,
             "roundId": 377059,
-            "originalStartTime": null,
+            "originalStartTime": "2026-10-23T22:40:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -110004,7 +110004,11 @@
             "extraTimeFor": null,
             "team1LineupConfirmed": true,
             "team2LineupConfirmed": true,
-            "matchAction": null,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -110424,7 +110428,7 @@
             "matchAction": {
               "nextAction": "BEST_AND_FAIREST",
               "teamAwardsDue": [
-                219231
+                219192
               ],
               "mediaReportDue": [],
               "votedAwardsDue": []
@@ -116688,11 +116692,11 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
+            "endTime": "2026-10-24T05:15:00.000Z",
+            "team1ResultId": 3,
+            "team2ResultId": 3,
             "roundId": 377070,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -116780,11 +116784,11 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
+            "endTime": "2026-10-24T06:05:00.000Z",
+            "team1ResultId": 3,
+            "team2ResultId": 3,
             "roundId": 377070,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -117520,7 +117524,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -117613,7 +117617,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -117813,8 +117817,8 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -118199,7 +118203,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -118551,7 +118555,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2110,
+            "venueCourtId": 2108,
             "competitionId": 5224,
             "divisionId": 33345,
             "team1Id": 219188,
@@ -118614,8 +118618,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781428354506%2F07fc92d1b26ceaee459c4a8e1e67ca94?generation=1781428355537660&alt=media"
             },
             "venueCourt": {
-              "name": "Court 5",
-              "courtNumber": 5,
+              "name": "Court 3",
+              "courtNumber": 3,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -118936,7 +118940,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2108,
+            "venueCourtId": 2110,
             "competitionId": 5224,
             "divisionId": 33354,
             "team1Id": 219138,
@@ -118947,11 +118951,11 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": null,
-            "matchSubstatusRefId": 1,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 6,
+            "endTime": "2026-11-06T22:35:00.000Z",
+            "team1ResultId": 5,
+            "team2ResultId": 4,
             "roundId": 377093,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -118999,8 +119003,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779763903562%2Fdce45a72c78c054b5812e1babf112027?generation=1779763904055967&alt=media"
             },
             "venueCourt": {
-              "name": "Court 3",
-              "courtNumber": 3,
+              "name": "Court 5",
+              "courtNumber": 5,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -119169,7 +119173,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -119646,7 +119650,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -119739,7 +119743,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -120727,7 +120731,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -120819,7 +120823,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -122375,7 +122379,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -123455,8 +123459,8 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -123515,7 +123519,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2112,
+            "venueCourtId": 2107,
             "competitionId": 5224,
             "divisionId": 33370,
             "team1Id": 219242,
@@ -123578,8 +123582,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779771771087%2F9c7f536ffd7685eb3023c82d5177f0da?generation=1779771771456382&alt=media"
             },
             "venueCourt": {
-              "name": "Court 7",
-              "courtNumber": 7,
+              "name": "Court 2",
+              "courtNumber": 2,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -123900,7 +123904,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2113,
+            "venueCourtId": 2110,
             "competitionId": 5224,
             "divisionId": 33364,
             "team1Id": 219181,
@@ -123911,11 +123915,11 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": null,
-            "matchSubstatusRefId": 1,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 6,
+            "endTime": "2026-11-07T04:25:00.000Z",
+            "team1ResultId": 4,
+            "team2ResultId": 5,
             "roundId": 377084,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -123963,8 +123967,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779771756601%2F8e5df8e4115ad526f027661751f79c5a?generation=1779771756971938&alt=media"
             },
             "venueCourt": {
-              "name": "Court 8",
-              "courtNumber": 8,
+              "name": "Court 5",
+              "courtNumber": 5,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -124285,7 +124289,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2111,
+            "venueCourtId": 2106,
             "competitionId": 5224,
             "divisionId": 33366,
             "team1Id": 219200,
@@ -124317,7 +124321,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -124348,8 +124352,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780389532720%2Feb2139ca5377bcadaffa517f1ba1dfdd?generation=1780389533195185&alt=media"
             },
             "venueCourt": {
-              "name": "Court 6",
-              "courtNumber": 6,
+              "name": "Court 1",
+              "courtNumber": 1,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -124702,7 +124706,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -124871,7 +124875,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2107,
+            "venueCourtId": 2112,
             "competitionId": 5224,
             "divisionId": 33369,
             "team1Id": 219226,
@@ -124934,8 +124938,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792495260%2F8107497e8dfdbe1805e097fa465468f6?generation=1780792495619819&alt=media"
             },
             "venueCourt": {
-              "name": "Court 2",
-              "courtNumber": 2,
+              "name": "Court 7",
+              "courtNumber": 7,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -125457,7 +125461,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2110,
+            "venueCourtId": 2113,
             "competitionId": 5224,
             "divisionId": 33352,
             "team1Id": 219133,
@@ -125520,8 +125524,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781142978219%2Fbd7a982b218db5a05d29cabeefb2b220?generation=1781142978577260&alt=media"
             },
             "venueCourt": {
-              "name": "Court 5",
-              "courtNumber": 5,
+              "name": "Court 8",
+              "courtNumber": 8,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -125549,7 +125553,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2110,
+            "venueCourtId": 2111,
             "competitionId": 5224,
             "divisionId": 33352,
             "team1Id": 219131,
@@ -125560,11 +125564,11 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": null,
-            "matchSubstatusRefId": 1,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 6,
+            "endTime": "2026-11-07T05:15:00.000Z",
+            "team1ResultId": 5,
+            "team2ResultId": 4,
             "roundId": 377091,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -125612,8 +125616,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779776599725%2F378d34a4fe40a48d7ee9d62a160dbbd4?generation=1779776600072643&alt=media"
             },
             "venueCourt": {
-              "name": "Court 5",
-              "courtNumber": 5,
+              "name": "Court 6",
+              "courtNumber": 6,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -126520,7 +126524,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2109,
+            "venueCourtId": 2106,
             "competitionId": 5224,
             "divisionId": 33371,
             "team1Id": 219269,
@@ -126552,7 +126556,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -126583,8 +126587,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781139648227%2Fae62f6475cb340261f767be86a803d29?generation=1781139648615689&alt=media"
             },
             "venueCourt": {
-              "name": "Court 4",
-              "courtNumber": 4,
+              "name": "Court 1",
+              "courtNumber": 1,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -126629,7 +126633,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2106,
+            "venueCourtId": 2110,
             "competitionId": 5224,
             "divisionId": 33360,
             "team1Id": 219159,
@@ -126640,11 +126644,11 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": null,
-            "matchSubstatusRefId": 1,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 6,
+            "endTime": "2026-11-07T05:15:00.000Z",
+            "team1ResultId": 5,
+            "team2ResultId": 4,
             "roundId": 377100,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -126692,8 +126696,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779776584728%2Fc2b1b28a7adc5d10328aa00fe7056c3a?generation=1779776585519985&alt=media"
             },
             "venueCourt": {
-              "name": "Court 1",
-              "courtNumber": 1,
+              "name": "Court 5",
+              "courtNumber": 5,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -126813,7 +126817,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2106,
+            "venueCourtId": 2109,
             "competitionId": 5224,
             "divisionId": 33360,
             "team1Id": 219157,
@@ -126824,11 +126828,11 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": null,
-            "matchSubstatusRefId": 1,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 6,
+            "endTime": "2026-11-07T06:55:00.000Z",
+            "team1ResultId": 4,
+            "team2ResultId": 5,
             "roundId": 377100,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -126845,7 +126849,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -126876,8 +126880,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779940073116%2Ff4a1adb7a76324bb4ca19fc2256bd936?generation=1779940073933200&alt=media"
             },
             "venueCourt": {
-              "name": "Court 1",
-              "courtNumber": 1,
+              "name": "Court 4",
+              "courtNumber": 4,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
