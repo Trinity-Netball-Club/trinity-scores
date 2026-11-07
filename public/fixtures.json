@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-07T04:10:44.723Z",
+  "fetchedAt": "2026-11-07T04:20:48.220Z",
   "data": {
     "rounds": [
       {
@@ -123514,8 +123514,8 @@
           },
           {
             "id": 2869026,
-            "team1Score": 6,
-            "team2Score": 9,
+            "team1Score": 12,
+            "team2Score": 13,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -124192,8 +124192,8 @@
           },
           {
             "id": 2869050,
-            "team1Score": 15,
-            "team2Score": 11,
+            "team1Score": 19,
+            "team2Score": 15,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -124870,8 +124870,8 @@
           },
           {
             "id": 2869069,
-            "team1Score": 8,
-            "team2Score": 26,
+            "team1Score": 11,
+            "team2Score": 34,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -125071,8 +125071,8 @@
         "matches": [
           {
             "id": 2869041,
-            "team1Score": 17,
-            "team2Score": 10,
+            "team1Score": 21,
+            "team2Score": 20,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -125163,8 +125163,8 @@
           },
           {
             "id": 2869104,
-            "team1Score": 3,
-            "team2Score": 15,
+            "team1Score": 8,
+            "team2Score": 19,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -125841,8 +125841,8 @@
         "matches": [
           {
             "id": 2869101,
-            "team1Score": 8,
-            "team2Score": 19,
+            "team1Score": 9,
+            "team2Score": 28,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
