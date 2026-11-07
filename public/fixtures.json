@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-07T05:30:54.480Z",
+  "fetchedAt": "2026-11-07T05:40:44.978Z",
   "data": {
     "rounds": [
       {
@@ -123698,8 +123698,8 @@
           },
           {
             "id": 2869028,
-            "team1Score": 5,
-            "team2Score": 2,
+            "team1Score": 12,
+            "team2Score": 5,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -124376,8 +124376,8 @@
           },
           {
             "id": 2869052,
-            "team1Score": 8,
-            "team2Score": 4,
+            "team1Score": 16,
+            "team2Score": 10,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -125640,8 +125640,8 @@
           },
           {
             "id": 2869062,
-            "team1Score": 5,
-            "team2Score": 7,
+            "team1Score": 10,
+            "team2Score": 11,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -126025,8 +126025,8 @@
           },
           {
             "id": 2869103,
-            "team1Score": 9,
-            "team2Score": 10,
+            "team1Score": 15,
+            "team2Score": 18,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -126427,8 +126427,8 @@
           },
           {
             "id": 2869082,
-            "team1Score": 9,
-            "team2Score": 7,
+            "team1Score": 18,
+            "team2Score": 15,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -126720,8 +126720,8 @@
           },
           {
             "id": 2869092,
-            "team1Score": 7,
-            "team2Score": 11,
+            "team1Score": 14,
+            "team2Score": 17,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
