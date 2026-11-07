@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-07T02:30:50.797Z",
+  "fetchedAt": "2026-11-07T02:40:44.994Z",
   "data": {
     "rounds": [
       {
@@ -122451,8 +122451,8 @@
         "matches": [
           {
             "id": 2869105,
-            "team1Score": 16,
-            "team2Score": 17,
+            "team1Score": 23,
+            "team2Score": 23,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -122543,8 +122543,8 @@
           },
           {
             "id": 2869106,
-            "team1Score": 12,
-            "team2Score": 12,
+            "team1Score": 22,
+            "team2Score": 17,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -122836,8 +122836,8 @@
           },
           {
             "id": 2869109,
-            "team1Score": 15,
-            "team2Score": 14,
+            "team1Score": 23,
+            "team2Score": 19,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -122928,8 +122928,8 @@
           },
           {
             "id": 2869111,
-            "team1Score": 13,
-            "team2Score": 20,
+            "team1Score": 19,
+            "team2Score": 26,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -123020,8 +123020,8 @@
           },
           {
             "id": 2869114,
-            "team1Score": 14,
-            "team2Score": 16,
+            "team1Score": 19,
+            "team2Score": 23,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -123129,8 +123129,8 @@
         "matches": [
           {
             "id": 2869112,
-            "team1Score": 14,
-            "team2Score": 33,
+            "team1Score": 18,
+            "team2Score": 38,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
