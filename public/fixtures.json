@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-07T03:01:06.156Z",
+  "fetchedAt": "2026-11-07T03:10:49.633Z",
   "data": {
     "rounds": [
       {
@@ -123221,8 +123221,8 @@
           },
           {
             "id": 2869110,
-            "team1Score": 5,
-            "team2Score": 5,
+            "team1Score": 8,
+            "team2Score": 12,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -123313,8 +123313,8 @@
           },
           {
             "id": 2869113,
-            "team1Score": 3,
-            "team2Score": 11,
+            "team1Score": 7,
+            "team2Score": 20,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -123422,8 +123422,8 @@
         "matches": [
           {
             "id": 2869024,
-            "team1Score": 14,
-            "team2Score": 2,
+            "team1Score": 23,
+            "team2Score": 4,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -124100,8 +124100,8 @@
         "matches": [
           {
             "id": 2869049,
-            "team1Score": 3,
-            "team2Score": 6,
+            "team1Score": 9,
+            "team2Score": 13,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -124577,8 +124577,8 @@
           },
           {
             "id": 2869079,
-            "team1Score": 10,
-            "team2Score": 9,
+            "team1Score": 24,
+            "team2Score": 17,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -124669,8 +124669,8 @@
           },
           {
             "id": 2869100,
-            "team1Score": 3,
-            "team2Score": 8,
+            "team1Score": 10,
+            "team2Score": 11,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
