@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-14T03:40:46.031Z",
+  "fetchedAt": "2026-11-14T03:50:43.632Z",
   "data": {
     "rounds": [
       {
@@ -133312,8 +133312,8 @@
           },
           {
             "id": 2869123,
-            "team1Score": 0,
-            "team2Score": 0,
+            "team1Score": 9,
+            "team2Score": 6,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -133697,8 +133697,8 @@
           },
           {
             "id": 2869135,
-            "team1Score": 1,
-            "team2Score": 0,
+            "team1Score": 10,
+            "team2Score": 7,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -133990,8 +133990,8 @@
           },
           {
             "id": 2869147,
-            "team1Score": 1,
-            "team2Score": 0,
+            "team1Score": 6,
+            "team2Score": 3,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -134668,8 +134668,8 @@
           },
           {
             "id": 2869167,
-            "team1Score": 0,
-            "team2Score": 0,
+            "team1Score": 3,
+            "team2Score": 7,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -134869,8 +134869,8 @@
         "matches": [
           {
             "id": 2869138,
-            "team1Score": 1,
-            "team2Score": 0,
+            "team1Score": 5,
+            "team2Score": 9,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -135254,7 +135254,7 @@
         "matches": [
           {
             "id": 2869157,
-            "team1Score": 0,
+            "team1Score": 9,
             "team2Score": 0,
             "hasPenalty": false,
             "team1PenaltyScore": null,
@@ -135639,8 +135639,8 @@
         "matches": [
           {
             "id": 2869187,
-            "team1Score": 0,
-            "team2Score": 0,
+            "team1Score": 4,
+            "team2Score": 8,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -135932,8 +135932,8 @@
         "matches": [
           {
             "id": 2869198,
-            "team1Score": 0,
-            "team2Score": 0,
+            "team1Score": 6,
+            "team2Score": 10,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
