@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-14T08:30:51.737Z",
+  "fetchedAt": "2026-11-20T06:35:52.254Z",
   "data": {
     "rounds": [
       {
@@ -130951,13 +130951,13 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
+            "endTime": "2026-11-16T01:13:25.000Z",
+            "team1ResultId": 2,
+            "team2ResultId": 1,
             "roundId": 377107,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-14T00:20:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -130974,7 +130974,11 @@
             "extraTimeFor": null,
             "team1LineupConfirmed": true,
             "team2LineupConfirmed": true,
-            "matchAction": null,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -136609,11 +136613,11 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
+            "endTime": "2026-11-14T05:15:00.000Z",
+            "team1ResultId": 3,
+            "team2ResultId": 3,
             "roundId": 377124,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -136701,11 +136705,11 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
+            "endTime": "2026-11-14T06:05:00.000Z",
+            "team1ResultId": 3,
+            "team2ResultId": 3,
             "roundId": 377124,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -137136,7 +137140,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -137320,7 +137324,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -137614,7 +137618,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -138108,7 +138112,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -138384,7 +138388,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -138585,7 +138589,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -138786,7 +138790,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -139171,7 +139175,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -139647,8 +139651,8 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -140142,7 +140146,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -140636,7 +140640,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -141991,7 +141995,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -142192,7 +142196,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -143435,11 +143439,11 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": null,
-            "matchSubstatusRefId": 1,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 6,
+            "endTime": "2026-11-21T04:25:00.000Z",
+            "team1ResultId": 5,
+            "team2ResultId": 4,
             "roundId": 377152,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -143549,7 +143553,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -143717,7 +143721,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2112,
+            "venueCourtId": 2110,
             "competitionId": 5224,
             "divisionId": 33360,
             "team1Id": 219154,
@@ -143728,11 +143732,11 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": null,
-            "matchSubstatusRefId": 1,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 6,
+            "endTime": "2026-11-21T04:25:00.000Z",
+            "team1ResultId": 4,
+            "team2ResultId": 5,
             "roundId": 377154,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -143780,8 +143784,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779101277911%2Fbd0c96e2e3295b12829ba91d3fc7e20d?generation=1779101278265791&alt=media"
             },
             "venueCourt": {
-              "name": "Court 7",
-              "courtNumber": 7,
+              "name": "Court 5",
+              "courtNumber": 5,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -144244,7 +144248,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -145398,7 +145402,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -145567,7 +145571,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2110,
+            "venueCourtId": 2112,
             "competitionId": 5224,
             "divisionId": 33352,
             "team1Id": 219184,
@@ -145630,8 +145634,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781142978219%2Fbd7a982b218db5a05d29cabeefb2b220?generation=1781142978577260&alt=media"
             },
             "venueCourt": {
-              "name": "Court 5",
-              "courtNumber": 5,
+              "name": "Court 7",
+              "courtNumber": 7,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -145984,7 +145988,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -146526,7 +146530,7 @@
       },
       {
         "id": 379353,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33353,
@@ -146617,7 +146621,7 @@
             },
             "round": {
               "id": 379353,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33353
@@ -146709,7 +146713,7 @@
             },
             "round": {
               "id": 379353,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33353
@@ -146727,7 +146731,7 @@
       },
       {
         "id": 379355,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33344,
@@ -146818,7 +146822,7 @@
             },
             "round": {
               "id": 379355,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33344
@@ -146910,7 +146914,7 @@
             },
             "round": {
               "id": 379355,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33344
@@ -146928,7 +146932,7 @@
       },
       {
         "id": 380733,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33361,
@@ -147019,7 +147023,7 @@
             },
             "round": {
               "id": 380733,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33361
@@ -147111,7 +147115,7 @@
             },
             "round": {
               "id": 380733,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33361
@@ -147129,7 +147133,7 @@
       },
       {
         "id": 380724,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33345,
@@ -147220,7 +147224,7 @@
             },
             "round": {
               "id": 380724,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33345
@@ -147312,7 +147316,7 @@
             },
             "round": {
               "id": 380724,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33345
@@ -147330,7 +147334,7 @@
       },
       {
         "id": 380729,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33354,
@@ -147421,7 +147425,7 @@
             },
             "round": {
               "id": 380729,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33354
@@ -147513,7 +147517,7 @@
             },
             "round": {
               "id": 380729,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33354
@@ -147531,7 +147535,7 @@
       },
       {
         "id": 380734,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33355,
@@ -147622,7 +147626,7 @@
             },
             "round": {
               "id": 380734,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33355
@@ -147714,7 +147718,7 @@
             },
             "round": {
               "id": 380734,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33355
@@ -147732,7 +147736,7 @@
       },
       {
         "id": 379356,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33347,
@@ -147823,7 +147827,7 @@
             },
             "round": {
               "id": 379356,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33347
@@ -147915,7 +147919,7 @@
             },
             "round": {
               "id": 379356,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33347
@@ -147933,7 +147937,7 @@
       },
       {
         "id": 380738,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33346,
@@ -148024,7 +148028,7 @@
             },
             "round": {
               "id": 380738,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33346
@@ -148116,7 +148120,7 @@
             },
             "round": {
               "id": 380738,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33346
@@ -148134,7 +148138,7 @@
       },
       {
         "id": 380740,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33356,
@@ -148225,7 +148229,7 @@
             },
             "round": {
               "id": 380740,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33356
@@ -148317,7 +148321,7 @@
             },
             "round": {
               "id": 380740,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33356
@@ -148335,7 +148339,7 @@
       },
       {
         "id": 379354,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33367,
@@ -148426,7 +148430,7 @@
             },
             "round": {
               "id": 379354,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33367
@@ -148518,7 +148522,7 @@
             },
             "round": {
               "id": 379354,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33367
@@ -148536,7 +148540,7 @@
       },
       {
         "id": 380728,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33357,
@@ -148627,7 +148631,7 @@
             },
             "round": {
               "id": 380728,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33357
@@ -148719,7 +148723,7 @@
             },
             "round": {
               "id": 380728,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33357
@@ -148737,7 +148741,7 @@
       },
       {
         "id": 380735,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33348,
@@ -148828,7 +148832,7 @@
             },
             "round": {
               "id": 380735,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33348
@@ -148920,7 +148924,7 @@
             },
             "round": {
               "id": 380735,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33348
@@ -148938,7 +148942,7 @@
       },
       {
         "id": 380739,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33362,
@@ -149029,7 +149033,7 @@
             },
             "round": {
               "id": 380739,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33362
@@ -149121,7 +149125,7 @@
             },
             "round": {
               "id": 380739,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33362
@@ -149139,7 +149143,7 @@
       },
       {
         "id": 380725,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33349,
@@ -149230,7 +149234,7 @@
             },
             "round": {
               "id": 380725,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33349
@@ -149322,7 +149326,7 @@
             },
             "round": {
               "id": 380725,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33349
@@ -149340,7 +149344,7 @@
       },
       {
         "id": 380730,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33358,
@@ -149431,7 +149435,7 @@
             },
             "round": {
               "id": 380730,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33358
@@ -149523,7 +149527,7 @@
             },
             "round": {
               "id": 380730,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33358
@@ -149541,7 +149545,7 @@
       },
       {
         "id": 371651,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33363,
@@ -149632,7 +149636,7 @@
             },
             "round": {
               "id": 371651,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33363
@@ -149724,7 +149728,7 @@
             },
             "round": {
               "id": 371651,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33363
@@ -149742,7 +149746,7 @@
       },
       {
         "id": 371652,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33350,
@@ -149833,7 +149837,7 @@
             },
             "round": {
               "id": 371652,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33350
@@ -149925,7 +149929,7 @@
             },
             "round": {
               "id": 371652,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33350
@@ -149943,7 +149947,7 @@
       },
       {
         "id": 371650,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33368,
@@ -150034,7 +150038,7 @@
             },
             "round": {
               "id": 371650,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33368
@@ -150126,7 +150130,7 @@
             },
             "round": {
               "id": 371650,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33368
@@ -150144,7 +150148,7 @@
       },
       {
         "id": 380726,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33351,
@@ -150235,7 +150239,7 @@
             },
             "round": {
               "id": 380726,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33351
@@ -150327,7 +150331,7 @@
             },
             "round": {
               "id": 380726,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33351
@@ -150345,7 +150349,7 @@
       },
       {
         "id": 380742,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33359,
@@ -150436,7 +150440,7 @@
             },
             "round": {
               "id": 380742,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33359
@@ -150528,7 +150532,7 @@
             },
             "round": {
               "id": 380742,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33359
@@ -150546,7 +150550,7 @@
       },
       {
         "id": 380727,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33370,
@@ -150637,7 +150641,7 @@
             },
             "round": {
               "id": 380727,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33370
@@ -150729,7 +150733,7 @@
             },
             "round": {
               "id": 380727,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33370
@@ -150747,7 +150751,7 @@
       },
       {
         "id": 380732,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33369,
@@ -150838,7 +150842,7 @@
             },
             "round": {
               "id": 380732,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33369
@@ -150930,7 +150934,7 @@
             },
             "round": {
               "id": 380732,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33369
@@ -150948,7 +150952,7 @@
       },
       {
         "id": 380736,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33366,
@@ -151039,7 +151043,7 @@
             },
             "round": {
               "id": 380736,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33366
@@ -151131,7 +151135,7 @@
             },
             "round": {
               "id": 380736,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33366
@@ -151149,7 +151153,7 @@
       },
       {
         "id": 380252,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33371,
@@ -151240,7 +151244,7 @@
             },
             "round": {
               "id": 380252,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33371
@@ -151332,7 +151336,7 @@
             },
             "round": {
               "id": 380252,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33371
@@ -151350,7 +151354,7 @@
       },
       {
         "id": 380731,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33352,
@@ -151441,7 +151445,7 @@
             },
             "round": {
               "id": 380731,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33352
@@ -151533,7 +151537,7 @@
             },
             "round": {
               "id": 380731,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33352
@@ -151551,7 +151555,7 @@
       },
       {
         "id": 380737,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33372,
@@ -151642,7 +151646,7 @@
             },
             "round": {
               "id": 380737,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33372
@@ -151734,7 +151738,7 @@
             },
             "round": {
               "id": 380737,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33372
@@ -151752,7 +151756,7 @@
       },
       {
         "id": 380250,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33365,
@@ -151843,7 +151847,7 @@
             },
             "round": {
               "id": 380250,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33365
@@ -151935,7 +151939,7 @@
             },
             "round": {
               "id": 380250,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33365
@@ -151953,7 +151957,7 @@
       },
       {
         "id": 380251,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33360,
@@ -152044,7 +152048,7 @@
             },
             "round": {
               "id": 380251,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33360
@@ -152136,7 +152140,7 @@
             },
             "round": {
               "id": 380251,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33360
@@ -152154,7 +152158,7 @@
       },
       {
         "id": 380741,
-        "name": "Finals - Round 1",
+        "name": "Semi Final",
         "sequence": 101,
         "competitionId": 5224,
         "divisionId": 33364,
@@ -152245,7 +152249,7 @@
             },
             "round": {
               "id": 380741,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33364
@@ -152337,7 +152341,7 @@
             },
             "round": {
               "id": 380741,
-              "name": "Finals - Round 1",
+              "name": "Semi Final",
               "sequence": 101,
               "competitionId": 5224,
               "divisionId": 33364
@@ -152355,7 +152359,7 @@
       },
       {
         "id": 379357,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33353,
@@ -152446,7 +152450,7 @@
             },
             "round": {
               "id": 379357,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33353
@@ -152464,7 +152468,7 @@
       },
       {
         "id": 379358,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33344,
@@ -152555,7 +152559,7 @@
             },
             "round": {
               "id": 379358,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33344
@@ -152573,7 +152577,7 @@
       },
       {
         "id": 380746,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33361,
@@ -152664,7 +152668,7 @@
             },
             "round": {
               "id": 380746,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33361
@@ -152682,7 +152686,7 @@
       },
       {
         "id": 380749,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33345,
@@ -152773,7 +152777,7 @@
             },
             "round": {
               "id": 380749,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33345
@@ -152791,7 +152795,7 @@
       },
       {
         "id": 380747,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33356,
@@ -152882,7 +152886,7 @@
             },
             "round": {
               "id": 380747,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33356
@@ -152900,7 +152904,7 @@
       },
       {
         "id": 380752,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33354,
@@ -152991,7 +152995,7 @@
             },
             "round": {
               "id": 380752,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33354
@@ -153009,7 +153013,7 @@
       },
       {
         "id": 380755,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33355,
@@ -153100,7 +153104,7 @@
             },
             "round": {
               "id": 380755,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33355
@@ -153118,7 +153122,7 @@
       },
       {
         "id": 380757,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33346,
@@ -153209,7 +153213,7 @@
             },
             "round": {
               "id": 380757,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33346
@@ -153227,7 +153231,7 @@
       },
       {
         "id": 379359,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33347,
@@ -153318,7 +153322,7 @@
             },
             "round": {
               "id": 379359,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33347
@@ -153336,7 +153340,7 @@
       },
       {
         "id": 380753,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33357,
@@ -153427,7 +153431,7 @@
             },
             "round": {
               "id": 380753,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33357
@@ -153445,7 +153449,7 @@
       },
       {
         "id": 380762,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33367,
@@ -153536,7 +153540,7 @@
             },
             "round": {
               "id": 380762,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33367
@@ -153554,7 +153558,7 @@
       },
       {
         "id": 380743,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33348,
@@ -153645,7 +153649,7 @@
             },
             "round": {
               "id": 380743,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33348
@@ -153663,7 +153667,7 @@
       },
       {
         "id": 380750,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33362,
@@ -153754,7 +153758,7 @@
             },
             "round": {
               "id": 380750,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33362
@@ -153772,7 +153776,7 @@
       },
       {
         "id": 380756,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33358,
@@ -153863,7 +153867,7 @@
             },
             "round": {
               "id": 380756,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33358
@@ -153881,7 +153885,7 @@
       },
       {
         "id": 380758,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33349,
@@ -153972,7 +153976,7 @@
             },
             "round": {
               "id": 380758,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33349
@@ -153990,7 +153994,7 @@
       },
       {
         "id": 371653,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33363,
@@ -154081,7 +154085,7 @@
             },
             "round": {
               "id": 371653,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33363
@@ -154099,7 +154103,7 @@
       },
       {
         "id": 371654,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33368,
@@ -154190,7 +154194,7 @@
             },
             "round": {
               "id": 371654,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33368
@@ -154208,7 +154212,7 @@
       },
       {
         "id": 371655,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33350,
@@ -154299,7 +154303,7 @@
             },
             "round": {
               "id": 371655,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33350
@@ -154317,7 +154321,7 @@
       },
       {
         "id": 380744,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33351,
@@ -154408,7 +154412,7 @@
             },
             "round": {
               "id": 380744,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33351
@@ -154426,7 +154430,7 @@
       },
       {
         "id": 380760,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33366,
@@ -154517,7 +154521,7 @@
             },
             "round": {
               "id": 380760,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33366
@@ -154535,7 +154539,7 @@
       },
       {
         "id": 380761,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33359,
@@ -154626,7 +154630,7 @@
             },
             "round": {
               "id": 380761,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33359
@@ -154644,7 +154648,7 @@
       },
       {
         "id": 380745,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33369,
@@ -154735,7 +154739,7 @@
             },
             "round": {
               "id": 380745,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33369
@@ -154753,7 +154757,7 @@
       },
       {
         "id": 380748,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33372,
@@ -154844,7 +154848,7 @@
             },
             "round": {
               "id": 380748,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33372
@@ -154862,7 +154866,7 @@
       },
       {
         "id": 380751,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33364,
@@ -154953,7 +154957,7 @@
             },
             "round": {
               "id": 380751,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33364
@@ -154971,7 +154975,7 @@
       },
       {
         "id": 380759,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33370,
@@ -155062,7 +155066,7 @@
             },
             "round": {
               "id": 380759,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33370
@@ -155080,7 +155084,7 @@
       },
       {
         "id": 380253,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33371,
@@ -155171,7 +155175,7 @@
             },
             "round": {
               "id": 380253,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33371
@@ -155189,7 +155193,7 @@
       },
       {
         "id": 380254,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33365,
@@ -155280,7 +155284,7 @@
             },
             "round": {
               "id": 380254,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33365
@@ -155298,7 +155302,7 @@
       },
       {
         "id": 380255,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33360,
@@ -155389,7 +155393,7 @@
             },
             "round": {
               "id": 380255,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33360
@@ -155407,7 +155411,7 @@
       },
       {
         "id": 380754,
-        "name": "Finals - Round 2",
+        "name": "Grand Final",
         "sequence": 102,
         "competitionId": 5224,
         "divisionId": 33352,
@@ -155498,7 +155502,7 @@
             },
             "round": {
               "id": 380754,
-              "name": "Finals - Round 2",
+              "name": "Grand Final",
               "sequence": 102,
               "competitionId": 5224,
               "divisionId": 33352
