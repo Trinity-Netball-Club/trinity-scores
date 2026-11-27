@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-27T21:06:34.311Z",
+  "fetchedAt": "2026-11-27T21:11:36.699Z",
   "data": {
     "rounds": [
       {
@@ -146925,8 +146925,8 @@
         "matches": [
           {
             "id": 2876647,
-            "team1Score": 4,
-            "team2Score": 1,
+            "team1Score": 6,
+            "team2Score": 3,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -147219,7 +147219,7 @@
           {
             "id": 2876653,
             "team1Score": 2,
-            "team2Score": 1,
+            "team2Score": 2,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -147328,7 +147328,7 @@
           {
             "id": 2881577,
             "team1Score": 2,
-            "team2Score": 2,
+            "team2Score": 5,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -147420,7 +147420,7 @@
           {
             "id": 2881589,
             "team1Score": 3,
-            "team2Score": 2,
+            "team2Score": 3,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
