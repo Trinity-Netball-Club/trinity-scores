@@ -1064,7 +1064,7 @@ function formatLastUpdated(iso){
 // Driven off LAST_FETCHED_AT_MS + UPDATE_INTERVAL_MS, ticked on an interval
 // so the countdown stays live without needing a full re-render.
 // ── Auto page reload, driven by the same countdown ───────────
-//  - "Next update in N mins"  -> reload when that countdown reaches zero
+//  - "Next update in N mins"  -> refresh scores in place when that countdown reaches zero
 //  - "Updating soon…"         -> reload in 30 seconds (and again every 30s
 //                                until fresh data arrives)
 // Only active while a LIVE card (the only place the countdown shows) is
@@ -1091,7 +1091,10 @@ function scheduleAutoReload(msLeft){
   clearTimeout(autoReloadTimer);
   autoReloadMode = mode;
   autoReloadAt   = target;
-  autoReloadTimer = setTimeout(() => location.reload(), Math.max(target - Date.now(), 0));
+  autoReloadTimer = setTimeout(() => {
+    autoReloadTimer = null; autoReloadMode = null;   // allow the next tick to schedule a retry
+    softRefresh();
+  }, Math.max(target - Date.now(), 0));
 }
 
 // ms -> "m:ss" (rounded up so it never shows 0:00 before the reload fires)
@@ -1207,13 +1210,42 @@ async function fetchLadder(){
   } catch(e){ setStatus(`Ladder fetch failed — ${e.message}`, false, false); }
 }
 
+// In-place refresh of fixtures/scores — no page reload. Re-renders the cards
+// but leaves the filter buttons, selected tab and scroll position alone.
+// Called by the LIVE-card countdown (scheduleAutoReload) when it hits zero.
+let softRefreshBusy = false;
+async function softRefresh(){
+  if (softRefreshBusy) return;
+  softRefreshBusy = true;
+  try {
+    const res = await fetch(`./fixtures.json?_=${Date.now()}`, { cache: 'no-store' });
+    if (!res.ok) throw new Error(res.status);
+    const fixtures = await res.json();
+    const fetchedMs = fixtures.fetchedAt ? new Date(fixtures.fetchedAt).getTime() : Date.now();
+    // Same data as last time -> keep the old timestamp so the countdown
+    // shows "Retrying update in…" and tries again in 30s.
+    const isNew = !LAST_FETCHED_AT_MS || fetchedMs > LAST_FETCHED_AT_MS;
+    if (isNew){
+      LAST_FETCHED_AT_MS = fetchedMs;
+      applyFixtures(fixtures.data, { keepFilters: true });
+      const lu = formatLastUpdated(fixtures.fetchedAt);
+      document.getElementById('last-updated').textContent = lu ? `· ${lu}` : '';
+    }
+  } catch(e){
+    console.warn('Live refresh failed', e);
+  } finally {
+    softRefreshBusy = false;
+    updateNextUpdateCountdowns();
+  }
+}
+
 // Manual refresh button — also invalidates server cache
 async function manualRefresh() {
   location.reload();
 }
 
 // ── Apply data ────────────────────────────────────────────────
-function applyFixtures(fixtureData){
+function applyFixtures(fixtureData, opts = {}){
 
   //console.log('FIXTURES DATA', fixtureData);
 
@@ -1250,8 +1282,10 @@ function applyFixtures(fixtureData){
     formMatchPool = rawMatches;
     processMatches(matches);
 
-  buildTeamFilters(allTeams);
-  buildRoundFilters(allMatches);
+  if (!opts.keepFilters){
+    buildTeamFilters(allTeams);
+    buildRoundFilters(allMatches);
+  }
 
   renderAll(allMatches, ladderMap);
 }
