@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-27T22:46:45.029Z",
+  "fetchedAt": "2026-11-27T22:52:59.714Z",
   "data": {
     "rounds": [
       {
@@ -146943,11 +146943,11 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "endTime": "2026-11-27T21:45:15.000Z",
+            "team1ResultId": 1,
+            "team2ResultId": 2,
             "roundId": 379353,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-27T21:00:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -146964,7 +146964,11 @@
             "extraTimeFor": null,
             "team1LineupConfirmed": true,
             "team2LineupConfirmed": true,
-            "matchAction": null,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -147035,11 +147039,11 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "endTime": "2026-11-27T21:45:19.000Z",
+            "team1ResultId": 2,
+            "team2ResultId": 1,
             "roundId": 379353,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-27T21:00:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -147056,7 +147060,11 @@
             "extraTimeFor": null,
             "team1LineupConfirmed": true,
             "team2LineupConfirmed": true,
-            "matchAction": null,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -147144,11 +147152,11 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "endTime": "2026-11-27T21:45:09.000Z",
+            "team1ResultId": 1,
+            "team2ResultId": 2,
             "roundId": 379355,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-27T21:00:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -147165,7 +147173,11 @@
             "extraTimeFor": null,
             "team1LineupConfirmed": true,
             "team2LineupConfirmed": true,
-            "matchAction": null,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -147236,11 +147248,11 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "endTime": "2026-11-27T21:45:18.000Z",
+            "team1ResultId": 2,
+            "team2ResultId": 1,
             "roundId": 379355,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-27T21:00:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -147257,7 +147269,11 @@
             "extraTimeFor": null,
             "team1LineupConfirmed": true,
             "team2LineupConfirmed": true,
-            "matchAction": null,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -147345,11 +147361,11 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "endTime": "2026-11-27T21:45:25.000Z",
+            "team1ResultId": 2,
+            "team2ResultId": 1,
             "roundId": 380733,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-27T21:00:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -147364,9 +147380,13 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
-            "matchAction": null,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -147437,11 +147457,11 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "endTime": "2026-11-27T21:57:21.000Z",
+            "team1ResultId": 1,
+            "team2ResultId": 2,
             "roundId": 380733,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-27T21:00:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -147458,7 +147478,14 @@
             "extraTimeFor": null,
             "team1LineupConfirmed": true,
             "team2LineupConfirmed": true,
-            "matchAction": null,
+            "matchAction": {
+              "nextAction": "BEST_AND_FAIREST",
+              "teamAwardsDue": [
+                219165
+              ],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -147546,11 +147573,11 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "endTime": "2026-11-27T22:45:10.000Z",
+            "team1ResultId": 2,
+            "team2ResultId": 1,
             "roundId": 380724,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-27T22:00:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -147565,9 +147592,13 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": true,
-            "matchAction": null,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -147638,11 +147669,11 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "endTime": "2026-11-27T22:45:22.000Z",
+            "team1ResultId": 1,
+            "team2ResultId": 2,
             "roundId": 380724,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-27T22:00:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -147658,8 +147689,12 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": true,
-            "team2LineupConfirmed": false,
-            "matchAction": null,
+            "team2LineupConfirmed": true,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -147747,11 +147782,11 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "endTime": "2026-11-27T22:45:16.000Z",
+            "team1ResultId": 2,
+            "team2ResultId": 1,
             "roundId": 380729,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-27T22:00:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -147766,9 +147801,13 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
-            "matchAction": null,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -147839,11 +147878,11 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "endTime": "2026-11-27T22:45:15.000Z",
+            "team1ResultId": 1,
+            "team2ResultId": 2,
             "roundId": 380729,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-27T22:00:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -147860,7 +147899,11 @@
             "extraTimeFor": null,
             "team1LineupConfirmed": true,
             "team2LineupConfirmed": true,
-            "matchAction": null,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -147948,11 +147991,11 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "endTime": "2026-11-27T22:45:12.000Z",
+            "team1ResultId": 3,
+            "team2ResultId": 3,
             "roundId": 380734,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-27T22:00:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -147969,7 +148012,11 @@
             "extraTimeFor": null,
             "team1LineupConfirmed": true,
             "team2LineupConfirmed": true,
-            "matchAction": null,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -148040,11 +148087,11 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "endTime": "2026-11-27T22:45:12.000Z",
+            "team1ResultId": 1,
+            "team2ResultId": 2,
             "roundId": 380734,
-            "originalStartTime": null,
+            "originalStartTime": "2026-11-27T22:00:00.000Z",
             "pauseStartTime": null,
             "totalPausedMs": 0,
             "livestreamURL": null,
@@ -148059,9 +148106,13 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
-            "matchAction": null,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
+            "matchAction": {
+              "teamAwardsDue": [],
+              "mediaReportDue": [],
+              "votedAwardsDue": []
+            },
             "competition": {
               "id": 5224,
               "uploadScores": false,
@@ -148260,8 +148311,8 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -148571,7 +148622,7 @@
             "isFinals": true,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -148662,8 +148713,8 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -148973,7 +149024,7 @@
             "isFinals": true,
             "extraTimeFor": null,
             "team1LineupConfirmed": true,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -149266,7 +149317,7 @@
             "isFinals": true,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -149374,7 +149425,7 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -151275,7 +151326,7 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -151385,7 +151436,7 @@
             "isFinals": true,
             "extraTimeFor": null,
             "team1LineupConfirmed": true,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -152762,8 +152813,8 @@
             "venueCourtId": 2109,
             "competitionId": 5224,
             "divisionId": 33353,
-            "team1Id": 16597,
-            "team2Id": 16598,
+            "team1Id": 219137,
+            "team2Id": 219209,
             "startTime": "2026-12-04T21:00:00.000Z",
             "type": "FOUR_QUARTERS",
             "matchDuration": 40,
@@ -152808,18 +152859,18 @@
               }
             },
             "team1": {
-              "id": 16597,
-              "name": "WSF1",
+              "id": 219137,
+              "name": "BLNC 11U Green",
               "alias": null,
-              "teamUniqueKey": null,
-              "logoUrl": null
+              "teamUniqueKey": "80534f57-0458-4177-b9db-fbe9f15c96f8",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781084868716%2F7bb24ef30d53cf8adc835478db5328bc?generation=1781084869197119&alt=media"
             },
             "team2": {
-              "id": 16598,
-              "name": "WSF2",
+              "id": 219209,
+              "name": "Holy Spirit 11U Blue",
               "alias": null,
-              "teamUniqueKey": null,
-              "logoUrl": null
+              "teamUniqueKey": "f44cefd5-e3f5-47f4-b06f-fa4df3dae881",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781139193087%2Ff35570197f326de6c4f2e71f9b86dfee?generation=1781139193777789&alt=media"
             },
             "venueCourt": {
               "name": "Court 4",
@@ -152871,8 +152922,8 @@
             "venueCourtId": 2108,
             "competitionId": 5224,
             "divisionId": 33344,
-            "team1Id": 16597,
-            "team2Id": 16598,
+            "team1Id": 219228,
+            "team2Id": 219229,
             "startTime": "2026-12-04T21:00:00.000Z",
             "type": "FOUR_QUARTERS",
             "matchDuration": 40,
@@ -152917,18 +152968,18 @@
               }
             },
             "team1": {
-              "id": 16597,
-              "name": "WSF1",
+              "id": 219228,
+              "name": "Trinity 11U Black",
               "alias": null,
-              "teamUniqueKey": null,
-              "logoUrl": null
+              "teamUniqueKey": "f1329be0-1f98-4c97-b6f6-63b6b8ca0d84",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780792373324%2F81d14d2e7c5590e6303e7b4af330b4e0?generation=1780792374111060&alt=media"
             },
             "team2": {
-              "id": 16598,
-              "name": "WSF2",
+              "id": 219229,
+              "name": "Heathmont United 11U Green",
               "alias": null,
-              "teamUniqueKey": null,
-              "logoUrl": null
+              "teamUniqueKey": "e8968fd5-997e-49e1-9781-a438058782bc",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780626639001%2F7ab5b200be188fbd23206a8cba07dfbd?generation=1780626639368695&alt=media"
             },
             "venueCourt": {
               "name": "Court 3",
@@ -152980,8 +153031,8 @@
             "venueCourtId": 2107,
             "competitionId": 5224,
             "divisionId": 33361,
-            "team1Id": 16597,
-            "team2Id": 16598,
+            "team1Id": 219164,
+            "team2Id": 219165,
             "startTime": "2026-12-04T21:00:00.000Z",
             "type": "FOUR_QUARTERS",
             "matchDuration": 40,
@@ -153026,18 +153077,18 @@
               }
             },
             "team1": {
-              "id": 16597,
-              "name": "WSF1",
+              "id": 219164,
+              "name": "Ringwood North 11U White",
               "alias": null,
-              "teamUniqueKey": null,
-              "logoUrl": null
+              "teamUniqueKey": "21e28354-95ab-414f-a1a7-530e01deab31",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781145560311%2F9c0586355e23d727aa7076ed4c5daf66?generation=1781145560783952&alt=media"
             },
             "team2": {
-              "id": 16598,
-              "name": "WSF2",
+              "id": 219165,
+              "name": "Nunawading 11U Jade",
               "alias": null,
-              "teamUniqueKey": null,
-              "logoUrl": null
+              "teamUniqueKey": "06cb8e80-45c5-4b03-af20-0bfe96c6273e",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149363565%2F547890c60ddbc9abe3fd04702f038799?generation=1779149364045391&alt=media"
             },
             "venueCourt": {
               "name": "Court 2",
@@ -153089,8 +153140,8 @@
             "venueCourtId": 2106,
             "competitionId": 5224,
             "divisionId": 33345,
-            "team1Id": 16597,
-            "team2Id": 16598,
+            "team1Id": 219117,
+            "team2Id": 219139,
             "startTime": "2026-12-04T21:00:00.000Z",
             "type": "FOUR_QUARTERS",
             "matchDuration": 40,
@@ -153135,18 +153186,18 @@
               }
             },
             "team1": {
-              "id": 16597,
-              "name": "WSF1",
+              "id": 219117,
+              "name": "East Ringwood 11U Blue",
               "alias": null,
-              "teamUniqueKey": null,
-              "logoUrl": null
+              "teamUniqueKey": "6e469862-67ed-40aa-bcb4-7880ba544f04",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779763925169%2Fdbf5ea939db27bdf4f6d07666db4f7f4?generation=1779763925527295&alt=media"
             },
             "team2": {
-              "id": 16598,
-              "name": "WSF2",
+              "id": 219139,
+              "name": "HFNC Jets 11U White",
               "alias": null,
-              "teamUniqueKey": null,
-              "logoUrl": null
+              "teamUniqueKey": "7d49dc26-654f-4398-97b2-f9b7998ed690",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781428341141%2F9698d286895a1b6900c898f7ca6fc255?generation=1781428341512989&alt=media"
             },
             "venueCourt": {
               "name": "Court 1",
@@ -153307,8 +153358,8 @@
             "venueCourtId": 2107,
             "competitionId": 5224,
             "divisionId": 33354,
-            "team1Id": 16597,
-            "team2Id": 16598,
+            "team1Id": 219251,
+            "team2Id": 219140,
             "startTime": "2026-12-04T22:10:00.000Z",
             "type": "FOUR_QUARTERS",
             "matchDuration": 40,
@@ -153353,18 +153404,18 @@
               }
             },
             "team1": {
-              "id": 16597,
-              "name": "WSF1",
+              "id": 219251,
+              "name": "East Ringwood 11U Black",
               "alias": null,
-              "teamUniqueKey": null,
-              "logoUrl": null
+              "teamUniqueKey": "3081ea83-2f6b-474b-bc0f-28902436a92c",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779763903562%2Fdce45a72c78c054b5812e1babf112027?generation=1779763904055967&alt=media"
             },
             "team2": {
-              "id": 16598,
-              "name": "WSF2",
+              "id": 219140,
+              "name": "St James 11U Red",
               "alias": null,
-              "teamUniqueKey": null,
-              "logoUrl": null
+              "teamUniqueKey": "c85b684d-357f-4585-bb39-467824668fca",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779150508343%2Fbc9f4395242e278213414694595f9607?generation=1779150509043499&alt=media"
             },
             "venueCourt": {
               "name": "Court 2",
@@ -153416,7 +153467,7 @@
             "venueCourtId": 2106,
             "competitionId": 5224,
             "divisionId": 33355,
-            "team1Id": 16597,
+            "team1Id": 219254,
             "team2Id": 16598,
             "startTime": "2026-12-04T22:10:00.000Z",
             "type": "FOUR_QUARTERS",
@@ -153462,11 +153513,11 @@
               }
             },
             "team1": {
-              "id": 16597,
-              "name": "WSF1",
+              "id": 219254,
+              "name": "St James 11U Blue",
               "alias": null,
-              "teamUniqueKey": null,
-              "logoUrl": null
+              "teamUniqueKey": "c3f080b6-8a0d-47b7-baba-8c21743e9d15",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779149846871%2F2fd37e994b535b1b97b4a2307c4ae4cf?generation=1779149847225683&alt=media"
             },
             "team2": {
               "id": 16598,
