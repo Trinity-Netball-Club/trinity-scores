@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-23T01:32:23.682Z",
+  "fetchedAt": "2026-11-27T06:35:41.984Z",
   "data": {
     "rounds": [
       {
@@ -136220,7 +136220,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -146529,7 +146529,7 @@
             "matchEnded": false,
             "matchStatus": "ENDED",
             "matchSubstatusRefId": 5,
-            "endTime": "2026-11-21T06:05:21.000Z",
+            "endTime": "2026-11-21T06:05:00.000Z",
             "team1ResultId": 2,
             "team2ResultId": 1,
             "roundId": 377137,
@@ -147164,7 +147164,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -147566,7 +147566,7 @@
             "isFinals": false,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -147657,7 +147657,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -147858,8 +147858,8 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -147967,8 +147967,8 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -148169,7 +148169,7 @@
             "isFinals": true,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -148369,7 +148369,7 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -148863,7 +148863,7 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -148972,7 +148972,7 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -150178,7 +150178,7 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -150672,7 +150672,7 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -151384,7 +151384,7 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -151678,7 +151678,7 @@
             "isFinals": true,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -151787,7 +151787,7 @@
             "isFinals": true,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -152248,7 +152248,7 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2111,
+            "venueCourtId": 2106,
             "competitionId": 5224,
             "divisionId": 33365,
             "team1Id": 219298,
@@ -152311,8 +152311,8 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781150045994%2F04870b12c564559b687c9ea6a365b72a?generation=1781150046479521&alt=media"
             },
             "venueCourt": {
-              "name": "Court 6",
-              "courtNumber": 6,
+              "name": "Court 1",
+              "courtNumber": 1,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -152357,22 +152357,22 @@
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
-            "venueCourtId": 2106,
+            "venueCourtId": 2110,
             "competitionId": 5224,
             "divisionId": 33360,
             "team1Id": 219154,
-            "team2Id": 219265,
+            "team2Id": 219155,
             "startTime": "2026-11-28T05:00:00.000Z",
             "type": "FOUR_QUARTERS",
             "matchDuration": 40,
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": null,
-            "matchSubstatusRefId": 1,
-            "endTime": null,
-            "team1ResultId": null,
-            "team2ResultId": null,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 6,
+            "endTime": "2026-11-28T05:45:00.000Z",
+            "team1ResultId": 4,
+            "team2ResultId": 5,
             "roundId": 380251,
             "originalStartTime": null,
             "pauseStartTime": null,
@@ -152413,15 +152413,15 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779776559453%2F8a485b37e55a37401b2db746ce797132?generation=1779776560168472&alt=media"
             },
             "team2": {
-              "id": 219265,
-              "name": "East Ringwood Open Blue",
+              "id": 219155,
+              "name": "St James Open Blue",
               "alias": null,
-              "teamUniqueKey": "6dd6ed8c-722c-4a8a-ae0a-64f2818732a3",
-              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779776584728%2Fc2b1b28a7adc5d10328aa00fe7056c3a?generation=1779776585519985&alt=media"
+              "teamUniqueKey": "b46b1ab1-c185-4af5-9f93-efba49c78513",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779940073116%2Ff4a1adb7a76324bb4ca19fc2256bd936?generation=1779940073933200&alt=media"
             },
             "venueCourt": {
-              "name": "Court 1",
-              "courtNumber": 1,
+              "name": "Court 5",
+              "courtNumber": 5,
               "lat": "-37.834985",
               "lng": "145.256065",
               "venue": {
@@ -152453,7 +152453,7 @@
             "competitionId": 5224,
             "divisionId": 33360,
             "team1Id": 219159,
-            "team2Id": 219158,
+            "team2Id": 219265,
             "startTime": "2026-11-28T05:00:00.000Z",
             "type": "FOUR_QUARTERS",
             "matchDuration": 40,
@@ -152505,11 +152505,11 @@
               "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1781139594314%2F1998a5852e10ad455ed745da71b7843e?generation=1781139594700973&alt=media"
             },
             "team2": {
-              "id": 219158,
-              "name": "Park Orchards Open Lightning",
+              "id": 219265,
+              "name": "East Ringwood Open Blue",
               "alias": null,
-              "teamUniqueKey": "d7ee7d0f-de47-4dbe-bf38-61fe49bd9944",
-              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1780922950107%2Fe046ea720ca7538fc5ccf780720d6e3c?generation=1780922950448743&alt=media"
+              "teamUniqueKey": "6dd6ed8c-722c-4a8a-ae0a-64f2818732a3",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779776584728%2Fc2b1b28a7adc5d10328aa00fe7056c3a?generation=1779776585519985&alt=media"
             },
             "venueCourt": {
               "name": "Court 2",
@@ -155705,7 +155705,7 @@
             "venueCourtId": 2106,
             "competitionId": 5224,
             "divisionId": 33360,
-            "team1Id": 16597,
+            "team1Id": 219154,
             "team2Id": 16598,
             "startTime": "2026-12-05T05:10:00.000Z",
             "type": "FOUR_QUARTERS",
@@ -155751,11 +155751,11 @@
               }
             },
             "team1": {
-              "id": 16597,
-              "name": "WSF1",
+              "id": 219154,
+              "name": "East Ringwood Open Black",
               "alias": null,
-              "teamUniqueKey": null,
-              "logoUrl": null
+              "teamUniqueKey": "f0172722-8fbc-4384-b6c9-c321cfbdabc1",
+              "logoUrl": "https://storage.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/%2Fteam%2Flogo%2Fundefined%2F1779776559453%2F8a485b37e55a37401b2db746ce797132?generation=1779776560168472&alt=media"
             },
             "team2": {
               "id": 16598,
