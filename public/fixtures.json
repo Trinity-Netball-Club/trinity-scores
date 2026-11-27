@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-27T22:16:35.295Z",
+  "fetchedAt": "2026-11-27T22:21:31.101Z",
   "data": {
     "rounds": [
       {
@@ -147528,8 +147528,8 @@
         "matches": [
           {
             "id": 2881568,
-            "team1Score": 1,
-            "team2Score": 5,
+            "team1Score": 2,
+            "team2Score": 8,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -147620,8 +147620,8 @@
           },
           {
             "id": 2881595,
-            "team1Score": 8,
-            "team2Score": 2,
+            "team1Score": 11,
+            "team2Score": 6,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -147729,8 +147729,8 @@
         "matches": [
           {
             "id": 2881573,
-            "team1Score": 3,
-            "team2Score": 7,
+            "team1Score": 5,
+            "team2Score": 10,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -147821,8 +147821,8 @@
           },
           {
             "id": 2881601,
-            "team1Score": 5,
-            "team2Score": 4,
+            "team1Score": 6,
+            "team2Score": 7,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -147930,8 +147930,8 @@
         "matches": [
           {
             "id": 2881578,
-            "team1Score": 5,
-            "team2Score": 6,
+            "team1Score": 9,
+            "team2Score": 7,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -148022,8 +148022,8 @@
           },
           {
             "id": 2881582,
-            "team1Score": 13,
-            "team2Score": 8,
+            "team1Score": 18,
+            "team2Score": 9,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
