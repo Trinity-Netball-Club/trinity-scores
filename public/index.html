@@ -635,7 +635,7 @@ div#today-empty {display: none;}
 
 <div class="page-footer">
   <a href="https://trinitynetball.com.au" target="_blank">trinitynetball.com.au</a>
-  &nbsp;·&nbsp; Data via Netball Connect. Match day data refreshes every 10 minutes. Ladders update after each round.
+  &nbsp;·&nbsp; Data via Netball Connect. Match day data refreshes every 10 minutes (every 5 minutes for finals). Ladders update after each round.
 </div>
 
 <script>
@@ -670,6 +670,16 @@ let schedTeamFilter   = 'all';
 let autoTimer         = null;
 let LAST_FETCHED_AT_MS = null; // epoch ms of most recent successful fixtures fetch — used to drive the "next update in Xm" countdown on LIVE cards
 const UPDATE_INTERVAL_MS = 10*60_000; // scores refresh every 10 minutes
+const FINALS_UPDATE_INTERVAL_MS = 5*60_000; // Semi Finals / Grand Final refresh every 5 minutes
+
+// A finals match = flagged by the feed, or the round name contains "final"
+// (Semi Final, Grand Final, ...).
+function isFinalsMatch(m){
+  return !!m.isFinals || /final/i.test(m.round || '');
+}
+function updateIntervalFor(m){
+  return isFinalsMatch(m) ? FINALS_UPDATE_INTERVAL_MS : UPDATE_INTERVAL_MS;
+}
 
 // ── Helpers ───────────────────────────────────────────────────
 function toggleFilters(wrapId, btnId){
@@ -1094,15 +1104,23 @@ function formatCountdown(ms){
 function updateNextUpdateCountdowns(){
   const nodes = document.querySelectorAll('.next-update');
   if (!nodes.length){ cancelAutoReload(); return; }   // no live matches -> no auto reload
-  let text = '';
-  if (LAST_FETCHED_AT_MS){
-    const msLeft = (LAST_FETCHED_AT_MS + UPDATE_INTERVAL_MS) - Date.now();
-    scheduleAutoReload(msLeft);   // sets autoReloadAt (also used for the "soon" countdown)
-    text = msLeft > 0
+  if (!LAST_FETCHED_AT_MS){ nodes.forEach(n => { n.textContent = ''; }); return; }
+
+  // Each LIVE card counts down on its own interval (finals = 5 min, others = 10 min).
+  // The page reloads off the soonest deadline among the LIVE cards on screen.
+  const now = Date.now();
+  const lefts = [...nodes].map(n => {
+    const iv = parseInt(n.dataset.interval, 10) || UPDATE_INTERVAL_MS;
+    return (LAST_FETCHED_AT_MS + iv) - now;
+  });
+  scheduleAutoReload(Math.min(...lefts));   // sets autoReloadAt (also used for the "soon" countdown)
+
+  nodes.forEach((n, i) => {
+    const msLeft = lefts[i];
+    n.textContent = msLeft > 0
       ? `Next update in ${formatCountdown(msLeft)}`
       : `Retrying update in ${formatCountdown(autoReloadAt - Date.now())}`;
-  }
-  nodes.forEach(n => { n.textContent = text; });
+  });
 }
 setInterval(updateNextUpdateCountdowns, 1_000);
 
@@ -1865,7 +1883,7 @@ const showLadderPreview =
   // Countdown to the next scheduled data refresh, shown only on LIVE cards
   // (regardless of whether it's a Trinity-vs-Trinity match). Filled in by
   // updateNextUpdateCountdowns() and re-ticked on an interval.
-  const nextUpdateHtml = live ? `<div class="next-update"></div>` : '';
+  const nextUpdateHtml = live ? `<div class="next-update" data-interval="${updateIntervalFor(m)}"></div>` : '';
 
   // Approximate current quarter, also LIVE-only.
   const quarterLabel = live ? estimateQuarter(m) : '';
