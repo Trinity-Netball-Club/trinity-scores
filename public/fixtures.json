@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-27T06:35:41.984Z",
+  "fetchedAt": "2026-11-27T20:51:41.605Z",
   "data": {
     "rounds": [
       {
@@ -146962,8 +146962,8 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -147054,8 +147054,8 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -147163,7 +147163,7 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
@@ -147255,8 +147255,8 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -147456,8 +147456,8 @@
             "extraTimeType": null,
             "isFinals": false,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -148772,7 +148772,7 @@
             "isFinals": true,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -149064,8 +149064,8 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team1LineupConfirmed": true,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -149776,7 +149776,7 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -149977,7 +149977,7 @@
             "extraTimeType": "TWO_HALVES",
             "isFinals": true,
             "extraTimeFor": null,
-            "team1LineupConfirmed": false,
+            "team1LineupConfirmed": true,
             "team2LineupConfirmed": false,
             "matchAction": null,
             "competition": {
@@ -150271,7 +150271,7 @@
             "isFinals": true,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -151075,7 +151075,7 @@
             "isFinals": true,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
@@ -152482,7 +152482,7 @@
             "isFinals": true,
             "extraTimeFor": null,
             "team1LineupConfirmed": false,
-            "team2LineupConfirmed": false,
+            "team2LineupConfirmed": true,
             "matchAction": null,
             "competition": {
               "id": 5224,
