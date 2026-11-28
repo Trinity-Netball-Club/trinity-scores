@@ -445,6 +445,9 @@ main{max-width:860px;margin:0 auto;padding:.9rem 1rem 3rem}
   font-variant-numeric:tabular-nums;
 }
 .score-live{color:#DC2626}
+.score span.tick{display:inline-block;animation:scorePop .28s ease-out}
+@keyframes scorePop{0%{transform:scale(1)}40%{transform:scale(1.25)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion: reduce){.score span.tick{animation:none}}
 .dash{color:var(--tf);font-weight:300;font-size:1.3rem;margin:0 1px}
 .vs{
   display:flex;align-items:center;justify-content:center;gap:.3rem;
@@ -1230,6 +1233,52 @@ async function fetchLadder(){
 // In-place refresh of fixtures/scores — no page reload. Re-renders the cards
 // but leaves the filter buttons, selected tab and scroll position alone.
 // Called by the LIVE-card countdown (scheduleAutoReload) when it hits zero.
+// ── Count-up animation when scores change on a live refresh ───
+// Before a refresh re-renders the cards we remember each match's current
+// scores; afterwards, any score that went UP counts up one goal at a time
+// (e.g. 10 -> 11 -> 12 -> 13 -> 14 -> 15). Both scores animate together.
+let scoreAnimTimers = [];
+function snapshotScores(){
+  const snap = {};
+  for (const m of allMatches){
+    const a = Number(m.team1Score), b = Number(m.team2Score);
+    if (m.id != null && ['LIVE','WIN','LOSS','DRAW'].includes(m.result) && Number.isFinite(a) && Number.isFinite(b)){
+      snap[String(m.id)] = [a, b];
+    }
+  }
+  return snap;
+}
+function animateScoreChanges(prev){
+  scoreAnimTimers.forEach(clearInterval); scoreAnimTimers = [];
+  if (!prev || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  document.querySelectorAll('.score[data-mid]').forEach(box => {
+    const before = prev[box.dataset.mid];
+    if (!before) return;
+    const els  = [box.querySelector('.s1'), box.querySelector('.s2')];
+    const to   = els.map(e => parseInt(e && e.textContent, 10));
+    if (to.some(n => !Number.isFinite(n))) return;
+    // Only count UP. A downward correction just shows the new number.
+    const from = before.map((v, i) => (to[i] > v ? v : to[i]));
+    const steps = Math.max(to[0] - from[0], to[1] - from[1]);
+    if (steps <= 0) return;
+    const cur = from.slice();
+    els.forEach((e, i) => { e.textContent = cur[i]; });
+    const stepMs = Math.min(450, Math.max(120, 3000 / steps));   // never takes much over 3s
+    const timer = setInterval(() => {
+      let moved = false;
+      for (let i = 0; i < 2; i++){
+        if (cur[i] < to[i]){
+          cur[i]++; moved = true;
+          els[i].textContent = cur[i];
+          els[i].classList.remove('tick'); void els[i].offsetWidth; els[i].classList.add('tick');
+        }
+      }
+      if (!moved) clearInterval(timer);
+    }, stepMs);
+    scoreAnimTimers.push(timer);
+  });
+}
+
 let softRefreshBusy = false;
 async function softRefresh(){
   if (softRefreshBusy) return;
@@ -1252,7 +1301,9 @@ async function softRefresh(){
       // anchoring to it would drop straight back into "Retrying…" right after fresh
       // data arrived. Anchor to now instead so the normal countdown shows.
       LAST_FETCHED_AT_MS = (fetchedMs + FINALS_UPDATE_INTERVAL_MS <= Date.now()) ? Date.now() : fetchedMs;
+      const prevScores = snapshotScores();
       applyFixtures(fixtures.data, { keepFilters: true });
+      animateScoreChanges(prevScores);
       const lu = formatLastUpdated(fixtures.fetchedAt);
       document.getElementById('last-updated').textContent = lu ? `· ${lu}` : '';
     }
@@ -1886,10 +1937,10 @@ const showLadderPreview =
   m.date_str === TODAY_DATE;
 
   const scoreHtml = hasScore
-  ? `<div class="score ${live ? 'score-live' : ''}">
-      <span>${m.team1Score}</span>
+  ? `<div class="score ${live ? 'score-live' : ''}" data-mid="${esc(String(m.id))}">
+      <span class="s1">${m.team1Score}</span>
       <span class="dash">–</span>
-      <span>${m.team2Score}</span>
+      <span class="s2">${m.team2Score}</span>
      </div>`
   : showLadderPreview
     ? `<div class="vs-preview">
