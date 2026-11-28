@@ -678,6 +678,8 @@ let todayTeamFilter   = 'all';
 let schedResultFilter = 'UPCOMING';
 let schedTeamFilter   = 'all';
 let autoTimer         = null;
+let LAST_SEEN_FETCHED_MS = null; // the file's own fetchedAt as last seen (separate from the countdown anchor below)
+let LAST_RAW = null;            // raw text of the last fixtures.json check, to spot changed scores even if fetchedAt didn't move
 let LAST_FETCHED_AT_MS = null; // epoch ms of most recent successful fixtures fetch — used to drive the "next update in Xm" countdown on LIVE cards
 const UPDATE_INTERVAL_MS = 10*60_000; // scores refresh every 10 minutes
 const FINALS_UPDATE_INTERVAL_MS = 5*60_000; // Semi Finals / Grand Final refresh every 5 minutes
@@ -1185,6 +1187,7 @@ async function fetchAll() {
     ]);
   
     LAST_FETCHED_AT_MS = fixtures.fetchedAt ? new Date(fixtures.fetchedAt).getTime() : Date.now();
+    LAST_SEEN_FETCHED_MS = LAST_FETCHED_AT_MS;
   
     applyFixtures(fixtures.data);
     applyLadder(ladder.data);
@@ -1234,13 +1237,21 @@ async function softRefresh(){
   try {
     const res = await fetch(`./fixtures.json?_=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) throw new Error(res.status);
-    const fixtures = await res.json();
+    const raw = await res.text();
+    const fixtures = JSON.parse(raw);
     const fetchedMs = fixtures.fetchedAt ? new Date(fixtures.fetchedAt).getTime() : Date.now();
-    // Same data as last time -> keep the old timestamp so the countdown
-    // shows "Retrying update in…" and tries again in 10s.
-    const isNew = !LAST_FETCHED_AT_MS || fetchedMs > LAST_FETCHED_AT_MS;
+    // New if the file's fetchedAt moved on, OR the contents changed (scores can
+    // be updated without fetchedAt moving). Same data -> keep the old anchor so
+    // the countdown shows "Retrying update in…" and tries again in 10s.
+    const changed = LAST_RAW !== null && raw !== LAST_RAW;
+    const isNew = !LAST_FETCHED_AT_MS || LAST_SEEN_FETCHED_MS === null || fetchedMs > LAST_SEEN_FETCHED_MS || changed;
+    LAST_RAW = raw;
     if (isNew){
-      LAST_FETCHED_AT_MS = fetchedMs;
+      LAST_SEEN_FETCHED_MS = Math.max(LAST_SEEN_FETCHED_MS || 0, fetchedMs);
+      // If the file's timestamp is already older than the shortest update interval,
+      // anchoring to it would drop straight back into "Retrying…" right after fresh
+      // data arrived. Anchor to now instead so the normal countdown shows.
+      LAST_FETCHED_AT_MS = (fetchedMs + FINALS_UPDATE_INTERVAL_MS <= Date.now()) ? Date.now() : fetchedMs;
       applyFixtures(fixtures.data, { keepFilters: true });
       const lu = formatLastUpdated(fixtures.fetchedAt);
       document.getElementById('last-updated').textContent = lu ? `· ${lu}` : '';
