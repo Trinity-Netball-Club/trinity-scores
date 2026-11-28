@@ -446,6 +446,11 @@ main{max-width:860px;margin:0 auto;padding:.9rem 1rem 3rem}
 }
 .score-live{color:#DC2626}
 .score span.tick{display:inline-block;animation:scorePop .28s ease-out}
+.score .s1,.score .s2{position:relative}
+.score .gain{position:absolute;top:50%;transform:translateY(-50%);font-size:.5em;font-weight:700;line-height:1;color:#16A34A;pointer-events:none;white-space:nowrap;transition:opacity .5s ease}
+.score .s1 .gain{right:100%;margin-right:.5em}
+.score .s2 .gain{left:100%;margin-left:.5em}
+.score .gain.out{opacity:0}
 @keyframes scorePop{0%{transform:scale(1)}40%{transform:scale(1.25)}100%{transform:scale(1)}}
 @media (prefers-reduced-motion: reduce){.score span.tick{animation:none}}
 .dash{color:var(--tf);font-weight:300;font-size:1.3rem;margin:0 1px}
@@ -1262,18 +1267,29 @@ function animateScoreChanges(prev){
     const steps = Math.max(to[0] - from[0], to[1] - from[1]);
     if (steps <= 0) return;
     const cur = from.slice();
-    els.forEach((e, i) => { e.textContent = cur[i]; });
+    // Number lives in the span's first text node so a "+N" badge can sit beside it.
+    const setNum = (i) => { els[i].firstChild.nodeValue = cur[i]; };
+    const gains = [null, null];
+    els.forEach((e, i) => { setNum(i); });
     const stepMs = Math.min(450, Math.max(120, 3000 / steps));   // never takes much over 3s
     const timer = setInterval(() => {
       let moved = false;
       for (let i = 0; i < 2; i++){
         if (cur[i] < to[i]){
           cur[i]++; moved = true;
-          els[i].textContent = cur[i];
+          setNum(i);
+          if (!gains[i]){ gains[i] = document.createElement('span'); gains[i].className = 'gain'; els[i].appendChild(gains[i]); }
+          gains[i].classList.remove('out');
+          gains[i].textContent = '+' + (cur[i] - from[i]);
           els[i].classList.remove('tick'); void els[i].offsetWidth; els[i].classList.add('tick');
         }
       }
-      if (!moved) clearInterval(timer);
+      if (!moved){
+        clearInterval(timer);
+        // Leave the final "+N" for 5 seconds after the count finishes, fading out over the last half second.
+        setTimeout(() => gains.forEach(g => g && g.classList.add('out')), 4500);
+        setTimeout(() => gains.forEach(g => g && g.remove()), 5000);
+      }
     }, stepMs);
     scoreAnimTimers.push(timer);
   });
