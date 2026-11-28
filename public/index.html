@@ -1075,11 +1075,11 @@ function formatLastUpdated(iso){
 // so the countdown stays live without needing a full re-render.
 // ── Auto page reload, driven by the same countdown ───────────
 //  - "Next update in N mins"  -> refresh scores in place when that countdown reaches zero
-//  - "Updating soon…"         -> reload in 30 seconds (and again every 30s
+//  - "Updating soon…"         -> reload in 10 seconds (and again every 10s
 //                                until fresh data arrives)
 // Only active while a LIVE card (the only place the countdown shows) is
 // on screen. A manual refresh simply reloads the page and resets all this.
-const SOON_RELOAD_MS = 30_000;
+const SOON_RELOAD_MS = 10_000;
 let autoReloadTimer = null;
 let autoReloadMode  = null;   // 'scheduled' | 'soon'
 let autoReloadAt    = 0;      // epoch ms the pending reload will fire
@@ -1237,7 +1237,7 @@ async function softRefresh(){
     const fixtures = await res.json();
     const fetchedMs = fixtures.fetchedAt ? new Date(fixtures.fetchedAt).getTime() : Date.now();
     // Same data as last time -> keep the old timestamp so the countdown
-    // shows "Retrying update in…" and tries again in 30s.
+    // shows "Retrying update in…" and tries again in 10s.
     const isNew = !LAST_FETCHED_AT_MS || fetchedMs > LAST_FETCHED_AT_MS;
     if (isNew){
       LAST_FETCHED_AT_MS = fetchedMs;
