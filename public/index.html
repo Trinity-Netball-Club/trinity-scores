@@ -484,6 +484,12 @@ main{max-width:860px;margin:0 auto;padding:.9rem 1rem 3rem}
   border-radius:var(--r);color:var(--tm);font-size:14px;
 }
 
+/* ── MATCH DAY LOADING ── */
+.md-loader{display:none;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:3rem 1rem;text-align:center;color:var(--tm);font-size:15px;font-weight:600}
+.md-loader img{width:130px;max-width:45%;height:auto;opacity:.45}
+body.md-loading .md-loader{display:flex}
+body.md-loading #today-cards,body.md-loading #today-empty,body.md-loading #today-chips,body.md-loading #weather-chip,body.md-loading .count-row,body.md-loading .today-intro{display:none !important}
+
 div#sched-empty {display: none;}
 
 /* ── SETUP NOTICE ── */
@@ -529,7 +535,7 @@ div#today-empty {display: none;}
 }
 </style>
 </head>
-<body>
+<body class="md-loading">
 
 <!-- Site header matching Trinity website nav -->
 <div class="site-header">
@@ -592,6 +598,10 @@ div#today-empty {display: none;}
     <div class="count-row">
       <span class="weather-chip hidden" id="weather-chip"></span>
       <div class="rcnt" id="today-count"></div>
+    </div>
+    <div class="md-loader" id="md-loader" role="status" aria-live="polite">
+      <img src="https://trinitynetball.com.au/wp-content/uploads/2022/11/cropped-trinity-1-1.png" alt="Trinity Netball Club">
+      <div>Match Day Loading</div>
     </div>
     <div id="today-cards"></div>
     <div class="empty hidden" id="today-empty">No matches found.</div>
@@ -1167,21 +1177,25 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // ── Fetch ─────────────────────────────────────────────────────
 async function fetchAll() {
-  const bust = Date.now();
-  const [fixtures, ladder] = await Promise.all([
-    fetch(`./fixtures.json?_=${bust}`, { cache: 'no-store' }).then(r => r.json()),
-    fetch(`./ladder.json?_=${bust}`, { cache: 'no-store' }).then(r => r.json())
-  ]);
-
-  LAST_FETCHED_AT_MS = fixtures.fetchedAt ? new Date(fixtures.fetchedAt).getTime() : Date.now();
-
-  applyFixtures(fixtures.data);
-  applyLadder(ladder.data);
-
-  const lu = formatLastUpdated(fixtures.fetchedAt);
-  document.getElementById('last-updated').textContent = lu ? `· ${lu}` : '';
-
-  setStatus('Loaded', false, true);
+  try {
+    const bust = Date.now();
+    const [fixtures, ladder] = await Promise.all([
+      fetch(`./fixtures.json?_=${bust}`, { cache: 'no-store' }).then(r => r.json()),
+      fetch(`./ladder.json?_=${bust}`, { cache: 'no-store' }).then(r => r.json())
+    ]);
+  
+    LAST_FETCHED_AT_MS = fixtures.fetchedAt ? new Date(fixtures.fetchedAt).getTime() : Date.now();
+  
+    applyFixtures(fixtures.data);
+    applyLadder(ladder.data);
+  
+    const lu = formatLastUpdated(fixtures.fetchedAt);
+    document.getElementById('last-updated').textContent = lu ? `· ${lu}` : '';
+  
+    setStatus('Loaded', false, true);
+  } finally {
+    document.body.classList.remove('md-loading');
+  }
 }
 
 async function fetchFixtures(){
