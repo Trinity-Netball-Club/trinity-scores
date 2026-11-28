@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-28T02:41:30.319Z",
+  "fetchedAt": "2026-11-28T02:46:33.980Z",
   "data": {
     "rounds": [
       {
@@ -150452,8 +150452,8 @@
         "matches": [
           {
             "id": 2881610,
-            "team1Score": 14,
-            "team2Score": 11,
+            "team1Score": 18,
+            "team2Score": 13,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -150468,8 +150468,8 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
             "endTime": null,
             "team1ResultId": null,
             "team2ResultId": null,
@@ -150653,8 +150653,8 @@
         "matches": [
           {
             "id": 2881570,
-            "team1Score": 29,
-            "team2Score": 17,
+            "team1Score": 33,
+            "team2Score": 20,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -150669,8 +150669,8 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
             "endTime": null,
             "team1ResultId": null,
             "team2ResultId": null,
@@ -150745,8 +150745,8 @@
           },
           {
             "id": 2881604,
-            "team1Score": 29,
-            "team2Score": 25,
+            "team1Score": 33,
+            "team2Score": 26,
             "hasPenalty": false,
             "team1PenaltyScore": null,
             "team2PenaltyScore": null,
@@ -150761,8 +150761,8 @@
             "breakDuration": 1,
             "mainBreakDuration": 3,
             "matchEnded": false,
-            "matchStatus": "STARTED",
-            "matchSubstatusRefId": 3,
+            "matchStatus": "ENDED",
+            "matchSubstatusRefId": 5,
             "endTime": null,
             "team1ResultId": null,
             "team2ResultId": null,
