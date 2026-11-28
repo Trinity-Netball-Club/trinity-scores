@@ -1286,9 +1286,9 @@ function animateScoreChanges(prev){
       }
       if (!moved){
         clearInterval(timer);
-        // Leave the final "+N" for 5 seconds after the count finishes, fading out over the last half second.
-        setTimeout(() => gains.forEach(g => g && g.classList.add('out')), 4500);
-        setTimeout(() => gains.forEach(g => g && g.remove()), 5000);
+        // Keep the final "+N" visible for 30 seconds after the count finishes, then fade it out over half a second.
+        setTimeout(() => gains.forEach(g => g && g.classList.add('out')), 30000);
+        setTimeout(() => gains.forEach(g => g && g.remove()), 30500);
       }
     }, stepMs);
     scoreAnimTimers.push(timer);
